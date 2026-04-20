@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* ========== 强制深色主题 ========== */
+:root {
+  color-scheme: dark;
+}
+
 /* ========== 设计系统 Token ========== */
 @theme {
   /* Background layers */

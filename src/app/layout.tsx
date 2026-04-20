@@ -14,6 +14,11 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#09090b",
+  colorScheme: "dark",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://gaming-rgb-software.com"),
   title: {
@@ -22,7 +27,6 @@ export const metadata: Metadata = {
   },
   description:
     "Cross-platform RGB lighting control software. Unify all your RGB devices. No more software conflicts.",
-  themeColor: "#09090b",
 };
 
 export default function RootLayout({
@@ -31,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} dark`}>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} dark`} suppressHydrationWarning>
       <body className="bg-bg-base text-fg-primary font-sans antialiased">
         <Navbar />
         <main>{children}</main>
