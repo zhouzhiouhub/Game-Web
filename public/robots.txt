@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://monitor-ambient-light.com/sitemap.xml
+Sitemap: https://gaming-rgb-software.com/sitemap.xml

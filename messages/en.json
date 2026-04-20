@@ -1,0 +1,216 @@
+{
+  "metadata": {
+    "title": "Gaming RGB Software — One Software. Every Light.",
+    "titleTemplate": "%s | Gaming RGB Software",
+    "description": "Cross-platform RGB lighting control software. Unify all your RGB devices. No more software conflicts."
+  },
+  "nav": {
+    "features": "Features",
+    "download": "Download",
+    "devices": "Devices",
+    "docs": "Docs",
+    "community": "Community",
+    "blog": "Blog",
+    "star": "Star",
+    "getStarted": "Get Started →"
+  },
+  "hero": {
+    "line1": "One Software.",
+    "line2": "Every Light.",
+    "description": "Unify all your RGB devices. No more software conflicts. Cross-platform control for Windows, macOS, and Linux.",
+    "downloadWindows": "Download for Windows",
+    "exploreFeatures": "Explore Features →",
+    "platforms": "Windows · macOS · Linux"
+  },
+  "logoCloud": {
+    "title": "Compatible with 50+ brands"
+  },
+  "bento": {
+    "title": "Everything you need to {highlight}",
+    "titleHighlight": "light up",
+    "features": {
+      "editor": {
+        "title": "Effect Editor",
+        "description": "Drag-and-drop visual effect editor. Create stunning lighting without coding."
+      },
+      "gameSync": {
+        "title": "Game Sync",
+        "description": "Real-time game event triggers. Your lights react to in-game action."
+      },
+      "cloudSync": {
+        "title": "Cloud Sync",
+        "description": "Your configs everywhere. Seamless sync across all your devices."
+      },
+      "plugin": {
+        "title": "Plugin Ecosystem",
+        "description": "Infinite possibilities. Extend with community-built plugins."
+      }
+    }
+  },
+  "devices": {
+    "title": "500+ Devices Supported",
+    "subtitle": "Your hardware, unified.",
+    "categories": {
+      "keyboards": "Keyboards",
+      "mice": "Mice",
+      "fans": "Fans",
+      "lightStrips": "Light Strips",
+      "motherboards": "Motherboards"
+    }
+  },
+  "social": {
+    "stars": { "label": "GitHub Stars", "value": "1.2k", "icon": "⭐" },
+    "downloads": { "label": "Downloads", "value": "50k+", "icon": "📥" },
+    "members": { "label": "Community Members", "value": "5k+", "icon": "🗣" }
+  },
+  "cta": {
+    "title": "Ready to light up your setup?",
+    "description": "Download now and take control of every light in your room.",
+    "downloadNow": "Download Now",
+    "viewGithub": "View on GitHub"
+  },
+  "footer": {
+    "brand": "One Software. Every Light.",
+    "columns": {
+      "product": "Product",
+      "resources": "Resources",
+      "community": "Community",
+      "legal": "Legal"
+    },
+    "links": {
+      "features": "Features",
+      "download": "Download",
+      "devices": "Devices",
+      "pricing": "Pricing",
+      "documentation": "Documentation",
+      "apiReference": "API Reference",
+      "plugins": "Plugins",
+      "blog": "Blog",
+      "discord": "Discord",
+      "marketplace": "Marketplace",
+      "github": "GitHub",
+      "contributing": "Contributing",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "license": "License"
+    },
+    "copyright": "© {year} {name}. Open source under MIT."
+  },
+  "notFound": {
+    "title": "404",
+    "description": "Page not found. The light may have gone out here.",
+    "backHome": "Back to Home"
+  },
+  "download": {
+    "metadata": {
+      "title": "Download",
+      "description": "Download Gaming RGB Software for Windows, macOS, and Linux. Free and open source."
+    },
+    "title": "Download",
+    "description": "Available for Windows, macOS, and Linux. Free and open source.",
+    "windows": "Download for Windows",
+    "macos": "Download for macOS",
+    "linux": "Download for Linux",
+    "systemRequirements": "System Requirements",
+    "requirements": {
+      "os": "Windows 10+ / macOS 12+ / Ubuntu 20.04+",
+      "ram": "4 GB RAM minimum",
+      "disk": "100 MB disk space"
+    }
+  },
+  "docs": {
+    "metadata": {
+      "title": "Documentation",
+      "description": "Get started with Gaming RGB Software. API reference, plugin development, and more."
+    },
+    "title": "Documentation",
+    "description": "Everything you need to get started and go further.",
+    "sections": {
+      "gettingStarted": {
+        "title": "Getting Started",
+        "description": "Installation and first setup guide."
+      },
+      "apiReference": {
+        "title": "API Reference",
+        "description": "Complete API documentation for developers."
+      },
+      "pluginDev": {
+        "title": "Plugin Development",
+        "description": "Build and publish your own plugins."
+      }
+    }
+  },
+  "devicesPage": {
+    "metadata": {
+      "title": "Devices",
+      "description": "500+ devices supported. Find your hardware in our compatibility database."
+    },
+    "title": "Device Compatibility",
+    "description": "500+ devices. Search and find your hardware.",
+    "comingSoon": "Device database coming soon."
+  },
+  "featuresPage": {
+    "metadata": {
+      "title": "Features",
+      "description": "Explore the powerful features of Gaming RGB Software — visual effect editor, game sync, cloud sync, and more."
+    },
+    "title": "Features",
+    "description": "Everything you need to control your RGB lighting.",
+    "comingSoon": "Feature details coming soon."
+  },
+  "blog": {
+    "metadata": {
+      "title": "Blog",
+      "description": "Latest news, tutorials, and updates from Gaming RGB Software."
+    },
+    "title": "Blog",
+    "description": "Latest news, tutorials, and community highlights.",
+    "comingSoon": "Blog posts coming soon."
+  },
+  "community": {
+    "metadata": {
+      "title": "Community",
+      "description": "Join the Gaming RGB Software community. Discord, marketplace, and more."
+    },
+    "title": "Community",
+    "description": "Join thousands of RGB enthusiasts. Share effects, plugins, and setups.",
+    "comingSoon": "Community hub coming soon."
+  },
+  "marketplace": {
+    "metadata": {
+      "title": "Marketplace",
+      "description": "Browse and download community-made effects, plugins, and themes."
+    },
+    "title": "Marketplace",
+    "description": "Browse community-made effects, plugins, and themes.",
+    "comingSoon": "Marketplace coming soon."
+  },
+  "faq": {
+    "items": [
+      {
+        "question": "Is Gaming RGB Software free?",
+        "answer": "Yes! The core software is free and open source. Premium features like cloud sync and the premium effect marketplace are available via subscription."
+      },
+      {
+        "question": "Which devices are supported?",
+        "answer": "We support 500+ devices from brands like Razer, Corsair, Logitech, NZXT, ASUS, HyperX, and SteelSeries. Check our Devices page for the full list."
+      },
+      {
+        "question": "Which platforms are supported?",
+        "answer": "Gaming RGB Software runs on Windows 10+, macOS 12+, and Ubuntu 20.04+."
+      },
+      {
+        "question": "Do I need to uninstall my brand software?",
+        "answer": "No, Gaming RGB Software works alongside your existing brand software. However, for best results, we recommend disabling RGB control in other apps to avoid conflicts."
+      },
+      {
+        "question": "How do I create custom lighting effects?",
+        "answer": "Use our visual drag-and-drop Effect Editor — no coding required. You can also import effects from the community marketplace."
+      }
+    ]
+  },
+  "languageSwitcher": {
+    "en": "English",
+    "zh": "中文"
+  }
+}

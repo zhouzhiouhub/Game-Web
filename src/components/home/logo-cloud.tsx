@@ -1,11 +1,14 @@
+import { useTranslations } from "next-intl";
 import { brandNames } from "@/lib/constants";
 
 export function LogoCloud() {
+  const t = useTranslations("logoCloud");
+
   return (
     <section className="border-y border-white/5 py-12">
       <div className="mx-auto max-w-[var(--container-max)] px-6">
         <p className="text-center text-sm text-fg-muted mb-8">
-          Compatible with 50+ brands
+          {t("title")}
         </p>
         <div className="flex flex-wrap items-center justify-center gap-8">
           {brandNames.map((name) => (

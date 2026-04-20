@@ -1,30 +1,11 @@
 import { Palette, Gamepad2, Cloud, Puzzle } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-const features = [
-  {
-    icon: Palette,
-    title: "Effect Editor",
-    description: "Drag-and-drop visual effect editor. Create stunning lighting without coding.",
-    accent: "R" as const,
-  },
-  {
-    icon: Gamepad2,
-    title: "Game Sync",
-    description: "Real-time game event triggers. Your lights react to in-game action.",
-    accent: "G" as const,
-  },
-  {
-    icon: Cloud,
-    title: "Cloud Sync",
-    description: "Your configs everywhere. Seamless sync across all your devices.",
-    accent: "B" as const,
-  },
-  {
-    icon: Puzzle,
-    title: "Plugin Ecosystem",
-    description: "Infinite possibilities. Extend with community-built plugins.",
-    accent: "R" as const,
-  },
+const featureKeys = [
+  { key: "editor", icon: Palette, accent: "R" as const },
+  { key: "gameSync", icon: Gamepad2, accent: "G" as const },
+  { key: "cloudSync", icon: Cloud, accent: "B" as const },
+  { key: "plugin", icon: Puzzle, accent: "R" as const },
 ];
 
 const accentColors: Record<string, string> = {
@@ -40,18 +21,19 @@ const iconColors: Record<string, string> = {
 };
 
 export function BentoFeatures() {
+  const t = useTranslations("bento");
+
   return (
     <section className="py-[var(--section-py)]">
       <div className="mx-auto max-w-[var(--container-max)] px-6">
         <h2 className="text-center text-3xl font-bold sm:text-4xl">
-          Everything you need to{" "}
-          <span className="rgb-full bg-clip-text text-transparent">light up</span>
+          {t("title", { highlight: t("titleHighlight") })}
         </h2>
 
         <div className="mt-16 grid gap-[var(--grid-gap)] md:grid-cols-2">
-          {features.map((feature) => (
+          {featureKeys.map((feature) => (
             <div
-              key={feature.title}
+              key={feature.key}
               className="group relative overflow-hidden rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-[var(--card-padding)] lg:p-8 transition-colors hover:border-white/10"
             >
               {/* Glow accent */}
@@ -60,8 +42,8 @@ export function BentoFeatures() {
               />
               <div className="relative">
                 <feature.icon className={`h-8 w-8 ${iconColors[feature.accent]}`} />
-                <h3 className="mt-4 text-xl font-semibold">{feature.title}</h3>
-                <p className="mt-2 text-fg-secondary">{feature.description}</p>
+                <h3 className="mt-4 text-xl font-semibold">{t(`features.${feature.key}.title`)}</h3>
+                <p className="mt-2 text-fg-secondary">{t(`features.${feature.key}.description`)}</p>
               </div>
             </div>
           ))}

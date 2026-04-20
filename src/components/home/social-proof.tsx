@@ -1,8 +1,12 @@
+import { useTranslations } from "next-intl";
+
 export function SocialProof() {
+  const t = useTranslations("social");
+
   const stats = [
-    { label: "GitHub Stars", value: "1.2k", icon: "⭐" },
-    { label: "Downloads", value: "50k+", icon: "📥" },
-    { label: "Community Members", value: "5k+", icon: "🗣" },
+    { label: t("stars.label"), value: t("stars.value"), icon: t("stars.icon") },
+    { label: t("downloads.label"), value: t("downloads.value"), icon: t("downloads.icon") },
+    { label: t("members.label"), value: t("members.value"), icon: t("members.icon") },
   ];
 
   return (

@@ -1,7 +1,10 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { siteConfig } from "@/lib/constants";
 
 export function CTASection() {
+  const t = useTranslations("cta");
+
   return (
     <section className="relative overflow-hidden py-24">
       {/* RGB gradient bg */}
@@ -9,17 +12,17 @@ export function CTASection() {
 
       <div className="relative mx-auto max-w-[var(--container-max)] px-6 text-center">
         <h2 className="text-3xl font-bold sm:text-4xl">
-          Ready to light up your setup?
+          {t("title")}
         </h2>
         <p className="mx-auto mt-4 max-w-md text-fg-secondary">
-          Download now and take control of every light in your room.
+          {t("description")}
         </p>
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <Link
             href="/download"
             className="rgb-full rounded-xl px-8 py-3.5 text-base font-semibold text-white hover:opacity-90 transition-opacity"
           >
-            Download Now
+            {t("downloadNow")}
           </Link>
           <a
             href={siteConfig.githubRepo}
@@ -27,7 +30,7 @@ export function CTASection() {
             rel="noopener noreferrer"
             className="rounded-xl border border-white/10 px-8 py-3.5 text-base font-medium text-fg-secondary hover:text-fg-primary hover:border-white/20 transition-colors"
           >
-            View on GitHub
+            {t("viewGithub")}
           </a>
         </div>
       </div>

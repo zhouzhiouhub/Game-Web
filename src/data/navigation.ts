@@ -1,42 +1,38 @@
-import { navItems } from "@/lib/constants";
-
-export type NavItem = (typeof navItems)[number];
-
 export interface NavigationGroup {
-  label: string;
+  labelKey: string;
   href: string;
   children?: NavigationGroup[];
 }
 
 export const navigation: NavigationGroup[] = [
   {
-    label: "Features",
+    labelKey: "features",
     href: "/features",
     children: [
-      { label: "Effect Editor", href: "/features/editor" },
-      { label: "Device Support", href: "/features/devices" },
-      { label: "Game Sync", href: "/features/game-sync" },
-      { label: "Cloud Sync", href: "/features/cloud-sync" },
+      { labelKey: "editor", href: "/features/editor" },
+      { labelKey: "devices", href: "/features/devices" },
+      { labelKey: "gameSync", href: "/features/game-sync" },
+      { labelKey: "cloudSync", href: "/features/cloud-sync" },
     ],
   },
-  { label: "Download", href: "/download" },
-  { label: "Devices", href: "/devices" },
+  { labelKey: "download", href: "/download" },
+  { labelKey: "devices", href: "/devices" },
   {
-    label: "Docs",
+    labelKey: "docs",
     href: "/docs",
     children: [
-      { label: "Getting Started", href: "/docs/getting-started" },
-      { label: "API Reference", href: "/docs/api" },
-      { label: "Plugin Development", href: "/docs/plugins" },
+      { labelKey: "gettingStarted", href: "/docs/getting-started" },
+      { labelKey: "apiReference", href: "/docs/api" },
+      { labelKey: "pluginDev", href: "/docs/plugins" },
     ],
   },
   {
-    label: "Community",
+    labelKey: "community",
     href: "/community",
     children: [
-      { label: "Marketplace", href: "/community/marketplace" },
-      { label: "Discord", href: "/community/discord" },
+      { labelKey: "marketplace", href: "/community/marketplace" },
+      { labelKey: "discord", href: "/community/discord" },
     ],
   },
-  { label: "Blog", href: "/blog" },
+  { labelKey: "blog", href: "/blog" },
 ];

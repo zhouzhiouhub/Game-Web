@@ -1,9 +1,46 @@
-import Link from "next/link";
 import Image from "next/image";
 import { Github, Twitter } from "lucide-react";
-import { footerLinks, siteConfig } from "@/lib/constants";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { siteConfig } from "@/lib/constants";
+
+const productLinks = [
+  { key: "features", href: "/features" },
+  { key: "download", href: "/download" },
+  { key: "devices", href: "/devices" },
+  { key: "pricing", href: "/pricing" },
+] as const;
+
+const resourceLinks = [
+  { key: "documentation", href: "/docs" },
+  { key: "apiReference", href: "/docs/api" },
+  { key: "plugins", href: "/docs/plugins" },
+  { key: "blog", href: "/blog" },
+] as const;
+
+const communityLinks = [
+  { key: "discord", href: siteConfig.discordInvite },
+  { key: "marketplace", href: "/community/marketplace" },
+  { key: "github", href: siteConfig.githubRepo },
+  { key: "contributing", href: "/docs/contributing" },
+] as const;
+
+const legalLinks = [
+  { key: "privacy", href: "/privacy" },
+  { key: "terms", href: "/terms" },
+  { key: "license", href: "/license" },
+] as const;
 
 export function Footer() {
+  const t = useTranslations("footer");
+
+  const columns = [
+    { title: t("columns.product"), links: productLinks },
+    { title: t("columns.resources"), links: resourceLinks },
+    { title: t("columns.community"), links: communityLinks },
+    { title: t("columns.legal"), links: legalLinks },
+  ];
+
   return (
     <footer className="border-t border-white/5 bg-bg-base">
       <div className="mx-auto max-w-[var(--container-max)] px-6 py-16">
@@ -21,66 +58,35 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-3 text-sm text-fg-muted">
-              One Software. Every Light.
+              {t("brand")}
             </p>
           </div>
 
-          <div>
-            <h3 className="text-sm font-semibold text-fg-primary">Product</h3>
-            <ul className="mt-3 space-y-2">
-              {footerLinks.product.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-fg-muted hover:text-fg-primary transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold text-fg-primary">Resources</h3>
-            <ul className="mt-3 space-y-2">
-              {footerLinks.resources.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-fg-muted hover:text-fg-primary transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold text-fg-primary">Community</h3>
-            <ul className="mt-3 space-y-2">
-              {footerLinks.community.map((link) => (
-                <li key={link.href}>
-                  <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-sm text-fg-muted hover:text-fg-primary transition-colors">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold text-fg-primary">Legal</h3>
-            <ul className="mt-3 space-y-2">
-              {footerLinks.legal.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-fg-muted hover:text-fg-primary transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {columns.map((col) => (
+            <div key={col.title}>
+              <h3 className="text-sm font-semibold text-fg-primary">{col.title}</h3>
+              <ul className="mt-3 space-y-2">
+                {col.links.map((link) => (
+                  <li key={link.key}>
+                    {link.href.startsWith("http") ? (
+                      <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-sm text-fg-muted hover:text-fg-primary transition-colors">
+                        {t(`links.${link.key}`)}
+                      </a>
+                    ) : (
+                      <Link href={link.href} className="text-sm text-fg-muted hover:text-fg-primary transition-colors">
+                        {t(`links.${link.key}`)}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 sm:flex-row">
           <p className="text-sm text-fg-muted">
-            © {new Date().getFullYear()} {siteConfig.name}. Open source under MIT.
+            {t("copyright", { year: new Date().getFullYear(), name: siteConfig.name })}
           </p>
           <div className="flex items-center gap-4">
             <a href={siteConfig.githubRepo} target="_blank" rel="noopener noreferrer" className="text-fg-muted hover:text-fg-primary transition-colors">
