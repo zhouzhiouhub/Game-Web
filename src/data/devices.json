@@ -1,0 +1,17 @@
+[
+  { "name": "Corsair K70 RGB", "brand": "Corsair", "type": "Keyboard" },
+  { "name": "Razer Huntsman V2", "brand": "Razer", "type": "Keyboard" },
+  { "name": "Logitech G915", "brand": "Logitech", "type": "Keyboard" },
+  { "name": "SteelSeries Apex Pro", "brand": "SteelSeries", "type": "Keyboard" },
+  { "name": "HyperX Alloy Origins", "brand": "HyperX", "type": "Keyboard" },
+  { "name": "Logitech G502 Hero", "brand": "Logitech", "type": "Mouse" },
+  { "name": "Razer DeathAdder V3", "brand": "Razer", "type": "Mouse" },
+  { "name": "Corsair Sabre RGB Pro", "brand": "Corsair", "type": "Mouse" },
+  { "name": "SteelSeries Rival 650", "brand": "SteelSeries", "type": "Mouse" },
+  { "name": "NZXT F120 RGB", "brand": "NZXT", "type": "Fan" },
+  { "name": "Corsair QL120", "brand": "Corsair", "type": "Fan" },
+  { "name": "NZXT HUE 2", "brand": "NZXT", "type": "Light Strip" },
+  { "name": "Corsair iCUE LS100", "brand": "Corsair", "type": "Light Strip" },
+  { "name": "ASUS ROG Strix Z790", "brand": "Asus", "type": "Motherboard" },
+  { "name": "MSI MPG Z790", "brand": "MSI", "type": "Motherboard" }
+]

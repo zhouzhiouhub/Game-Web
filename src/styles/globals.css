@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+/* ========== 设计系统 Token ========== */
+@theme {
+  /* Background layers */
+  --color-bg-base: #09090b;
+  --color-bg-surface: #18181b;
+  --color-bg-elevated: #27272a;
+  --color-bg-overlay: #3f3f46;
+
+  /* Foreground layers */
+  --color-fg-primary: #fafafa;
+  --color-fg-secondary: #a1a1aa;
+  --color-fg-muted: #71717a;
+
+  /* RGB Accent */
+  --color-rgb-r: #ef4444;
+  --color-rgb-r-light: #f87171;
+  --color-rgb-g: #22c55e;
+  --color-rgb-g-light: #4ade80;
+  --color-rgb-b: #3b82f6;
+  --color-rgb-b-light: #60a5fa;
+
+  /* Semantic */
+  --color-success: #22c55e;
+  --color-warning: #eab308;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* Layout tokens */
+  --section-py: 96px;
+  --container-max: 1280px;
+  --grid-gap: 24px;
+  --card-radius: 16px;
+  --card-padding: 24px;
+}
+
+/* ========== RGB 渐变预设 ========== */
+@utility rgb-full {
+  background-image: linear-gradient(135deg, #ef4444, #22c55e, #3b82f6);
+}
+
+@utility rgb-glow {
+  background-image: linear-gradient(
+    135deg,
+    rgba(239, 68, 68, 0.3),
+    rgba(34, 197, 94, 0.3),
+    rgba(59, 130, 246, 0.3)
+  );
+}
+
+@utility rgb-beam {
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    #ef4444,
+    #22c55e,
+    #3b82f6,
+    transparent
+  );
+}
+
+@utility rgb-aurora {
+  background-image: radial-gradient(
+    ellipse,
+    rgba(34, 197, 94, 0.15),
+    rgba(59, 130, 246, 0.1),
+    transparent
+  );
+}
+
+/* ========== Glow 工具类 ========== */
+@utility glow-r {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+}
+
+@utility glow-g {
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+}
+
+@utility glow-b {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+/* ========== 减弱动效 ========== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
