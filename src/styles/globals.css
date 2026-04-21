@@ -350,11 +350,6 @@
   margin-inline: auto;
 }
 
-@utility content-shell-narrow {
-  width: min(100% - 3rem, 48rem);
-  margin-inline: auto;
-}
-
 @utility page-grid {
   display: grid;
   gap: var(--content-gap);

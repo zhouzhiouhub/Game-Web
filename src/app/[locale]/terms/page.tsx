@@ -41,18 +41,20 @@ export default async function TermsPage({
         }
       />
       <section className="pb-32">
-        <article className="content-shell-narrow text-fg-secondary">
-          <p className="leading-8">
-            {locale === "zh"
-              ? "使用本网站或相关服务即表示用户同意遵守适用的使用规则，不得滥用下载资源、接口能力、账户系统或社区渠道。"
-              : "By using the site or related services, users agree to follow the applicable usage rules and must not misuse download resources, API capabilities, account systems, or community channels."}
-          </p>
-          <p className="mt-6 leading-8">
-            {locale === "zh"
-              ? "若产品包含订阅、付费功能或商业授权，续费、退款、责任限制和终止条款应以实际订单、发票或商业协议中的说明为准。"
-              : "If the product includes subscriptions, paid features, or commercial licensing, renewal, refund, liability, and termination terms are governed by the applicable order, invoice, or commercial agreement."}
-          </p>
-        </article>
+        <div className="content-shell">
+          <article className="max-w-3xl text-fg-secondary">
+            <p className="leading-8">
+              {locale === "zh"
+                ? "使用本网站或相关服务即表示用户同意遵守适用的使用规则，不得滥用下载资源、接口能力、账户系统或社区渠道。"
+                : "By using the site or related services, users agree to follow the applicable usage rules and must not misuse download resources, API capabilities, account systems, or community channels."}
+            </p>
+            <p className="mt-6 leading-8">
+              {locale === "zh"
+                ? "若产品包含订阅、付费功能或商业授权，续费、退款、责任限制和终止条款应以实际订单、发票或商业协议中的说明为准。"
+                : "If the product includes subscriptions, paid features, or commercial licensing, renewal, refund, liability, and termination terms are governed by the applicable order, invoice, or commercial agreement."}
+            </p>
+          </article>
+        </div>
       </section>
     </>
   );

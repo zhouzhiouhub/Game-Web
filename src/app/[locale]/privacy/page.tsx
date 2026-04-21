@@ -41,18 +41,20 @@ export default async function PrivacyPage({
         }
       />
       <section className="pb-32">
-        <article className="content-shell-narrow text-fg-secondary">
-          <p className="leading-8">
-            {locale === "zh"
-              ? "我们可能收集联系信息、兼容性申请、支持消息和基础分析数据，用于提供服务、改进产品体验以及响应用户请求。"
-              : "We may collect contact details, compatibility requests, support messages, and basic analytics data to operate the service, improve the product experience, and respond to user requests."}
-          </p>
-          <p className="mt-6 leading-8">
-            {locale === "zh"
-              ? "站点可使用托管、分析、邮件或支付等第三方服务。用户可以通过官方支持渠道请求访问、更正、删除或导出与其相关的数据。"
-              : "The site may use third-party services for hosting, analytics, email delivery, or payments. Users can request access, correction, deletion, or export of relevant data through the official support channel."}
-          </p>
-        </article>
+        <div className="content-shell">
+          <article className="max-w-3xl text-fg-secondary">
+            <p className="leading-8">
+              {locale === "zh"
+                ? "我们可能收集联系信息、兼容性申请、支持消息和基础分析数据，用于提供服务、改进产品体验以及响应用户请求。"
+                : "We may collect contact details, compatibility requests, support messages, and basic analytics data to operate the service, improve the product experience, and respond to user requests."}
+            </p>
+            <p className="mt-6 leading-8">
+              {locale === "zh"
+                ? "站点可使用托管、分析、邮件或支付等第三方服务。用户可以通过官方支持渠道请求访问、更正、删除或导出与其相关的数据。"
+                : "The site may use third-party services for hosting, analytics, email delivery, or payments. Users can request access, correction, deletion, or export of relevant data through the official support channel."}
+            </p>
+          </article>
+        </div>
       </section>
     </>
   );

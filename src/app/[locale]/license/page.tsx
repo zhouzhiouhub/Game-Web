@@ -41,13 +41,15 @@ export default async function LicensePage({
         }
       />
       <section className="pb-32">
-        <article className="content-shell-narrow text-fg-secondary">
-          <p className="leading-8">
-            {locale === "zh"
-              ? "仓库代码默认以 MIT 协议发布，第三方依赖遵循各自许可证；若站点包含品牌图形、截图或外部图片素材，应单独核对这些资产的再分发权限。"
-              : "The repository source code is distributed under the MIT License, while third-party dependencies follow their own licenses. If the site includes branded graphics, screenshots, or external imagery, those assets should be reviewed separately for redistribution rights."}
-          </p>
-        </article>
+        <div className="content-shell">
+          <article className="max-w-3xl text-fg-secondary">
+            <p className="leading-8">
+              {locale === "zh"
+                ? "仓库代码默认以 MIT 协议发布，第三方依赖遵循各自许可证；若站点包含品牌图形、截图或外部图片素材，应单独核对这些资产的再分发权限。"
+                : "The repository source code is distributed under the MIT License, while third-party dependencies follow their own licenses. If the site includes branded graphics, screenshots, or external imagery, those assets should be reviewed separately for redistribution rights."}
+            </p>
+          </article>
+        </div>
       </section>
     </>
   );
