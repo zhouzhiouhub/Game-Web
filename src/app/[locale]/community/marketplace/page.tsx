@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { PageHeader } from "@/components/layout/page-header";
+import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
@@ -65,9 +66,9 @@ function MarketplaceContent({ messages }: { messages: MarketplaceMessages }) {
                 variant="surface"
                 padding="lg"
               >
-                <p className="text-sm uppercase tracking-[0.2em] text-fg-muted">
+                <Badge className="w-fit" variant="subtle">
                   {item.category}
-                </p>
+                </Badge>
                 <h2 className="mt-3 text-2xl font-semibold">{item.title}</h2>
                 <p className="mt-3 text-fg-secondary">{item.description}</p>
               </Card>

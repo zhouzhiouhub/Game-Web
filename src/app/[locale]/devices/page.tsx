@@ -3,6 +3,7 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { useTranslations } from "next-intl";
 import { PageHeader } from "@/components/layout/page-header";
 import devices from "@/data/devices.json";
+import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
@@ -61,12 +62,9 @@ function DevicesContent({ messages }: { messages: DevicesPageMessages }) {
         <div className="content-shell">
           <div className="flex flex-wrap gap-3">
             {content.brandHighlights.map((brand) => (
-              <span
-                key={brand}
-                className="rounded-full border border-white/10 px-4 py-2 text-sm text-fg-secondary"
-              >
+              <Badge key={brand} size="md" variant="outline">
                 {brand}
-              </span>
+              </Badge>
             ))}
           </div>
 
@@ -75,7 +73,9 @@ function DevicesContent({ messages }: { messages: DevicesPageMessages }) {
               <Card key={type} as="section" variant="surface" padding="lg">
                 <div className="flex items-center justify-between gap-4">
                   <h2 className="text-2xl font-semibold">{type}</h2>
-                  <span className="text-sm text-fg-muted">{entries.length} {content.showcased}</span>
+                  <Badge variant="subtle" className="normal-case tracking-normal">
+                    {entries.length} {content.showcased}
+                  </Badge>
                 </div>
                 <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {entries.map((device) => (

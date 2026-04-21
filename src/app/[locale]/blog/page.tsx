@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { PageHeader } from "@/components/layout/page-header";
+import { Badge } from "@/components/ui/badge";
 import { blogPosts } from "@/data/blog-posts";
 import { cardVariants } from "@/components/ui/card";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
@@ -48,9 +49,9 @@ function BlogContent({ locale }: { locale: string }) {
                 href={`/blog/${post.slug}`}
                 className={cardVariants({ variant: "interactive", padding: "lg" })}
               >
-                <p className="text-sm uppercase tracking-[0.2em] text-fg-muted">
+                <Badge className="w-fit" variant="subtle">
                   {post.category}
-                </p>
+                </Badge>
                 <h2 className="mt-3 text-2xl font-semibold">
                   {locale === "zh" ? post.title.zh : post.title.en}
                 </h2>

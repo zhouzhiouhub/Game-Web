@@ -3,6 +3,7 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { PageHeader } from "@/components/layout/page-header";
+import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
@@ -70,9 +71,9 @@ function FeaturesContent({ messages }: { messages: FeaturesPageContent }) {
                 variant="surface"
                 padding="lg"
               >
-                <p className="text-sm uppercase tracking-[0.2em] text-fg-muted">
+                <Badge className="w-fit" variant="subtle">
                   {content.sectionLabel}
-                </p>
+                </Badge>
                 <h2 className="mt-3 text-2xl font-semibold">
                   {bento(`features.${feature.key}.title`)}
                 </h2>
