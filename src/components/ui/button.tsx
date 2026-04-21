@@ -13,7 +13,7 @@ export const buttonVariants = cva(
       size: {
         sm: "min-h-[var(--button-height-sm)] px-4 text-sm",
         md: "px-6 text-sm",
-        lg: "px-8 text-base font-semibold",
+        lg: "min-w-[120px] px-8 text-base font-semibold",
       },
       fullWidth: {
         true: "w-full",

@@ -279,7 +279,6 @@
 @utility button-primary {
   display: inline-flex;
   min-height: var(--button-height);
-  min-width: 120px;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -301,7 +300,6 @@
 @utility button-secondary {
   display: inline-flex;
   min-height: var(--button-height);
-  min-width: 120px;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -349,6 +347,11 @@
 
 @utility content-shell {
   width: min(100% - 3rem, var(--container-max));
+  margin-inline: auto;
+}
+
+@utility content-shell-narrow {
+  width: min(100% - 3rem, 48rem);
   margin-inline: auto;
 }
 

@@ -59,7 +59,7 @@ function BlogPostContent({ locale, slug }: { locale: string; slug: string }) {
     <>
       <PageHeader title={title} description={excerpt} />
       <section className="pb-32">
-        <article className="mx-auto max-w-3xl px-6">
+        <article className="content-shell-narrow">
           <p className="text-sm text-fg-muted">
             {post.category} · {post.publishedAt} · {post.readTime} · {post.author}
           </p>

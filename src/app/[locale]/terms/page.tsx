@@ -41,7 +41,7 @@ export default async function TermsPage({
         }
       />
       <section className="pb-32">
-        <article className="mx-auto max-w-3xl px-6 text-fg-secondary">
+        <article className="content-shell-narrow text-fg-secondary">
           <p className="leading-8">
             {locale === "zh"
               ? "使用本网站或相关服务即表示用户同意遵守适用的使用规则，不得滥用下载资源、接口能力、账户系统或社区渠道。"

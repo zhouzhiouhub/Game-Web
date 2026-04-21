@@ -56,7 +56,7 @@ export default async function ContributingPage({
         }
       />
       <section className="pb-32">
-        <div className="mx-auto max-w-3xl px-6">
+        <div className="content-shell-narrow">
           <ol className="grid gap-4">
             {content.map((step, index) => (
               <Card key={step} as="li" variant="surface" padding="md" className="text-fg-secondary">
