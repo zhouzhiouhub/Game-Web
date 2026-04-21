@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
-import { getTranslations } from "next-intl/server";
-import { useMessages, useTranslations } from "next-intl";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import { PageHeader } from "@/components/layout/page-header";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
@@ -43,12 +42,13 @@ export default async function MarketplacePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <MarketplaceContent locale={locale} />;
+  const messages = (await getMessages()) as MarketplaceMessages;
+
+  return <MarketplaceContent messages={messages} />;
 }
 
-function MarketplaceContent({ locale }: { locale: string }) {
+function MarketplaceContent({ messages }: { messages: MarketplaceMessages }) {
   const t = useTranslations("marketplace");
-  const messages = useMessages() as MarketplaceMessages;
   const content = messages.marketplace.content;
 
   return (

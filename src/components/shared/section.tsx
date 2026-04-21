@@ -7,8 +7,8 @@ interface SectionProps {
 
 export function Section({ children, className }: SectionProps) {
   return (
-    <section className={cn("py-[var(--section-py)]", className)}>
-      <div className="mx-auto max-w-[var(--container-max)] px-6">
+    <section className={cn("section-shell", className)}>
+      <div className="content-shell">
         {children}
       </div>
     </section>

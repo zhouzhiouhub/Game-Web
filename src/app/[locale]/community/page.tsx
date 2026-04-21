@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
-import { getTranslations } from "next-intl/server";
-import { useMessages, useTranslations } from "next-intl";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { PageHeader } from "@/components/layout/page-header";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
@@ -47,12 +46,13 @@ export default async function CommunityPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <CommunityContent locale={locale} />;
+  const messages = (await getMessages()) as CommunityPageContent;
+
+  return <CommunityContent messages={messages} />;
 }
 
-function CommunityContent({ locale }: { locale: string }) {
+function CommunityContent({ messages }: { messages: CommunityPageContent }) {
   const t = useTranslations("community");
-  const messages = useMessages() as CommunityPageContent;
   const content = messages.community.content;
 
   return (

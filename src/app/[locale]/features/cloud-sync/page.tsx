@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
-import { getTranslations } from "next-intl/server";
-import { useMessages, useTranslations } from "next-intl";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import { PageHeader } from "@/components/layout/page-header";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
@@ -40,12 +39,13 @@ export default async function CloudSyncPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <CloudSyncContent />;
+  const messages = (await getMessages()) as FeaturePagesMessages;
+
+  return <CloudSyncContent messages={messages} />;
 }
 
-function CloudSyncContent() {
+function CloudSyncContent({ messages }: { messages: FeaturePagesMessages }) {
   const t = useTranslations("bento");
-  const messages = useMessages() as FeaturePagesMessages;
   const cards = messages.featurePages.cloudSync.cards;
 
   return (

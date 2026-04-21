@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
-import { getTranslations } from "next-intl/server";
-import { useMessages, useTranslations } from "next-intl";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { PageHeader } from "@/components/layout/page-header";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
@@ -46,13 +45,14 @@ export default async function FeaturesPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <FeaturesContent locale={locale} />;
+  const messages = (await getMessages()) as FeaturesPageContent;
+
+  return <FeaturesContent messages={messages} />;
 }
 
-function FeaturesContent({ locale }: { locale: string }) {
+function FeaturesContent({ messages }: { messages: FeaturesPageContent }) {
   const t = useTranslations("featuresPage");
   const bento = useTranslations("bento");
-  const messages = useMessages() as FeaturesPageContent;
   const content = messages.featuresPage.content;
 
   return (

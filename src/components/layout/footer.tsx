@@ -43,7 +43,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-white/5 bg-bg-base">
-      <div className="mx-auto max-w-[var(--container-max)] px-6 py-16">
+      <div className="content-shell py-16">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2">
@@ -57,23 +57,23 @@ export function Footer() {
                 {siteConfig.shortName}
               </span>
             </Link>
-            <p className="mt-3 text-sm text-fg-muted">
+            <p className="text-body-sm mt-3 text-fg-muted">
               {t("brand")}
             </p>
           </div>
 
           {columns.map((col) => (
             <div key={col.title}>
-              <h3 className="text-sm font-semibold text-fg-primary">{col.title}</h3>
+              <h3 className="text-body-sm font-semibold text-fg-primary">{col.title}</h3>
               <ul className="mt-3 space-y-2">
                 {col.links.map((link) => (
                   <li key={link.key}>
                     {link.href.startsWith("http") ? (
-                      <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-sm text-fg-muted hover:text-fg-primary transition-colors">
+                      <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-body-sm text-fg-muted hover:text-fg-primary">
                         {t(`links.${link.key}`)}
                       </a>
                     ) : (
-                      <Link href={link.href} className="text-sm text-fg-muted hover:text-fg-primary transition-colors">
+                      <Link href={link.href} className="text-body-sm text-fg-muted hover:text-fg-primary">
                         {t(`links.${link.key}`)}
                       </Link>
                     )}
@@ -85,14 +85,14 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 sm:flex-row">
-          <p className="text-sm text-fg-muted">
+          <p className="text-body-sm text-fg-muted">
             {t("copyright", { year: new Date().getFullYear(), name: siteConfig.name })}
           </p>
           <div className="flex items-center gap-4">
             <a href={siteConfig.githubRepo} target="_blank" rel="noopener noreferrer" className="text-fg-muted hover:text-fg-primary transition-colors">
               <Github className="h-5 w-5" />
             </a>
-            <a href={siteConfig.discordInvite} target="_blank" rel="noopener noreferrer" className="text-sm text-fg-muted hover:text-fg-primary transition-colors">
+            <a href={siteConfig.discordInvite} target="_blank" rel="noopener noreferrer" className="text-body-sm text-fg-muted hover:text-fg-primary">
               Discord
             </a>
           </div>

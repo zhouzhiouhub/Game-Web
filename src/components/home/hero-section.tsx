@@ -10,8 +10,8 @@ export function HeroSection() {
       {/* Aurora background placeholder */}
       <div className="absolute inset-0 rgb-aurora opacity-60" />
 
-      <div className="relative mx-auto max-w-[var(--container-max)] px-6 text-center">
-        <h1 className="text-5xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl">
+      <div className="content-shell relative text-center">
+        <h1 className="text-display mx-auto max-w-5xl">
           {t("line1")}
           <br />
           <span className="rgb-full bg-clip-text text-transparent">
@@ -19,26 +19,26 @@ export function HeroSection() {
           </span>
         </h1>
 
-        <p className="mx-auto mt-6 max-w-xl text-lg text-fg-secondary">
+        <p className="text-body-lg mx-auto mt-6 max-w-xl text-fg-secondary">
           {t("description")}
         </p>
 
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <Link
             href="/download"
-            className="rgb-full rounded-xl px-8 py-3.5 text-base font-semibold text-white hover:opacity-90 transition-opacity"
+            className="button-primary hover:button-primary-hover"
           >
             {t("downloadWindows")}
           </Link>
           <Link
             href="/features"
-            className="rounded-xl border border-white/10 px-8 py-3.5 text-base font-medium text-fg-secondary hover:text-fg-primary hover:border-white/20 transition-colors"
+            className="button-secondary hover:button-secondary-hover"
           >
             {t("exploreFeatures")}
           </Link>
         </div>
 
-        <p className="mt-4 text-sm text-fg-muted">
+        <p className="text-body-sm mt-4 text-fg-muted">
           {t("platforms")}
         </p>
 

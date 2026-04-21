@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
-import { getTranslations } from "next-intl/server";
-import { useMessages, useTranslations } from "next-intl";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import { PageHeader } from "@/components/layout/page-header";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
@@ -35,12 +34,13 @@ export default async function EditorPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <EditorContent />;
+  const messages = (await getMessages()) as EditorMessages;
+
+  return <EditorContent messages={messages} />;
 }
 
-function EditorContent() {
+function EditorContent({ messages }: { messages: EditorMessages }) {
   const t = useTranslations("bento");
-  const messages = useMessages() as EditorMessages;
   const cards = messages.featurePages.editor.cards;
 
   return (

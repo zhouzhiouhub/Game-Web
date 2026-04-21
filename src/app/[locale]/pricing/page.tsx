@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import { useMessages } from "next-intl";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHeader } from "@/components/layout/page-header";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
@@ -44,12 +43,12 @@ export default async function PricingPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const messages = (await getMessages()) as PricingPageMessages;
 
-  return <PricingContent />;
+  return <PricingContent messages={messages} />;
 }
 
-function PricingContent() {
-  const messages = useMessages() as PricingPageMessages;
+function PricingContent({ messages }: { messages: PricingPageMessages }) {
   const content = messages.pricingPage;
 
   return (

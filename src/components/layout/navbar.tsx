@@ -23,7 +23,7 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-white/5 bg-bg-base/80 backdrop-blur-xl">
-      <nav className="mx-auto flex h-16 max-w-[var(--container-max)] items-center justify-between px-6">
+      <nav className="content-shell flex h-[var(--nav-height)] items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/logo.svg"
@@ -42,7 +42,7 @@ export function Navbar() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="rounded-md px-3 py-2 text-sm text-fg-secondary transition-colors hover:text-fg-primary"
+                className="touch-target rounded-md px-3 py-2 text-sm text-fg-secondary hover:text-fg-primary"
               >
                 {t(item.key)}
               </Link>
@@ -63,29 +63,31 @@ export function Navbar() {
           <LanguageSwitcher />
           <Link
             href="/download"
-            className="rgb-full rounded-lg px-4 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity"
+            className="button-primary hover:button-primary-hover"
           >
             {t("getStarted")}
           </Link>
         </div>
 
         <button
-          className="md:hidden text-fg-secondary hover:text-fg-primary"
+          className="touch-target md:hidden text-fg-secondary hover:text-fg-primary"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-navigation"
         >
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </nav>
 
       {mobileOpen && (
-        <div className="border-t border-white/5 bg-bg-base md:hidden">
+        <div id="mobile-navigation" className="border-t border-white/5 bg-bg-base md:hidden">
           <ul className="flex flex-col gap-1 p-4">
             {navKeys.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="block rounded-md px-3 py-2 text-fg-secondary hover:text-fg-primary"
+                  className="touch-target block rounded-md px-3 py-2 text-fg-secondary hover:text-fg-primary"
                   onClick={() => setMobileOpen(false)}
                 >
                   {t(item.key)}
@@ -95,7 +97,7 @@ export function Navbar() {
             <li className="mt-3 border-t border-white/5 pt-3 flex items-center justify-between">
               <Link
                 href="/download"
-                className="block rounded-lg rgb-full px-4 py-2.5 text-center text-sm font-medium text-white"
+                className="button-primary hover:button-primary-hover"
                 onClick={() => setMobileOpen(false)}
               >
                 {t("getStarted")}

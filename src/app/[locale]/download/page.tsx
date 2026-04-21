@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
-import { getTranslations } from "next-intl/server";
-import { useMessages, useTranslations } from "next-intl";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import { Download, Apple, Terminal } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
 import { siteConfig } from "@/lib/constants";
@@ -47,13 +46,13 @@ export default async function DownloadPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const messages = (await getMessages()) as DownloadContentMessages;
 
-  return <DownloadContent locale={locale} />;
+  return <DownloadContent messages={messages} />;
 }
 
-function DownloadContent({ locale }: { locale: string }) {
+function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
   const t = useTranslations("download");
-  const messages = useMessages() as DownloadContentMessages;
   const content = messages.download.content;
   const releasesUrl = `${siteConfig.githubRepo}/releases/latest`;
   const platforms = [

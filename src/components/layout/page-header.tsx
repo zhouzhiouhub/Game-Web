@@ -9,12 +9,12 @@ interface PageHeaderProps {
 export function PageHeader({ title, description, className }: PageHeaderProps) {
   return (
     <section className={cn("pt-32 pb-16", className)}>
-      <div className="mx-auto max-w-[var(--container-max)] px-6">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+      <div className="content-shell">
+        <h1 className="text-heading-1 max-w-4xl">
           {title}
         </h1>
         {description && (
-          <p className="mt-4 text-lg text-fg-secondary max-w-2xl">
+          <p className="mt-4 max-w-2xl text-body-lg text-fg-secondary">
             {description}
           </p>
         )}

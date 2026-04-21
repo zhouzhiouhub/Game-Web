@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
-import { getTranslations } from "next-intl/server";
-import { useMessages, useTranslations } from "next-intl";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import { PageHeader } from "@/components/layout/page-header";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
@@ -36,12 +35,13 @@ export default async function DeviceSupportPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <DeviceSupportContent />;
+  const messages = (await getMessages()) as FeatureDevicesMessages;
+
+  return <DeviceSupportContent messages={messages} />;
 }
 
-function DeviceSupportContent() {
+function DeviceSupportContent({ messages }: { messages: FeatureDevicesMessages }) {
   const t = useTranslations("devices");
-  const messages = useMessages() as FeatureDevicesMessages;
   const content = messages.featurePages.devices;
 
   return (

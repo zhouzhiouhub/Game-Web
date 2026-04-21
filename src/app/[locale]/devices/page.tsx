@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
-import { getTranslations } from "next-intl/server";
-import { useMessages, useTranslations } from "next-intl";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import { PageHeader } from "@/components/layout/page-header";
 import devices from "@/data/devices.json";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
@@ -39,12 +38,13 @@ export default async function DevicesPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <DevicesContent locale={locale} />;
+  const messages = (await getMessages()) as DevicesPageMessages;
+
+  return <DevicesContent messages={messages} />;
 }
 
-function DevicesContent({ locale }: { locale: string }) {
+function DevicesContent({ messages }: { messages: DevicesPageMessages }) {
   const t = useTranslations("devicesPage");
-  const messages = useMessages() as DevicesPageMessages;
   const content = messages.devicesPage.content;
   const grouped = devices.reduce<Record<string, typeof devices>>((acc, device) => {
     if (!acc[device.type]) {
