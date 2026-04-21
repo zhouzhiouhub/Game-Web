@@ -5,6 +5,7 @@ import { LogoCloud } from "@/components/home/logo-cloud";
 import { BentoFeatures } from "@/components/home/bento-features";
 import { DeviceShowcase } from "@/components/home/device-showcase";
 import { SocialProof } from "@/components/home/social-proof";
+import { FAQSection } from "@/components/home/faq-section";
 import { CTASection } from "@/components/home/cta-section";
 
 export default async function HomePage({
@@ -39,6 +40,7 @@ export default async function HomePage({
       <BentoFeatures />
       <DeviceShowcase />
       <SocialProof />
+      <FAQSection locale={locale} />
       <CTASection />
     </div>
   );

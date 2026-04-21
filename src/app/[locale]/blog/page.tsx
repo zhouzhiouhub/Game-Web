@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { PageHeader } from "@/components/layout/page-header";
+import { blogPosts } from "@/data/blog-posts";
 
 export async function generateMetadata({
   params,
@@ -24,10 +26,10 @@ export default async function BlogPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <BlogContent />;
+  return <BlogContent locale={locale} />;
 }
 
-function BlogContent() {
+function BlogContent({ locale }: { locale: string }) {
   const t = useTranslations("blog");
 
   return (
@@ -35,7 +37,28 @@ function BlogContent() {
       <PageHeader title={t("title")} description={t("description")} />
       <section className="pb-32">
         <div className="mx-auto max-w-[var(--container-max)] px-6">
-          <p className="text-fg-muted text-center">{t("comingSoon")}</p>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {blogPosts.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8 transition-colors hover:border-white/10"
+              >
+                <p className="text-sm uppercase tracking-[0.2em] text-fg-muted">
+                  {post.category}
+                </p>
+                <h2 className="mt-3 text-2xl font-semibold">
+                  {locale === "zh" ? post.title.zh : post.title.en}
+                </h2>
+                <p className="mt-3 text-fg-secondary">
+                  {locale === "zh" ? post.excerpt.zh : post.excerpt.en}
+                </p>
+                <p className="mt-6 text-sm text-fg-muted">
+                  {post.publishedAt} · {post.readTime}
+                </p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </>

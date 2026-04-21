@@ -38,7 +38,18 @@ function GettingStartedContent() {
       />
       <section className="pb-32">
         <div className="mx-auto max-w-[var(--container-max)] px-6">
-          <p className="text-fg-muted text-center">Coming soon.</p>
+          <ol className="grid gap-4">
+            {[
+              "Install the desktop app from the latest release package.",
+              "Scan connected RGB devices and confirm active controllers.",
+              "Create your first profile and test a preset across multiple device types.",
+            ].map((step, index) => (
+              <li key={step} className="rounded-xl border border-white/5 bg-bg-surface p-6 text-fg-secondary">
+                <span className="mr-3 text-fg-primary">0{index + 1}</span>
+                {step}
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
     </>

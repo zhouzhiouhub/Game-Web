@@ -38,7 +38,17 @@ function EditorContent() {
       />
       <section className="pb-32">
         <div className="mx-auto max-w-[var(--container-max)] px-6">
-          <p className="text-fg-muted text-center">Coming soon.</p>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {[
+              "Layer-based visual editor for wave, ripple and gradient effects.",
+              "Reusable preset system for setups, scenes and event-driven profiles.",
+              "Timeline controls that help users design without code.",
+            ].map((item) => (
+              <article key={item} className="rounded-xl border border-white/5 bg-bg-surface p-6 text-fg-secondary">
+                {item}
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </>

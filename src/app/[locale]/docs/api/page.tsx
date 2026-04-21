@@ -38,7 +38,22 @@ function ApiContent() {
       />
       <section className="pb-32">
         <div className="mx-auto max-w-[var(--container-max)] px-6">
-          <p className="text-fg-muted text-center">Coming soon.</p>
+          <div className="grid gap-6 lg:grid-cols-2">
+            <article className="rounded-xl border border-white/5 bg-bg-surface p-8">
+              <h2 className="text-2xl font-semibold">Core objects</h2>
+              <p className="mt-4 text-fg-secondary">
+                Devices, zones, profiles and triggers form the minimum public API model. Exposing
+                this clearly is what makes the ecosystem credible.
+              </p>
+            </article>
+            <article className="rounded-xl border border-white/5 bg-bg-surface p-8">
+              <h2 className="text-2xl font-semibold">Integration path</h2>
+              <p className="mt-4 text-fg-secondary">
+                Publish request and event examples so external tools can react to game states,
+                desktop automations and setup presets.
+              </p>
+            </article>
+          </div>
         </div>
       </section>
     </>

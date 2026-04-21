@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Github, Twitter } from "lucide-react";
+import { Github } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { siteConfig } from "@/lib/constants";
@@ -92,8 +92,8 @@ export function Footer() {
             <a href={siteConfig.githubRepo} target="_blank" rel="noopener noreferrer" className="text-fg-muted hover:text-fg-primary transition-colors">
               <Github className="h-5 w-5" />
             </a>
-            <a href="#" className="text-fg-muted hover:text-fg-primary transition-colors">
-              <Twitter className="h-5 w-5" />
+            <a href={siteConfig.discordInvite} target="_blank" rel="noopener noreferrer" className="text-sm text-fg-muted hover:text-fg-primary transition-colors">
+              Discord
             </a>
           </div>
         </div>

@@ -1,19 +1,26 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
-import { getTranslations } from "next-intl/server";
-import { useTranslations } from "next-intl";
 import { PageHeader } from "@/components/layout/page-header";
+import { getBlogPost } from "@/data/blog-posts";
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "blog" });
+  const { locale, slug } = await params;
+  const post = getBlogPost(slug);
+
+  if (!post) {
+    return {
+      title: locale === "zh" ? "文章未找到" : "Post not found",
+    };
+  }
+
   return {
-    title: t("metadata.title"),
-    description: t("metadata.description"),
+    title: locale === "zh" ? post.title.zh : post.title.en,
+    description: locale === "zh" ? post.excerpt.zh : post.excerpt.en,
   };
 }
 
@@ -22,21 +29,51 @@ export default async function BlogPostPage({
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { locale } = await params;
+  const { locale, slug } = await params;
   setRequestLocale(locale);
-  return <BlogPostContent />;
+  const post = getBlogPost(slug);
+
+  if (!post) {
+    notFound();
+  }
+
+  return <BlogPostContent locale={locale} slug={slug} />;
 }
 
-function BlogPostContent() {
-  const t = useTranslations("blog");
+function BlogPostContent({ locale, slug }: { locale: string; slug: string }) {
+  const post = getBlogPost(slug);
+
+  if (!post) {
+    notFound();
+  }
+
+  const title = locale === "zh" ? post.title.zh : post.title.en;
+  const excerpt = locale === "zh" ? post.excerpt.zh : post.excerpt.en;
+  const sections = locale === "zh" ? post.sections.zh : post.sections.en;
 
   return (
     <>
-      <PageHeader title={t("title")} description={t("description")} />
+      <PageHeader title={title} description={excerpt} />
       <section className="pb-32">
-        <div className="mx-auto max-w-[var(--container-max)] px-6">
-          <p className="text-fg-muted text-center">{t("comingSoon")}</p>
-        </div>
+        <article className="mx-auto max-w-3xl px-6">
+          <p className="text-sm text-fg-muted">
+            {post.category} · {post.publishedAt} · {post.readTime} · {post.author}
+          </p>
+          <div className="mt-10 grid gap-10">
+            {sections.map((section) => (
+              <section key={section.heading}>
+                <h2 className="text-2xl font-semibold">{section.heading}</h2>
+                <div className="mt-4 grid gap-4">
+                  {section.paragraphs.map((paragraph) => (
+                    <p key={paragraph} className="leading-8 text-fg-secondary">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        </article>
       </section>
     </>
   );

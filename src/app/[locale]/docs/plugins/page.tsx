@@ -38,7 +38,17 @@ function PluginsContent() {
       />
       <section className="pb-32">
         <div className="mx-auto max-w-[var(--container-max)] px-6">
-          <p className="text-fg-muted text-center">Coming soon.</p>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {[
+              "Manifest-based plugin registration with clear capability scopes.",
+              "Lifecycle hooks for install, update, event handling and cleanup.",
+              "A publishing path that connects docs, GitHub and marketplace review.",
+            ].map((item) => (
+              <article key={item} className="rounded-xl border border-white/5 bg-bg-surface p-6 text-fg-secondary">
+                {item}
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </>

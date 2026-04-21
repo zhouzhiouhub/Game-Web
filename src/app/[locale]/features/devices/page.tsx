@@ -35,7 +35,14 @@ function DeviceSupportContent() {
       <PageHeader title={t("title")} description={t("subtitle")} />
       <section className="pb-32">
         <div className="mx-auto max-w-[var(--container-max)] px-6">
-          <p className="text-fg-muted text-center">Coming soon.</p>
+          <div className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8">
+            <h2 className="text-2xl font-semibold">Cross-brand support strategy</h2>
+            <p className="mt-4 max-w-3xl text-fg-secondary">
+              The device support story should explain how keyboards, mice, motherboards, fans and
+              light strips are normalized into one control surface. This turns compatibility from
+              a vague promise into a product advantage.
+            </p>
+          </div>
         </div>
       </section>
     </>
