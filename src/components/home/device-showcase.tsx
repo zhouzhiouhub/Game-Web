@@ -1,22 +1,23 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 const categoryKeys = ["keyboards", "mice", "fans", "lightStrips", "motherboards"] as const;
 
 const sampleDevices = [
-  { name: "Corsair K70 RGB", categoryKey: "keyboards" as const },
-  { name: "Razer Huntsman V2", categoryKey: "keyboards" as const },
-  { name: "Logitech G502 Hero", categoryKey: "mice" as const },
-  { name: "Razer DeathAdder V3", categoryKey: "mice" as const },
-  { name: "NZXT F120 RGB", categoryKey: "fans" as const },
-  { name: "Corsair QL120", categoryKey: "fans" as const },
-  { name: "NZXT HUE 2", categoryKey: "lightStrips" as const },
-  { name: "Corsair iCUE LS100", categoryKey: "lightStrips" as const },
-  { name: "ASUS ROG Strix Z790", categoryKey: "motherboards" as const },
-  { name: "MSI MPG Z790", categoryKey: "motherboards" as const },
+  { name: "Corsair K70 RGB", categoryKey: "keyboards" as const, image: "/images/devices/keyboard-rgb.jpg" },
+  { name: "Razer Huntsman V2", categoryKey: "keyboards" as const, image: "/images/devices/keyboard-colorful.jpg" },
+  { name: "Logitech G502 Hero", categoryKey: "mice" as const, image: "/images/devices/mouse-gaming.jpg" },
+  { name: "Razer DeathAdder V3", categoryKey: "mice" as const, image: "/images/devices/mouse-rgb-closeup.jpg" },
+  { name: "NZXT F120 RGB", categoryKey: "fans" as const, image: "/images/hero/rgb-fan-interior.jpg" },
+  { name: "Corsair QL120", categoryKey: "fans" as const, image: "/images/hero/rgb-fan-interior.jpg" },
+  { name: "NZXT HUE 2", categoryKey: "lightStrips" as const, image: "/images/devices/led-strip.jpg" },
+  { name: "Corsair iCUE LS100", categoryKey: "lightStrips" as const, image: "/images/hero/rgb-light-strip.jpg" },
+  { name: "ASUS ROG Strix Z790", categoryKey: "motherboards" as const, image: "/images/devices/motherboard-rgb.jpg" },
+  { name: "MSI MPG Z790", categoryKey: "motherboards" as const, image: "/images/devices/motherboard-rgb.jpg" },
 ];
 
 export function DeviceShowcase() {
@@ -58,10 +59,22 @@ export function DeviceShowcase() {
           {filtered.map((device) => (
             <div
               key={device.name}
-              className="group rounded-[var(--card-radius)] border border-white/5 bg-bg-surface px-5 py-4 transition-colors hover:border-white/10"
+              className="group relative overflow-hidden rounded-[var(--card-radius)] border border-white/5 bg-bg-surface transition-colors hover:border-white/10"
             >
-              <p className="font-medium">{device.name}</p>
-              <p className="mt-1 text-sm text-fg-muted">{t(`categories.${device.categoryKey}`)}</p>
+              <div className="relative h-40 overflow-hidden">
+                <Image
+                  src={device.image}
+                  alt={device.name}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg-surface to-transparent" />
+              </div>
+              <div className="px-5 py-4">
+                <p className="font-medium">{device.name}</p>
+                <p className="mt-1 text-sm text-fg-muted">{t(`categories.${device.categoryKey}`)}</p>
+              </div>
             </div>
           ))}
         </div>

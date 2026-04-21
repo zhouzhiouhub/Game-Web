@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
@@ -40,6 +41,19 @@ export function HeroSection() {
         <p className="mt-4 text-sm text-fg-muted">
           {t("platforms")}
         </p>
+
+        {/* Hero image showcase */}
+        <div className="mt-16 relative mx-auto max-w-4xl">
+          <div className="absolute -inset-4 rgb-glow opacity-30 blur-3xl rounded-2xl" />
+          <Image
+            src="/images/hero/gaming-setup-wide.jpg"
+            alt="RGB gaming setup"
+            width={1200}
+            height={675}
+            className="relative rounded-2xl border border-white/10 shadow-2xl"
+            priority
+          />
+        </div>
       </div>
     </section>
   );

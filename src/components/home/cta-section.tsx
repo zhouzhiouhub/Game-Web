@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { siteConfig } from "@/lib/constants";
@@ -7,6 +8,14 @@ export function CTASection() {
 
   return (
     <section className="relative overflow-hidden py-24">
+      {/* Background image */}
+      <Image
+        src="/images/hero/rgb-keyboard-dark.jpg"
+        alt=""
+        fill
+        className="object-cover opacity-20"
+        sizes="100vw"
+      />
       {/* RGB gradient bg */}
       <div className="absolute inset-0 rgb-glow opacity-50" />
 

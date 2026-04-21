@@ -1,11 +1,12 @@
+import Image from "next/image";
 import { Palette, Gamepad2, Cloud, Puzzle } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 const featureKeys = [
-  { key: "editor", icon: Palette, accent: "R" as const },
-  { key: "gameSync", icon: Gamepad2, accent: "G" as const },
-  { key: "cloudSync", icon: Cloud, accent: "B" as const },
-  { key: "plugin", icon: Puzzle, accent: "R" as const },
+  { key: "editor", icon: Palette, accent: "R" as const, image: "/images/features/keyboard-collection.jpg" },
+  { key: "gameSync", icon: Gamepad2, accent: "G" as const, image: "/images/features/mouse-neon-glow.jpg" },
+  { key: "cloudSync", icon: Cloud, accent: "B" as const, image: "/images/features/gaming-setup-ambient.jpg" },
+  { key: "plugin", icon: Puzzle, accent: "R" as const, image: "/images/features/gaming-station.jpg" },
 ];
 
 const accentColors: Record<string, string> = {
@@ -36,6 +37,14 @@ export function BentoFeatures() {
               key={feature.key}
               className="group relative overflow-hidden rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-[var(--card-padding)] lg:p-8 transition-colors hover:border-white/10"
             >
+              {/* Background image */}
+              <Image
+                src={feature.image}
+                alt={t(`features.${feature.key}.title`)}
+                fill
+                className="object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-300"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
               {/* Glow accent */}
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${accentColors[feature.accent]} opacity-0 transition-opacity group-hover:opacity-100`}
