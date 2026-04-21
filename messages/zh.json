@@ -23,7 +23,7 @@
     "platforms": "Windows · macOS · Linux"
   },
   "logoCloud": {
-    "title": "兼容 50+ 品牌"
+    "title": "兼容主流 RGB 品牌"
   },
   "bento": {
     "title": "点亮你所需的{highlight}",
@@ -48,7 +48,7 @@
     }
   },
   "devices": {
-    "title": "支持 500+ 设备",
+    "title": "持续扩展的设备兼容性",
     "subtitle": "你的硬件，统一管理。",
     "categories": {
       "keyboards": "键盘",
@@ -57,11 +57,6 @@
       "lightStrips": "灯条",
       "motherboards": "主板"
     }
-  },
-  "social": {
-    "stars": { "label": "GitHub 星标", "value": "1.2k", "icon": "⭐" },
-    "downloads": { "label": "下载量", "value": "50k+", "icon": "📥" },
-    "members": { "label": "社区成员", "value": "5k+", "icon": "🗣" }
   },
   "cta": {
     "title": "准备好点亮你的设备了吗？",
@@ -143,10 +138,10 @@
   "devicesPage": {
     "metadata": {
       "title": "设备",
-      "description": "支持 500+ 设备，在我们的兼容性数据库中查找你的硬件。"
+      "description": "查看公开兼容性目录，确认当前已展示的硬件支持范围。"
     },
     "title": "设备兼容性",
-    "description": "500+ 设备，搜索查找你的硬件。",
+    "description": "查看当前已展示的键盘、鼠标、风扇、灯条和主板支持情况。",
     "comingSoon": "设备数据库即将上线。"
   },
   "featuresPage": {
@@ -170,7 +165,7 @@
   "community": {
     "metadata": {
       "title": "社区",
-      "description": "通过聊天社区、资源市场和公开更新加入产品生态。"
+      "description": "通过聊天社区、贡献文档和公开更新加入产品生态。"
     },
     "title": "社区",
     "description": "加入数千名 RGB 爱好者，分享效果、插件和设备配置。",
@@ -203,11 +198,11 @@
       },
       {
         "question": "开发者可以扩展这个平台吗？",
-        "answer": "可以。当前站点结构足以承接 API、插件、外部集成以及市场生态等开发者向内容。"
+        "answer": "可以。当前站点结构足以承接 API、插件、外部集成以及社区生态等开发者向内容。"
       },
       {
         "question": "这套站点覆盖了哪些关键路径？",
-        "answer": "它覆盖了完整转化链路：首页、功能页、下载、文档、社区、博客、定价和法务页都已经具备可复用的版式与内容承载位。"
+        "answer": "它覆盖了完整转化链路：首页、功能页、下载、文档、社区和法务页都已经具备可复用的版式与内容承载位。"
       }
     ]
   },

@@ -17,7 +17,7 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
         "Unify all your RGB devices with {siteName}. No more software conflicts. Cross-platform control for Windows, macOS, and Linux.",
     },
     logoCloud: {
-      title: "Compatible with {brandCount}+ brands",
+      title: "Compatible with major RGB brands",
     },
     cta: {
       title: "Ready to light up your setup with {shortName}?",
@@ -52,7 +52,7 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
     devicesPage: {
       metadata: {
         description:
-          "{deviceCount}+ devices supported. Find your hardware in the {siteName} compatibility database.",
+          "Browse the public compatibility catalog for {siteName} and review currently showcased hardware support.",
       },
       content: {
         brandHighlights: ["Corsair", "Razer", "Logitech", "NZXT", "Asus", "SteelSeries"],
@@ -107,7 +107,7 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
             bullets: [
               "Extend device support without forking the main app",
               "Hook external triggers, APIs and automation workflows",
-              "Publish community add-ons through a curated marketplace path",
+              "Publish community add-ons through a documented release path",
             ],
           },
         ],
@@ -121,7 +121,7 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
     community: {
       metadata: {
         description:
-          "Join the {siteName} community through chat, marketplace resources, and public updates.",
+          "Join the {siteName} community through chat, contribution docs, and public updates.",
       },
       content: {
         channels: [
@@ -130,12 +130,6 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
             description: "Real-time setup help, release feedback and effect sharing.",
             href: "{discordInvite}",
             external: true,
-          },
-          {
-            title: "Marketplace",
-            description: "Curated effects, themes and plugins from the community.",
-            href: "/community/marketplace",
-            external: false,
           },
           {
             title: "GitHub",
@@ -148,7 +142,7 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
         hubBullets: [
           "Clear path to live chat, issue tracking and contribution docs.",
           "Highlighted setup galleries or effect showcases.",
-          "Marketplace or resource destination for reusable assets.",
+          "A documented destination for reusable assets and community resources.",
         ],
         noteTitle: "Why this page matters",
         noteDescription:
@@ -237,7 +231,7 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
           cards: [
             "Manifest-based plugin registration with clear capability scopes.",
             "Lifecycle hooks for install, update, event handling and cleanup.",
-            "A publishing path that connects docs, GitHub and marketplace review.",
+            "A publishing path that connects docs, GitHub and community review.",
           ],
         },
       },
@@ -274,7 +268,7 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
           {
             title: "Shareable setups",
             description:
-              "Use cloud sync as the bridge between solo setup management and community preset sharing, especially when your product has marketplace ambitions.",
+              "Use cloud sync as the bridge between solo setup management and community preset sharing across teams and user groups.",
           },
         ],
       },
@@ -306,12 +300,12 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
         {
           question: "Can developers extend the platform?",
           answer:
-            "Yes. {siteName} supports APIs, plugins, integrations, and marketplace-style ecosystem messaging for developer-facing products.",
+            "Yes. {siteName} supports APIs, plugins, integrations, and community ecosystem messaging for developer-facing products.",
         },
         {
           question: "What does the site cover end to end?",
           answer:
-            "It covers the full conversion path for {siteName}: homepage, feature pages, downloads, docs, community, blog, pricing, and legal destinations with reusable sections.",
+            "It covers the full conversion path for {siteName}: homepage, feature pages, downloads, docs, community, and legal destinations with reusable sections.",
         },
       ],
     },
@@ -330,7 +324,7 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
         "通过 {siteName} 统一管理所有 RGB 设备，告别软件冲突，支持 Windows、macOS 和 Linux 跨平台控制。",
     },
     logoCloud: {
-      title: "兼容 {brandCount}+ 品牌",
+      title: "兼容主流 RGB 品牌",
     },
     cta: {
       title: "准备好用 {shortName} 点亮你的设备了吗？",
@@ -364,7 +358,7 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
     },
     devicesPage: {
       metadata: {
-        description: "支持 {deviceCount}+ 设备，在 {siteName} 的兼容性数据库中查找你的硬件。",
+        description: "查看 {siteName} 的公开兼容性目录，确认当前已展示的硬件支持范围。",
       },
       content: {
         brandHighlights: ["Corsair", "Razer", "Logitech", "NZXT", "Asus", "SteelSeries"],
@@ -418,7 +412,7 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
             bullets: [
               "在不改动主应用的前提下扩展能力",
               "接入外部 API、自动化和事件源",
-              "为社区插件与效果包提供发布入口",
+              "为社区插件与扩展提供明确的发布路径",
             ],
           },
         ],
@@ -431,7 +425,7 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
     },
     community: {
       metadata: {
-        description: "通过聊天社区、资源市场和公开更新加入 {siteName} 的产品生态。",
+        description: "通过聊天社区、贡献文档和公开更新加入 {siteName} 的产品生态。",
       },
       content: {
         channels: [
@@ -440,12 +434,6 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
             description: "用于实时答疑、版本反馈和用户效果分享。",
             href: "{discordInvite}",
             external: true,
-          },
-          {
-            title: "Marketplace",
-            description: "集中展示社区沉淀的效果、主题和插件资源。",
-            href: "/community/marketplace",
-            external: false,
           },
           {
             title: "GitHub",
@@ -458,7 +446,7 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
         hubBullets: [
           "清晰连接实时讨论、问题反馈与贡献文档。",
           "展示精选案例、用户设备布置或效果作品。",
-          "为可复用资源提供统一的市场或资源入口。",
+          "为可复用资源提供明确的文档入口和社区分发路径。",
         ],
         noteTitle: "社区页的作用",
         noteDescription:
@@ -546,7 +534,7 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
           cards: [
             "基于清单的插件注册与清晰能力边界。",
             "安装、更新、事件处理与清理的生命周期钩子。",
-            "把文档、GitHub 与市场审核流程连起来的发布路径。",
+            "把文档、GitHub 与社区审核流程连起来的发布路径。",
           ],
         },
       },
@@ -583,7 +571,7 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
           {
             title: "可共享的配置",
             description:
-              "把云同步作为个人配置管理与社区预设分享之间的桥梁，尤其适合有市场生态规划的产品。",
+              "把云同步作为个人配置管理与社区预设分享之间的桥梁，便于团队和用户群体协作。",
           },
         ],
       },
@@ -615,12 +603,12 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
         {
           question: "开发者可以扩展这个平台吗？",
           answer:
-            "可以。{siteName} 当前的站点结构足以承接 API、插件、外部集成以及市场生态等开发者向内容。",
+            "可以。{siteName} 当前的站点结构足以承接 API、插件、外部集成以及社区生态等开发者向内容。",
         },
         {
           question: "这套站点覆盖了哪些关键路径？",
           answer:
-            "它覆盖了 {siteName} 的完整转化链路：首页、功能页、下载、文档、社区、博客、定价和法务页都已经具备可复用的版式与内容承载位。",
+            "它覆盖了 {siteName} 的完整转化链路：首页、功能页、下载、文档、社区和法务页都已经具备可复用的版式与内容承载位。",
         },
       ],
     },

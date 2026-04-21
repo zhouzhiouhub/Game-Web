@@ -2,7 +2,6 @@ import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/lib/constants";
 import { buildLocalizedPath } from "@/lib/seo/page-metadata";
-import { blogPosts } from "@/data/blog-posts";
 
 const baseUrl = siteConfig.url;
 
@@ -17,9 +16,6 @@ const routes = [
   "/docs/contributing",
   "/docs/plugins",
   "/community",
-  "/community/marketplace",
-  "/blog",
-  "/pricing",
   "/privacy",
   "/terms",
   "/license",
@@ -31,10 +27,9 @@ const routes = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
-  const blogRoutes = blogPosts.map((post) => `/blog/${post.slug}`);
 
   for (const locale of routing.locales) {
-    for (const route of [...routes, ...blogRoutes]) {
+    for (const route of routes) {
       entries.push({
         url: `${baseUrl}${buildLocalizedPath(locale, route)}`,
         lastModified: new Date(),

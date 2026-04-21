@@ -23,7 +23,7 @@
     "platforms": "Windows · macOS · Linux"
   },
   "logoCloud": {
-    "title": "Compatible with 50+ brands"
+    "title": "Compatible with major RGB brands"
   },
   "bento": {
     "title": "Everything you need to {highlight}",
@@ -48,7 +48,7 @@
     }
   },
   "devices": {
-    "title": "500+ Devices Supported",
+    "title": "Growing Device Compatibility",
     "subtitle": "Your hardware, unified.",
     "categories": {
       "keyboards": "Keyboards",
@@ -57,11 +57,6 @@
       "lightStrips": "Light Strips",
       "motherboards": "Motherboards"
     }
-  },
-  "social": {
-    "stars": { "label": "GitHub Stars", "value": "1.2k", "icon": "⭐" },
-    "downloads": { "label": "Downloads", "value": "50k+", "icon": "📥" },
-    "members": { "label": "Community Members", "value": "5k+", "icon": "🗣" }
   },
   "cta": {
     "title": "Ready to light up your setup?",
@@ -143,10 +138,10 @@
   "devicesPage": {
     "metadata": {
       "title": "Devices",
-      "description": "500+ devices supported. Find your hardware in our compatibility database."
+      "description": "Browse the public compatibility catalog and check currently showcased hardware support."
     },
     "title": "Device Compatibility",
-    "description": "500+ devices. Search and find your hardware.",
+    "description": "Browse currently showcased keyboards, mice, fans, light strips, and motherboards.",
     "comingSoon": "Device database coming soon."
   },
   "featuresPage": {
@@ -170,7 +165,7 @@
   "community": {
     "metadata": {
       "title": "Community",
-      "description": "Join the product community through chat, marketplace resources, and public updates."
+      "description": "Join the product community through chat, contribution docs, and public updates."
     },
     "title": "Community",
     "description": "Join thousands of RGB enthusiasts. Share effects, plugins, and setups.",
@@ -203,11 +198,11 @@
       },
       {
         "question": "Can developers extend the platform?",
-        "answer": "Yes. The site structure supports APIs, plugins, integrations, and marketplace-style ecosystem messaging for developer-facing products."
+        "answer": "Yes. The site structure supports APIs, plugins, integrations, and community ecosystem messaging for developer-facing products."
       },
       {
         "question": "What does the site cover end to end?",
-        "answer": "It covers the full conversion path: homepage, feature pages, downloads, docs, community, blog, pricing, and legal destinations with reusable sections."
+        "answer": "It covers the full conversion path: homepage, feature pages, downloads, docs, community, and legal destinations with reusable sections."
       }
     ]
   },

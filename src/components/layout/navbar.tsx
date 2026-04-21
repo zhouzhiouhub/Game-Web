@@ -15,7 +15,6 @@ const navKeys = [
   { key: "devices", href: "/devices" },
   { key: "docs", href: "/docs" },
   { key: "community", href: "/community" },
-  { key: "blog", href: "/blog" },
 ] as const;
 
 export function Navbar() {

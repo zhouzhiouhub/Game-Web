@@ -8,19 +8,16 @@ const productLinks = [
   { key: "features", href: "/features" },
   { key: "download", href: "/download" },
   { key: "devices", href: "/devices" },
-  { key: "pricing", href: "/pricing" },
 ] as const;
 
 const resourceLinks = [
   { key: "documentation", href: "/docs" },
   { key: "apiReference", href: "/docs/api" },
   { key: "plugins", href: "/docs/plugins" },
-  { key: "blog", href: "/blog" },
 ] as const;
 
 const communityLinks = [
   { key: "discord", href: siteConfig.discordInvite },
-  { key: "marketplace", href: "/community/marketplace" },
   { key: "github", href: siteConfig.githubRepo },
   { key: "contributing", href: "/docs/contributing" },
 ] as const;

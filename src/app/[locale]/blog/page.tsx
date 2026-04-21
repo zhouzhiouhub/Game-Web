@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
@@ -36,6 +37,10 @@ export default async function BlogPage({
 
 function BlogContent({ locale }: { locale: string }) {
   const t = useTranslations("blog");
+
+  if (blogPosts.length === 0) {
+    notFound();
+  }
 
   return (
     <>
