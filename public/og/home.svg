@@ -1,0 +1,75 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gaming RGB Software home Open Graph image">
+  <defs>
+    <linearGradient id="bgGradient" x1="80" y1="40" x2="1080" y2="590" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#020617" />
+      <stop offset="55%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="ambientGradient" x1="182" y1="96" x2="1040" y2="540" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f472b6" />
+      <stop offset="45%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#22d3ee" />
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="810" y1="110" x2="1060" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#111827" stop-opacity="0.96" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.88" />
+    </linearGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="28" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" rx="36" fill="url(#bgGradient)" />
+  <circle cx="188" cy="110" r="120" fill="#f472b6" fill-opacity="0.18" filter="url(#softGlow)" />
+  <circle cx="1000" cy="96" r="128" fill="#22d3ee" fill-opacity="0.16" filter="url(#softGlow)" />
+  <circle cx="914" cy="526" r="150" fill="#818cf8" fill-opacity="0.18" filter="url(#softGlow)" />
+
+  <rect x="38" y="38" width="1124" height="554" rx="30" fill="none" stroke="url(#ambientGradient)" stroke-opacity="0.36" stroke-width="2" />
+
+  <g opacity="0.18">
+    <path d="M78 196H1122" stroke="#94a3b8" stroke-width="1" />
+    <path d="M78 254H1122" stroke="#94a3b8" stroke-width="1" />
+    <path d="M78 312H1122" stroke="#94a3b8" stroke-width="1" />
+    <path d="M78 370H1122" stroke="#94a3b8" stroke-width="1" />
+    <path d="M78 428H1122" stroke="#94a3b8" stroke-width="1" />
+    <path d="M222 78V552" stroke="#94a3b8" stroke-width="1" />
+    <path d="M366 78V552" stroke="#94a3b8" stroke-width="1" />
+    <path d="M510 78V552" stroke="#94a3b8" stroke-width="1" />
+    <path d="M654 78V552" stroke="#94a3b8" stroke-width="1" />
+    <path d="M798 78V552" stroke="#94a3b8" stroke-width="1" />
+    <path d="M942 78V552" stroke="#94a3b8" stroke-width="1" />
+  </g>
+
+  <g>
+    <rect x="92" y="88" width="74" height="74" rx="20" fill="#020617" />
+    <rect x="94" y="90" width="70" height="70" rx="19" fill="none" stroke="url(#ambientGradient)" stroke-width="2" opacity="0.92" />
+    <path d="M110 134c0-12.86 10.43-23.29 23.29-23.29h13.52a11.27 11.27 0 0 1 0 22.54h-20.28" fill="none" stroke="url(#ambientGradient)" stroke-width="8.8" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M118 145h33" fill="none" stroke="url(#ambientGradient)" stroke-width="4.8" stroke-linecap="round" opacity="0.96" />
+    <circle cx="147" cy="122" r="4" fill="#ffffff" fill-opacity="0.9" />
+  </g>
+
+  <text x="194" y="118" fill="#e2e8f0" font-size="24" font-family="Segoe UI, Arial, sans-serif" letter-spacing="3">GAMING RGB SOFTWARE</text>
+
+  <rect x="92" y="188" width="180" height="38" rx="19" fill="#111827" fill-opacity="0.9" stroke="url(#ambientGradient)" stroke-opacity="0.5" />
+  <text x="122" y="213" fill="#f8fafc" font-size="18" font-family="Segoe UI, Arial, sans-serif" letter-spacing="2.4">HOME PAGE</text>
+
+  <text x="92" y="310" fill="#f8fafc" font-size="78" font-weight="700" font-family="Segoe UI, Arial, sans-serif">One Software.</text>
+  <text x="92" y="392" fill="#f8fafc" font-size="78" font-weight="700" font-family="Segoe UI, Arial, sans-serif">Every Light.</text>
+  <text x="92" y="456" fill="#cbd5e1" font-size="30" font-family="Segoe UI, Arial, sans-serif">Cross-platform RGB control for keyboards, mice, fans, strips, and ambient setups.</text>
+
+  <g>
+    <rect x="792" y="120" width="310" height="390" rx="28" fill="url(#cardGradient)" stroke="#334155" stroke-opacity="0.75" />
+    <text x="828" y="174" fill="#f8fafc" font-size="22" font-family="Segoe UI, Arial, sans-serif" letter-spacing="2">LAUNCH HIGHLIGHTS</text>
+
+    <rect x="828" y="212" width="238" height="56" rx="18" fill="#0f172a" stroke="#f472b6" stroke-opacity="0.45" />
+    <text x="856" y="246" fill="#f8fafc" font-size="28" font-family="Segoe UI, Arial, sans-serif">Unified Device Stack</text>
+
+    <rect x="828" y="286" width="238" height="56" rx="18" fill="#0f172a" stroke="#818cf8" stroke-opacity="0.5" />
+    <text x="856" y="320" fill="#f8fafc" font-size="28" font-family="Segoe UI, Arial, sans-serif">Live Scene Sync</text>
+
+    <rect x="828" y="360" width="238" height="56" rx="18" fill="#0f172a" stroke="#22d3ee" stroke-opacity="0.5" />
+    <text x="856" y="394" fill="#f8fafc" font-size="28" font-family="Segoe UI, Arial, sans-serif">Desktop to Ambient</text>
+
+    <text x="828" y="470" fill="#94a3b8" font-size="20" font-family="Segoe UI, Arial, sans-serif">Designed for branded social sharing, search previews, and release announcements.</text>
+  </g>
+</svg>

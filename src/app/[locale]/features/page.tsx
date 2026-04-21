@@ -38,6 +38,10 @@ export async function generateMetadata({
     pathname: "/features",
     title: t("metadata.title"),
     description: t("metadata.description"),
+    ogImage: {
+      pathname: "/og/features.png",
+      alt: "Gaming RGB Software features page preview",
+    },
   });
 }
 

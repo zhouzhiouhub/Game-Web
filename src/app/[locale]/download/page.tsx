@@ -37,6 +37,10 @@ export async function generateMetadata({
     pathname: "/download",
     title: t("metadata.title"),
     description: t("metadata.description"),
+    ogImage: {
+      pathname: "/og/download.png",
+      alt: "Gaming RGB Software download page preview",
+    },
   });
 }
 
