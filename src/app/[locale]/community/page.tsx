@@ -3,6 +3,7 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { PageHeader } from "@/components/layout/page-header";
+import { Card, cardVariants } from "@/components/ui/card";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 type CommunityChannel = {
@@ -59,7 +60,7 @@ function CommunityContent({ messages }: { messages: CommunityPageContent }) {
     <>
       <PageHeader title={t("title")} description={t("description")} />
       <section className="pb-32">
-        <div className="mx-auto max-w-[var(--container-max)] px-6">
+        <div className="content-shell">
           <div className="grid gap-6 lg:grid-cols-3">
             {content.channels.map((channel) =>
               channel.external ? (
@@ -68,7 +69,7 @@ function CommunityContent({ messages }: { messages: CommunityPageContent }) {
                   href={channel.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8 transition-colors hover:border-white/10"
+                  className={cardVariants({ variant: "interactive", padding: "lg" })}
                 >
                   <h2 className="text-2xl font-semibold">{channel.title}</h2>
                   <p className="mt-3 text-fg-secondary">{channel.description}</p>
@@ -77,7 +78,7 @@ function CommunityContent({ messages }: { messages: CommunityPageContent }) {
                 <Link
                   key={channel.title}
                   href={channel.href}
-                  className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8 transition-colors hover:border-white/10"
+                  className={cardVariants({ variant: "interactive", padding: "lg" })}
                 >
                   <h2 className="text-2xl font-semibold">{channel.title}</h2>
                   <p className="mt-3 text-fg-secondary">{channel.description}</p>
@@ -87,20 +88,20 @@ function CommunityContent({ messages }: { messages: CommunityPageContent }) {
           </div>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            <article className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8">
+            <Card as="article" variant="surface" padding="lg">
               <h2 className="text-2xl font-semibold">{content.hubTitle}</h2>
               <ul className="mt-4 space-y-2 text-sm leading-6 text-fg-muted">
                 {content.hubBullets.map((bullet) => (
                   <li key={bullet}>• {bullet}</li>
                 ))}
               </ul>
-            </article>
-            <article className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8">
+            </Card>
+            <Card as="article" variant="surface" padding="lg">
               <h2 className="text-2xl font-semibold">{content.noteTitle}</h2>
               <p className="mt-4 text-sm leading-6 text-fg-muted">
                 {content.noteDescription}
               </p>
-            </article>
+            </Card>
           </div>
         </div>
       </section>

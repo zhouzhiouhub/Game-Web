@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { PageHeader } from "@/components/layout/page-header";
+import { cardVariants } from "@/components/ui/card";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 export async function generateMetadata({
@@ -44,13 +45,13 @@ function DocsContent() {
     <>
       <PageHeader title={t("title")} description={t("description")} />
       <section className="pb-32">
-        <div className="mx-auto max-w-[var(--container-max)] px-6">
+        <div className="content-shell">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {docSections.map((doc) => (
               <Link
                 key={doc.href}
                 href={doc.href}
-                className="group rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-6 transition-colors hover:border-white/10"
+                className={`${cardVariants({ variant: "interactive", padding: "md" })} group`}
               >
                 <h3 className="font-semibold group-hover:text-rgb-b transition-colors">
                   {doc.title}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { PageHeader } from "@/components/layout/page-header";
+import { Card } from "@/components/ui/card";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 type MarketplaceItem = {
@@ -55,28 +56,30 @@ function MarketplaceContent({ messages }: { messages: MarketplaceMessages }) {
     <>
       <PageHeader title={t("title")} description={t("description")} />
       <section className="pb-32">
-        <div className="mx-auto max-w-[var(--container-max)] px-6">
+        <div className="content-shell">
           <div className="grid gap-6 md:grid-cols-2">
             {content.items.map((item) => (
-              <article
+              <Card
                 key={item.title}
-                className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8"
+                as="article"
+                variant="surface"
+                padding="lg"
               >
                 <p className="text-sm uppercase tracking-[0.2em] text-fg-muted">
                   {item.category}
                 </p>
                 <h2 className="mt-3 text-2xl font-semibold">{item.title}</h2>
                 <p className="mt-3 text-fg-secondary">{item.description}</p>
-              </article>
+              </Card>
             ))}
           </div>
 
-          <div className="mt-10 rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8">
+          <Card className="mt-10" variant="surface" padding="lg">
             <h2 className="text-2xl font-semibold">{content.sectionTitle}</h2>
             <p className="mt-4 max-w-3xl text-fg-secondary">
               {content.sectionDescription}
             </p>
-          </div>
+          </Card>
         </div>
       </section>
     </>

@@ -4,6 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 const categoryKeys = ["keyboards", "mice", "fans", "lightStrips", "motherboards"] as const;
 
@@ -28,7 +30,7 @@ export function DeviceShowcase() {
 
   return (
     <section className="py-[var(--section-py)]">
-      <div className="mx-auto max-w-[var(--container-max)] px-6">
+      <div className="content-shell">
         <h2 className="text-center text-3xl font-bold sm:text-4xl">
           {t("title")}
         </h2>
@@ -43,10 +45,10 @@ export function DeviceShowcase() {
               key={catKey}
               onClick={() => setActive(catKey)}
               className={cn(
-                "rounded-lg px-4 py-2 text-sm font-medium transition-colors",
+                buttonVariants({ variant: active === catKey ? "primary" : "secondary", size: "sm" }),
                 active === catKey
-                  ? "rgb-full text-white"
-                  : "bg-bg-surface text-fg-secondary hover:text-fg-primary"
+                  ? ""
+                  : "bg-bg-surface/80"
               )}
             >
               {t(`categories.${catKey}`)}
@@ -57,9 +59,11 @@ export function DeviceShowcase() {
         {/* Device Grid */}
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((device) => (
-            <div
+            <Card
               key={device.name}
-              className="group relative overflow-hidden rounded-[var(--card-radius)] border border-white/5 bg-bg-surface transition-colors hover:border-white/10"
+              variant="interactive"
+              padding="none"
+              className="group relative overflow-hidden"
             >
               <div className="relative h-40 overflow-hidden">
                 <Image
@@ -75,7 +79,7 @@ export function DeviceShowcase() {
                 <p className="font-medium">{device.name}</p>
                 <p className="mt-1 text-sm text-fg-muted">{t(`categories.${device.categoryKey}`)}</p>
               </div>
-            </div>
+            </Card>
           ))}
         </div>
       </div>

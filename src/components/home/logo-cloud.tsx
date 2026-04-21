@@ -6,7 +6,7 @@ export function LogoCloud() {
 
   return (
     <section className="border-y border-white/5 py-12">
-      <div className="mx-auto max-w-[var(--container-max)] px-6">
+      <div className="content-shell">
         <p className="text-center text-sm text-fg-muted mb-8">
           {t("title")}
         </p>

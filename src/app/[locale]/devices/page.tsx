@@ -3,6 +3,7 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { useTranslations } from "next-intl";
 import { PageHeader } from "@/components/layout/page-header";
 import devices from "@/data/devices.json";
+import { Card } from "@/components/ui/card";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 type DevicesPageMessages = {
@@ -57,7 +58,7 @@ function DevicesContent({ messages }: { messages: DevicesPageMessages }) {
     <>
       <PageHeader title={t("title")} description={t("description")} />
       <section className="pb-32">
-        <div className="mx-auto max-w-[var(--container-max)] px-6">
+        <div className="content-shell">
           <div className="flex flex-wrap gap-3">
             {content.brandHighlights.map((brand) => (
               <span
@@ -71,29 +72,29 @@ function DevicesContent({ messages }: { messages: DevicesPageMessages }) {
 
           <div className="mt-10 grid gap-8">
             {Object.entries(grouped).map(([type, entries]) => (
-              <section key={type} className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8">
+              <Card key={type} as="section" variant="surface" padding="lg">
                 <div className="flex items-center justify-between gap-4">
                   <h2 className="text-2xl font-semibold">{type}</h2>
                   <span className="text-sm text-fg-muted">{entries.length} {content.showcased}</span>
                 </div>
                 <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {entries.map((device) => (
-                    <article key={device.name} className="rounded-xl border border-white/5 px-5 py-4">
+                    <Card key={device.name} as="article" variant="surface" padding="sm">
                       <p className="font-medium">{device.name}</p>
                       <p className="mt-1 text-sm text-fg-muted">{device.brand}</p>
-                    </article>
+                    </Card>
                   ))}
                 </div>
-              </section>
+              </Card>
             ))}
           </div>
 
-          <div className="mt-10 rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8">
+          <Card className="mt-10" variant="surface" padding="lg">
             <h2 className="text-2xl font-semibold">{content.supportTitle}</h2>
             <p className="mt-4 max-w-2xl text-fg-secondary">
               {content.supportDescription}
             </p>
-          </div>
+          </Card>
         </div>
       </section>
     </>

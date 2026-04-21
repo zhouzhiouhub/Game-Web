@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { siteConfig } from "@/lib/constants";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
+import { buttonVariants } from "@/components/ui/button";
 
 const navKeys = [
   { key: "features", href: "/features" },
@@ -63,7 +64,7 @@ export function Navbar() {
           <LanguageSwitcher />
           <Link
             href="/download"
-            className="button-primary hover:button-primary-hover"
+            className={buttonVariants({ variant: "primary", size: "md" })}
           >
             {t("getStarted")}
           </Link>
@@ -97,7 +98,7 @@ export function Navbar() {
             <li className="mt-3 border-t border-white/5 pt-3 flex items-center justify-between">
               <Link
                 href="/download"
-                className="button-primary hover:button-primary-hover"
+                className={buttonVariants({ variant: "primary", size: "md" })}
                 onClick={() => setMobileOpen(false)}
               >
                 {t("getStarted")}

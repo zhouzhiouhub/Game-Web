@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { Download, Apple, Terminal } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
 import { siteConfig } from "@/lib/constants";
+import { Card, cardVariants } from "@/components/ui/card";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 type DownloadContentMessages = {
@@ -94,7 +95,7 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
                 href={platform.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`rounded-xl border px-6 py-5 transition-colors ${platform.accent}`}
+                className={`${cardVariants({ variant: "interactive", padding: "md" })} ${platform.accent}`}
               >
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
@@ -109,17 +110,17 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
               </a>
             ))}
 
-            <div className="rounded-xl border border-white/5 bg-bg-surface p-6">
+            <Card variant="surface" padding="md">
               <h3 className="text-sm font-semibold text-fg-primary">{content.releaseTitle}</h3>
               <ul className="mt-3 space-y-2 text-sm leading-6 text-fg-muted">
                 {content.releaseItems.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-            </div>
+            </Card>
           </div>
 
-          <div className="rounded-xl border border-white/5 bg-bg-surface p-6">
+          <Card variant="surface" padding="md">
             <h3 className="text-sm font-semibold text-fg-primary">
               {t("systemRequirements")}
             </h3>
@@ -136,7 +137,7 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
                 {content.distributionDescription}
               </p>
             </div>
-          </div>
+          </Card>
         </div>
       </section>
     </>

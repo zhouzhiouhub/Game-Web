@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { siteConfig } from "@/lib/constants";
+import { buttonVariants } from "@/components/ui/button";
 
 export function CTASection() {
   const t = useTranslations("cta");
@@ -19,7 +20,7 @@ export function CTASection() {
       {/* RGB gradient bg */}
       <div className="absolute inset-0 rgb-glow opacity-50" />
 
-      <div className="relative mx-auto max-w-[var(--container-max)] px-6 text-center">
+      <div className="content-shell relative text-center">
         <h2 className="text-3xl font-bold sm:text-4xl">
           {t("title")}
         </h2>
@@ -29,7 +30,7 @@ export function CTASection() {
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <Link
             href="/download"
-            className="rgb-full rounded-xl px-8 py-3.5 text-base font-semibold text-white hover:opacity-90 transition-opacity"
+            className={buttonVariants({ variant: "primary", size: "lg" })}
           >
             {t("downloadNow")}
           </Link>
@@ -37,7 +38,7 @@ export function CTASection() {
             href={siteConfig.githubRepo}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-xl border border-white/10 px-8 py-3.5 text-base font-medium text-fg-secondary hover:text-fg-primary hover:border-white/20 transition-colors"
+            className={buttonVariants({ variant: "secondary", size: "lg" })}
           >
             {t("viewGithub")}
           </a>

@@ -3,6 +3,8 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { PageHeader } from "@/components/layout/page-header";
+import { Card } from "@/components/ui/card";
+import { buttonVariants } from "@/components/ui/button";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 type FeatureCard = {
@@ -59,12 +61,14 @@ function FeaturesContent({ messages }: { messages: FeaturesPageContent }) {
     <>
       <PageHeader title={t("title")} description={t("description")} />
       <section className="pb-32">
-        <div className="mx-auto max-w-[var(--container-max)] px-6">
+        <div className="content-shell">
           <div className="grid gap-6 lg:grid-cols-2">
             {content.cards.map((feature) => (
-              <article
+              <Card
                 key={feature.key}
-                className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8"
+                as="article"
+                variant="surface"
+                padding="lg"
               >
                 <p className="text-sm uppercase tracking-[0.2em] text-fg-muted">
                   {content.sectionLabel}
@@ -82,20 +86,20 @@ function FeaturesContent({ messages }: { messages: FeaturesPageContent }) {
                 </ul>
                 <Link
                   href={feature.href}
-                  className="mt-8 inline-flex rounded-lg border border-white/10 px-4 py-2 text-sm font-medium text-fg-secondary transition-colors hover:border-white/20 hover:text-fg-primary"
+                  className={`${buttonVariants({ variant: "secondary", size: "sm" })} mt-8`}
                 >
                   {content.cta}
                 </Link>
-              </article>
+              </Card>
             ))}
           </div>
 
-          <div className="mt-10 rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8">
+          <Card className="mt-10" variant="surface" padding="lg">
             <h2 className="text-2xl font-semibold">{content.summaryTitle}</h2>
             <p className="mt-4 max-w-3xl text-fg-secondary">
               {content.summaryDescription}
             </p>
-          </div>
+          </Card>
         </div>
       </section>
     </>

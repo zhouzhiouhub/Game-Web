@@ -3,6 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { PageHeader } from "@/components/layout/page-header";
+import { Card } from "@/components/ui/card";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 export async function generateMetadata({
@@ -52,13 +53,13 @@ function GettingStartedContent({ locale }: { locale: string }) {
         description={t("sections.gettingStarted.description")}
       />
       <section className="pb-32">
-        <div className="mx-auto max-w-[var(--container-max)] px-6">
+        <div className="content-shell">
           <ol className="grid gap-4">
             {steps.map((step, index) => (
-              <li key={step} className="rounded-xl border border-white/5 bg-bg-surface p-6 text-fg-secondary">
+              <Card key={step} as="li" variant="surface" padding="md" className="text-fg-secondary">
                 <span className="mr-3 text-fg-primary">0{index + 1}</span>
                 {step}
-              </li>
+              </Card>
             ))}
           </ol>
         </div>

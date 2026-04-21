@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { buttonVariants } from "@/components/ui/button";
 
 export function HeroSection() {
   const t = useTranslations("hero");
@@ -26,13 +27,13 @@ export function HeroSection() {
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <Link
             href="/download"
-            className="button-primary hover:button-primary-hover"
+            className={buttonVariants({ variant: "primary", size: "lg" })}
           >
             {t("downloadWindows")}
           </Link>
           <Link
             href="/features"
-            className="button-secondary hover:button-secondary-hover"
+            className={buttonVariants({ variant: "secondary", size: "lg" })}
           >
             {t("exploreFeatures")}
           </Link>

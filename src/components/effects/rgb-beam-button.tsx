@@ -1,6 +1,8 @@
 "use client";
 
+import * as React from "react";
 import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 
 interface RGBBeamButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -11,8 +13,8 @@ export function RGBBeamButton({ children, className, ...props }: RGBBeamButtonPr
   return (
     <button
       className={cn(
-        "relative overflow-hidden rounded-xl px-8 py-3.5 font-semibold text-white",
-        "rgb-full hover:opacity-90 transition-opacity",
+        buttonVariants({ variant: "primary", size: "lg" }),
+        "group relative overflow-hidden",
         className
       )}
       {...props}

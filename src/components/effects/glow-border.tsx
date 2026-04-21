@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
+import { cardVariants } from "@/components/ui/card";
 
 interface GlowBorderProps {
   children: React.ReactNode;
@@ -21,7 +22,8 @@ export function GlowBorder({ children, color = "r", className }: GlowBorderProps
   return (
     <div
       className={cn(
-        "rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-[var(--card-padding)] transition-all",
+        cardVariants({ variant: "surface", padding: "md" }),
+        "transition-all",
         !reduced && glowMap[color],
         className
       )}

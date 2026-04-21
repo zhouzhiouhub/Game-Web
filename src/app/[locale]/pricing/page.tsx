@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHeader } from "@/components/layout/page-header";
+import { Card } from "@/components/ui/card";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 type PricingPlan = {
@@ -55,9 +56,9 @@ function PricingContent({ messages }: { messages: PricingPageMessages }) {
     <>
       <PageHeader title={content.title} description={content.description} />
       <section className="pb-32">
-        <div className="mx-auto grid max-w-[var(--container-max)] gap-6 px-6 lg:grid-cols-3">
+        <div className="content-shell grid gap-6 lg:grid-cols-3">
           {content.plans.map((plan) => (
-            <article key={plan.name} className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8">
+            <Card key={plan.name} as="article" variant="surface" padding="lg">
               <h2 className="text-2xl font-semibold">{plan.name}</h2>
               <p className="mt-3 text-4xl font-bold">{plan.price}</p>
               <ul className="mt-6 space-y-2 text-sm leading-6 text-fg-secondary">
@@ -65,7 +66,7 @@ function PricingContent({ messages }: { messages: PricingPageMessages }) {
                   <li key={feature}>• {feature}</li>
                 ))}
               </ul>
-            </article>
+            </Card>
           ))}
         </div>
       </section>

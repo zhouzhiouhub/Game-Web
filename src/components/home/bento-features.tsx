@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Palette, Gamepad2, Cloud, Puzzle } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Card } from "@/components/ui/card";
 
 const featureKeys = [
   { key: "editor", icon: Palette, accent: "R" as const, image: "/images/features/keyboard-collection.jpg" },
@@ -26,16 +27,18 @@ export function BentoFeatures() {
 
   return (
     <section className="py-[var(--section-py)]">
-      <div className="mx-auto max-w-[var(--container-max)] px-6">
+      <div className="content-shell">
         <h2 className="text-center text-3xl font-bold sm:text-4xl">
           {t("title", { highlight: t("titleHighlight") })}
         </h2>
 
         <div className="mt-16 grid gap-[var(--grid-gap)] md:grid-cols-2">
           {featureKeys.map((feature) => (
-            <div
+            <Card
               key={feature.key}
-              className="group relative overflow-hidden rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-[var(--card-padding)] lg:p-8 transition-colors hover:border-white/10"
+              variant="interactive"
+              padding="md"
+              className="group relative overflow-hidden lg:p-8"
             >
               {/* Background image */}
               <Image
@@ -54,7 +57,7 @@ export function BentoFeatures() {
                 <h3 className="mt-4 text-xl font-semibold">{t(`features.${feature.key}.title`)}</h3>
                 <p className="mt-2 text-fg-secondary">{t(`features.${feature.key}.description`)}</p>
               </div>
-            </div>
+            </Card>
           ))}
         </div>
       </div>

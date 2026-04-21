@@ -4,6 +4,8 @@ import { useLocale } from "next-intl";
 import { useRouter, usePathname } from "@/i18n/navigation";
 import { Globe } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import { buttonVariants } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 const locales = [
   { code: "en", label: "English" },
@@ -36,15 +38,21 @@ export function LanguageSwitcher() {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm text-fg-secondary hover:text-fg-primary transition-colors"
+        className={buttonVariants({ variant: "secondary", size: "sm" })}
         aria-label="Switch language"
+        aria-haspopup="menu"
+        aria-expanded={open}
       >
         <Globe className="h-4 w-4" />
         <span className="hidden sm:inline">{locale === "en" ? "EN" : "中"}</span>
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-2 rounded-xl border border-white/10 bg-bg-elevated py-1 shadow-lg min-w-[120px] z-50">
+        <Card
+          className="absolute right-0 top-full z-50 mt-2 min-w-[120px] py-1"
+          padding="none"
+          variant="elevated"
+        >
           {locales.map((l) => (
             <button
               key={l.code}
@@ -58,7 +66,7 @@ export function LanguageSwitcher() {
               {l.label}
             </button>
           ))}
-        </div>
+        </Card>
       )}
     </div>
   );

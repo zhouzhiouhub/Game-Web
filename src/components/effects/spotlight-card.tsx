@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { useMouseSpotlight } from "@/hooks/use-mouse-spotlight";
+import { cardVariants } from "@/components/ui/card";
 
 interface SpotlightCardProps {
   children: React.ReactNode;
@@ -18,7 +19,8 @@ export function SpotlightCard({ children, className }: SpotlightCardProps) {
       ref={ref}
       onMouseMove={handleMouseMove}
       className={cn(
-        "group relative overflow-hidden rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-[var(--card-padding)] transition-colors hover:border-white/10",
+        cardVariants({ variant: "interactive", padding: "md" }),
+        "group relative overflow-hidden",
         className
       )}
     >

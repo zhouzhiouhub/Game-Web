@@ -1,5 +1,6 @@
 import { Section } from "@/components/shared/section";
 import { useMessages } from "next-intl";
+import { cardVariants } from "@/components/ui/card";
 
 type FAQItem = {
   question: string;
@@ -27,7 +28,7 @@ export function FAQSection() {
         {content.items.map((item) => (
           <details
             key={item.question}
-            className="group rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-6 open:border-white/10"
+            className={`${cardVariants({ variant: "surface", padding: "md" })} group open:border-white/10`}
           >
             <summary className="cursor-pointer list-none text-left font-semibold text-fg-primary">
               {item.question}

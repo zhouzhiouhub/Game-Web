@@ -11,7 +11,7 @@ export function SocialProof() {
 
   return (
     <section className="py-16">
-      <div className="mx-auto max-w-[var(--container-max)] px-6">
+      <div className="content-shell">
         <div className="flex flex-col items-center justify-center gap-8 sm:flex-row sm:gap-16">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">

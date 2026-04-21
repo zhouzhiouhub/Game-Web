@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { cardVariants } from "@/components/ui/card";
 
 interface DeviceCardProps {
   name: string;
@@ -13,7 +14,8 @@ export function DeviceCard({ name, brand, type, image, className }: DeviceCardPr
   return (
     <div
       className={cn(
-        "group relative overflow-hidden rounded-[var(--card-radius)] border border-white/5 bg-bg-surface transition-colors hover:border-white/10",
+        cardVariants({ variant: "interactive", padding: "none" }),
+        "group relative overflow-hidden",
         className
       )}
     >

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHeader } from "@/components/layout/page-header";
+import { Card } from "@/components/ui/card";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 const steps = {
@@ -58,10 +59,10 @@ export default async function ContributingPage({
         <div className="mx-auto max-w-3xl px-6">
           <ol className="grid gap-4">
             {content.map((step, index) => (
-              <li key={step} className="rounded-xl border border-white/5 bg-bg-surface p-6 text-fg-secondary">
+              <Card key={step} as="li" variant="surface" padding="md" className="text-fg-secondary">
                 <span className="mr-3 text-fg-primary">0{index + 1}</span>
                 {step}
-              </li>
+              </Card>
             ))}
           </ol>
         </div>
