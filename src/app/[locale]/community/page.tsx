@@ -1,11 +1,29 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
-import { useTranslations } from "next-intl";
+import { useMessages, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { PageHeader } from "@/components/layout/page-header";
-import { siteConfig } from "@/lib/constants";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
+
+type CommunityChannel = {
+  title: string;
+  description: string;
+  href: string;
+  external: boolean;
+};
+
+type CommunityPageContent = {
+  community: {
+    content: {
+      channels: CommunityChannel[];
+      hubTitle: string;
+      hubBullets: string[];
+      noteTitle: string;
+      noteDescription: string;
+    };
+  };
+};
 
 export async function generateMetadata({
   params,
@@ -34,59 +52,8 @@ export default async function CommunityPage({
 
 function CommunityContent({ locale }: { locale: string }) {
   const t = useTranslations("community");
-  const channels = [
-    {
-      title: "Discord",
-      description:
-        locale === "zh"
-          ? "用于实时答疑、版本反馈和用户效果分享。"
-          : "Real-time setup help, release feedback and effect sharing.",
-      href: siteConfig.discordInvite,
-      external: true,
-    },
-    {
-      title: "Marketplace",
-      description:
-        locale === "zh"
-          ? "集中展示社区沉淀的效果、主题和插件资源。"
-          : "Curated effects, themes and plugins from the community.",
-      href: "/community/marketplace",
-      external: false,
-    },
-    {
-      title: "GitHub",
-      description:
-        locale === "zh"
-          ? "追踪问题、提交修复并公开查看项目路线。"
-          : "Track issues, submit fixes and review the public roadmap.",
-      href: siteConfig.githubRepo,
-      external: true,
-    },
-  ];
-  const content =
-    locale === "zh"
-      ? {
-          hubTitle: "社区中心需要承接什么",
-          hubBullets: [
-            "清晰连接实时讨论、问题反馈与贡献文档。",
-            "展示精选案例、用户设备布置或效果作品。",
-            "为可复用资源提供统一的市场或资源入口。",
-          ],
-          noteTitle: "社区页的作用",
-          noteDescription:
-            "这块内容应该承担信任建立和活跃度展示的职责，让用户既能看到资源沉淀，也能看到持续互动与贡献路径。",
-        }
-      : {
-          hubTitle: "What a community hub should include",
-          hubBullets: [
-            "Clear path to live chat, issue tracking and contribution docs.",
-            "Highlighted setup galleries or effect showcases.",
-            "Marketplace or resource destination for reusable assets.",
-          ],
-          noteTitle: "Why this page matters",
-          noteDescription:
-            "A strong community page builds trust and activity visibility at the same time, showing both the resource layer and the path for ongoing contribution.",
-        };
+  const messages = useMessages() as CommunityPageContent;
+  const content = messages.community.content;
 
   return (
     <>
@@ -94,7 +61,7 @@ function CommunityContent({ locale }: { locale: string }) {
       <section className="pb-32">
         <div className="mx-auto max-w-[var(--container-max)] px-6">
           <div className="grid gap-6 lg:grid-cols-3">
-            {channels.map((channel) =>
+            {content.channels.map((channel) =>
               channel.external ? (
                 <a
                   key={channel.title}

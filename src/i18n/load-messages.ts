@@ -10,6 +10,8 @@ const contentTokens = {
   shortName: siteConfig.shortName,
   brandCount: siteConfig.brandCount,
   deviceCount: siteConfig.deviceCount,
+  githubRepo: siteConfig.githubRepo,
+  discordInvite: siteConfig.discordInvite,
 } as const;
 
 function isPlainObject(value: unknown): value is MessageTree {
@@ -17,9 +19,12 @@ function isPlainObject(value: unknown): value is MessageTree {
 }
 
 function replaceTokens(value: string): string {
-  return value.replace(/\{(siteName|shortName|brandCount|deviceCount)\}/g, (_, key) => {
+  return value.replace(
+    /\{(siteName|shortName|brandCount|deviceCount|githubRepo|discordInvite)\}/g,
+    (_, key) => {
     return contentTokens[key as keyof typeof contentTokens];
-  });
+    },
+  );
 }
 
 function resolveTokens<T>(value: T): T {

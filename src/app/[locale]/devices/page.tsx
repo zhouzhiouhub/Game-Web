@@ -1,12 +1,21 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
-import { useTranslations } from "next-intl";
+import { useMessages, useTranslations } from "next-intl";
 import { PageHeader } from "@/components/layout/page-header";
 import devices from "@/data/devices.json";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
-const brandHighlights = ["Corsair", "Razer", "Logitech", "NZXT", "Asus", "SteelSeries"];
+type DevicesPageMessages = {
+  devicesPage: {
+    content: {
+      brandHighlights: string[];
+      showcased: string;
+      supportTitle: string;
+      supportDescription: string;
+    };
+  };
+};
 
 export async function generateMetadata({
   params,
@@ -35,6 +44,8 @@ export default async function DevicesPage({
 
 function DevicesContent({ locale }: { locale: string }) {
   const t = useTranslations("devicesPage");
+  const messages = useMessages() as DevicesPageMessages;
+  const content = messages.devicesPage.content;
   const grouped = devices.reduce<Record<string, typeof devices>>((acc, device) => {
     if (!acc[device.type]) {
       acc[device.type] = [];
@@ -42,28 +53,13 @@ function DevicesContent({ locale }: { locale: string }) {
     acc[device.type].push(device);
     return acc;
   }, {});
-  const content =
-    locale === "zh"
-      ? {
-          showcased: "已展示",
-          supportTitle: "需要适配尚未列出的设备？",
-          supportDescription:
-            "设备页应当作为公开兼容性入口，承接你的硬件目录、支持申请或设备接入计划，让用户明确知道当前覆盖范围。",
-        }
-      : {
-          showcased: "showcased",
-          supportTitle: "Need support for a device that is not listed?",
-          supportDescription:
-            "Use this page as the public compatibility surface and connect it to your maintained hardware catalog, support intake, or roadmap for new device requests.",
-        };
-
   return (
     <>
       <PageHeader title={t("title")} description={t("description")} />
       <section className="pb-32">
         <div className="mx-auto max-w-[var(--container-max)] px-6">
           <div className="flex flex-wrap gap-3">
-            {brandHighlights.map((brand) => (
+            {content.brandHighlights.map((brand) => (
               <span
                 key={brand}
                 className="rounded-full border border-white/10 px-4 py-2 text-sm text-fg-secondary"

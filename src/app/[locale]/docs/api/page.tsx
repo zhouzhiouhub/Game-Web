@@ -1,9 +1,24 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
-import { useTranslations } from "next-intl";
+import { useMessages, useTranslations } from "next-intl";
 import { PageHeader } from "@/components/layout/page-header";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
+
+type DocsApiMessages = {
+  docs: {
+    sections: {
+      apiReference: {
+        content: {
+          primaryTitle: string;
+          primaryDescription: string;
+          secondaryTitle: string;
+          secondaryDescription: string;
+        };
+      };
+    };
+  };
+};
 
 export async function generateMetadata({
   params,
@@ -32,24 +47,8 @@ export default async function ApiPage({
 
 function ApiContent({ locale }: { locale: string }) {
   const t = useTranslations("docs");
-  const content =
-    locale === "zh"
-      ? {
-          primaryTitle: "核心对象",
-          primaryDescription:
-            "设备、分区、配置和触发器构成了最小 API 模型。把这些对象讲清楚，才能让生态能力真正可信。",
-          secondaryTitle: "集成路径",
-          secondaryDescription:
-            "提供请求与事件示例后，外部工具才能围绕游戏状态、桌面自动化和预设切换进行联动。",
-        }
-      : {
-          primaryTitle: "Core objects",
-          primaryDescription:
-            "Devices, zones, profiles and triggers form the minimum public API model. Exposing this clearly is what makes the ecosystem credible.",
-          secondaryTitle: "Integration path",
-          secondaryDescription:
-            "Publish request and event examples so external tools can react to game states, desktop automations and setup presets.",
-        };
+  const messages = useMessages() as DocsApiMessages;
+  const content = messages.docs.sections.apiReference.content;
 
   return (
     <>

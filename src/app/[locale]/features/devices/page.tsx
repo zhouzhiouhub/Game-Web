@@ -1,9 +1,18 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
-import { useTranslations } from "next-intl";
+import { useMessages, useTranslations } from "next-intl";
 import { PageHeader } from "@/components/layout/page-header";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
+
+type FeatureDevicesMessages = {
+  featurePages: {
+    devices: {
+      title: string;
+      description: string;
+    };
+  };
+};
 
 export async function generateMetadata({
   params,
@@ -32,6 +41,8 @@ export default async function DeviceSupportPage({
 
 function DeviceSupportContent() {
   const t = useTranslations("devices");
+  const messages = useMessages() as FeatureDevicesMessages;
+  const content = messages.featurePages.devices;
 
   return (
     <>
@@ -39,12 +50,8 @@ function DeviceSupportContent() {
       <section className="pb-32">
         <div className="mx-auto max-w-[var(--container-max)] px-6">
           <div className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8">
-            <h2 className="text-2xl font-semibold">Cross-brand support strategy</h2>
-            <p className="mt-4 max-w-3xl text-fg-secondary">
-              The device support story should explain how keyboards, mice, motherboards, fans and
-              light strips are normalized into one control surface. This turns compatibility from
-              a vague promise into a product advantage.
-            </p>
+            <h2 className="text-2xl font-semibold">{content.title}</h2>
+            <p className="mt-4 max-w-3xl text-fg-secondary">{content.description}</p>
           </div>
         </div>
       </section>

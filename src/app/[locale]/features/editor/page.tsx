@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
-import { useTranslations } from "next-intl";
+import { useMessages, useTranslations } from "next-intl";
 import { PageHeader } from "@/components/layout/page-header";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
+
+type EditorMessages = {
+  featurePages: {
+    editor: {
+      cards: string[];
+    };
+  };
+};
 
 export async function generateMetadata({
   params,
@@ -32,6 +40,8 @@ export default async function EditorPage({
 
 function EditorContent() {
   const t = useTranslations("bento");
+  const messages = useMessages() as EditorMessages;
+  const cards = messages.featurePages.editor.cards;
 
   return (
     <>
@@ -42,11 +52,7 @@ function EditorContent() {
       <section className="pb-32">
         <div className="mx-auto max-w-[var(--container-max)] px-6">
           <div className="grid gap-6 lg:grid-cols-3">
-            {[
-              "Layer-based visual editor for wave, ripple and gradient effects.",
-              "Reusable preset system for setups, scenes and event-driven profiles.",
-              "Timeline controls that help users design without code.",
-            ].map((item) => (
+            {cards.map((item) => (
               <article key={item} className="rounded-xl border border-white/5 bg-bg-surface p-6 text-fg-secondary">
                 {item}
               </article>
