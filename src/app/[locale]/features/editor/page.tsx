@@ -3,6 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { PageHeader } from "@/components/layout/page-header";
+import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 export async function generateMetadata({
   params,
@@ -11,10 +12,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "bento" });
-  return {
+  return createPageMetadata({
+    locale,
+    pathname: "/features/editor",
     title: t("features.editor.title"),
     description: t("features.editor.description"),
-  };
+  });
 }
 
 export default async function EditorPage({

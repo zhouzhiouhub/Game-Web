@@ -1,5 +1,26 @@
-import { setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHeader } from "@/components/layout/page-header";
+import { createPageMetadata } from "@/lib/seo/page-metadata";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "footer" });
+
+  return createPageMetadata({
+    locale,
+    pathname: "/privacy",
+    title: t("links.privacy"),
+    description:
+      locale === "zh"
+        ? "说明站点如何收集、存储和使用用户数据。"
+        : "How the site collects, stores, and uses visitor data.",
+  });
+}
 
 export default async function PrivacyPage({
   params,
@@ -15,16 +36,21 @@ export default async function PrivacyPage({
         title={locale === "zh" ? "隐私政策" : "Privacy Policy"}
         description={
           locale === "zh"
-            ? "这是主题官网模板使用的示例隐私政策结构。"
-            : "A sample privacy policy structure for this website template."
+            ? "说明站点如何收集、存储和使用用户数据。"
+            : "How the site collects, stores, and uses visitor data."
         }
       />
       <section className="pb-32">
         <article className="mx-auto max-w-3xl px-6 text-fg-secondary">
           <p className="leading-8">
             {locale === "zh"
-              ? "本模板页用于承接隐私政策链接，正式上线时请替换为真实的数据收集、存储和第三方服务说明。"
-              : "This template page exists to terminate privacy links with a real destination. Replace it with your actual data collection, storage and third-party service policy before launch."}
+              ? "我们可能收集联系信息、兼容性申请、支持消息和基础分析数据，用于提供服务、改进产品体验以及响应用户请求。"
+              : "We may collect contact details, compatibility requests, support messages, and basic analytics data to operate the service, improve the product experience, and respond to user requests."}
+          </p>
+          <p className="mt-6 leading-8">
+            {locale === "zh"
+              ? "站点可使用托管、分析、邮件或支付等第三方服务。用户可以通过官方支持渠道请求访问、更正、删除或导出与其相关的数据。"
+              : "The site may use third-party services for hosting, analytics, email delivery, or payments. Users can request access, correction, deletion, or export of relevant data through the official support channel."}
           </p>
         </article>
       </section>

@@ -31,7 +31,6 @@ export const navigation: NavigationGroup[] = [
     href: "/community",
     children: [
       { labelKey: "marketplace", href: "/community/marketplace" },
-      { labelKey: "discord", href: "/community/discord" },
     ],
   },
   { labelKey: "blog", href: "/blog" },

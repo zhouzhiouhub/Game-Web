@@ -4,9 +4,20 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { routing } from "@/i18n/routing";
+import { loadMessages } from "@/i18n/load-messages";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { siteConfig } from "@/lib/constants";
+import { createPageMetadata } from "@/lib/seo/page-metadata";
 import "@/styles/globals.css";
+
+type LayoutMessages = {
+  metadata: {
+    title: string;
+    description: string;
+    titleTemplate?: string;
+  };
+};
 
 const inter = Inter({
   subsets: ["latin"],
@@ -33,26 +44,26 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const messages = (await import(`../../../messages/${locale}.json`)).default;
+  const messages = (await loadMessages(locale)) as LayoutMessages;
+  const defaultMetadata = createPageMetadata({
+    locale,
+    pathname: "",
+    title: String(messages.metadata.title),
+    description: String(messages.metadata.description),
+  });
 
   return {
-    metadataBase: new URL("https://gaming-rgb-software.com"),
+    metadataBase: new URL(siteConfig.url),
+    ...defaultMetadata,
     title: {
-      default: messages.metadata.title,
-      template: messages.metadata.titleTemplate,
+      default: String(messages.metadata.title),
+      template: String(messages.metadata.titleTemplate ?? `%s | ${siteConfig.name}`),
     },
-    description: messages.metadata.description,
-    alternates: {
-      canonical: `https://gaming-rgb-software.com/${locale}`,
-      languages: {
-        en: "https://gaming-rgb-software.com/en",
-        zh: "https://gaming-rgb-software.com/zh",
-      },
-    },
+    description: String(messages.metadata.description),
     openGraph: {
-      locale: locale === "zh" ? "zh_CN" : "en_US",
-      type: "website",
-      siteName: "Gaming RGB Software",
+      ...defaultMetadata.openGraph,
+      title: String(messages.metadata.title),
+      description: String(messages.metadata.description),
     },
   };
 }
@@ -65,8 +76,9 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const isSupportedLocale = routing.locales.includes(locale as (typeof routing.locales)[number]);
 
-  if (!routing.locales.includes(locale as any)) {
+  if (!isSupportedLocale) {
     notFound();
   }
 

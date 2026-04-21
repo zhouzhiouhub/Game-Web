@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { PageHeader } from "@/components/layout/page-header";
 import devices from "@/data/devices.json";
+import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 const brandHighlights = ["Corsair", "Razer", "Logitech", "NZXT", "Asus", "SteelSeries"];
 
@@ -14,10 +15,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "devicesPage" });
-  return {
+  return createPageMetadata({
+    locale,
+    pathname: "/devices",
     title: t("metadata.title"),
     description: t("metadata.description"),
-  };
+  });
 }
 
 export default async function DevicesPage({
@@ -27,10 +30,10 @@ export default async function DevicesPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <DevicesContent />;
+  return <DevicesContent locale={locale} />;
 }
 
-function DevicesContent() {
+function DevicesContent({ locale }: { locale: string }) {
   const t = useTranslations("devicesPage");
   const grouped = devices.reduce<Record<string, typeof devices>>((acc, device) => {
     if (!acc[device.type]) {
@@ -39,6 +42,20 @@ function DevicesContent() {
     acc[device.type].push(device);
     return acc;
   }, {});
+  const content =
+    locale === "zh"
+      ? {
+          showcased: "已展示",
+          supportTitle: "需要适配尚未列出的设备？",
+          supportDescription:
+            "设备页应当作为公开兼容性入口，承接你的硬件目录、支持申请或设备接入计划，让用户明确知道当前覆盖范围。",
+        }
+      : {
+          showcased: "showcased",
+          supportTitle: "Need support for a device that is not listed?",
+          supportDescription:
+            "Use this page as the public compatibility surface and connect it to your maintained hardware catalog, support intake, or roadmap for new device requests.",
+        };
 
   return (
     <>
@@ -61,7 +78,7 @@ function DevicesContent() {
               <section key={type} className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8">
                 <div className="flex items-center justify-between gap-4">
                   <h2 className="text-2xl font-semibold">{type}</h2>
-                  <span className="text-sm text-fg-muted">{entries.length} showcased</span>
+                  <span className="text-sm text-fg-muted">{entries.length} {content.showcased}</span>
                 </div>
                 <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {entries.map((device) => (
@@ -76,10 +93,9 @@ function DevicesContent() {
           </div>
 
           <div className="mt-10 rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8">
-            <h2 className="text-2xl font-semibold">Need a device that is not listed?</h2>
+            <h2 className="text-2xl font-semibold">{content.supportTitle}</h2>
             <p className="mt-4 max-w-2xl text-fg-secondary">
-              Use this page as the public compatibility surface. In a production template,
-              connect it to your maintained hardware catalog, support form or device request queue.
+              {content.supportDescription}
             </p>
           </div>
         </div>

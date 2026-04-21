@@ -1,5 +1,7 @@
-import { setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHeader } from "@/components/layout/page-header";
+import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 const steps = {
   en: [
@@ -13,6 +15,25 @@ const steps = {
     "提交 PR 时附上截图、影响页面和上线说明。",
   ],
 } as const;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "footer" });
+
+  return createPageMetadata({
+    locale,
+    pathname: "/docs/contributing",
+    title: t("links.contributing"),
+    description:
+      locale === "zh"
+        ? "说明外部贡献、问题反馈和协作提交流程。"
+        : "How to contribute, report issues, and submit collaborative changes.",
+  });
+}
 
 export default async function ContributingPage({
   params,
@@ -29,8 +50,8 @@ export default async function ContributingPage({
         title={locale === "zh" ? "贡献指南" : "Contributing"}
         description={
           locale === "zh"
-            ? "为模板补齐一个真实的贡献入口，而不是停留在页脚死链。"
-            : "Provide a real contribution endpoint instead of leaving a dead footer link."
+            ? "说明外部贡献、问题反馈和协作提交流程。"
+            : "How to contribute, report issues, and submit collaborative changes."
         }
       />
       <section className="pb-32">

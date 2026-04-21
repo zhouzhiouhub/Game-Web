@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, X, Github, Globe } from "lucide-react";
+import { Menu, X, Github } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { siteConfig } from "@/lib/constants";
@@ -27,13 +27,13 @@ export function Navbar() {
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/logo.svg"
-            alt="Gaming RGB Software"
+            alt={siteConfig.name}
             width={32}
             height={32}
             priority
           />
           <span className="font-bold text-lg rgb-full bg-clip-text text-transparent">
-            Gaming RGB
+            {siteConfig.shortName}
           </span>
         </Link>
 

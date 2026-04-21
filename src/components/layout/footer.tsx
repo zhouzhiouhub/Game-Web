@@ -49,12 +49,12 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-2">
               <Image
                 src="/logo.svg"
-                alt="Gaming RGB Software"
+                alt={siteConfig.name}
                 width={28}
                 height={28}
               />
               <span className="text-lg font-bold rgb-full bg-clip-text text-transparent">
-                Gaming RGB
+                {siteConfig.shortName}
               </span>
             </Link>
             <p className="mt-3 text-sm text-fg-muted">

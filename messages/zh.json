@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Gaming RGB Software — 一款软件，点亮所有灯光",
-    "titleTemplate": "%s | Gaming RGB Software",
+    "title": "一款软件，点亮所有灯光",
+    "titleTemplate": "%s | RGB 控制平台",
     "description": "跨平台RGB灯光控制软件。统一管理所有RGB设备，告别软件冲突。"
   },
   "nav": {
@@ -104,7 +104,7 @@
   "download": {
     "metadata": {
       "title": "下载",
-      "description": "下载 Gaming RGB Software，支持 Windows、macOS 和 Linux。免费开源。"
+      "description": "下载适用于 Windows、macOS 和 Linux 的 RGB 控制软件。"
     },
     "title": "下载",
     "description": "支持 Windows、macOS 和 Linux。免费开源。",
@@ -121,7 +121,7 @@
   "docs": {
     "metadata": {
       "title": "文档",
-      "description": "Gaming RGB Software 入门指南、API 参考和插件开发文档。"
+      "description": "查看入门指南、API 参考与插件开发资源。"
     },
     "title": "文档",
     "description": "入门和进阶所需的一切。",
@@ -152,7 +152,7 @@
   "featuresPage": {
     "metadata": {
       "title": "功能",
-      "description": "探索 Gaming RGB Software 的强大功能 — 可视化效果编辑器、游戏同步、云端同步等。"
+      "description": "探索可视化效果编辑、游戏同步、云端同步等核心能力。"
     },
     "title": "功能",
     "description": "控制 RGB 灯光所需的一切。",
@@ -161,7 +161,7 @@
   "blog": {
     "metadata": {
       "title": "博客",
-      "description": "Gaming RGB Software 的最新资讯、教程和更新。"
+      "description": "查看最新资讯、教程和产品更新。"
     },
     "title": "博客",
     "description": "最新资讯、教程和社区亮点。",
@@ -170,7 +170,7 @@
   "community": {
     "metadata": {
       "title": "社区",
-      "description": "加入 Gaming RGB Software 社区，Discord、市场等。"
+      "description": "通过聊天社区、资源市场和公开更新加入产品生态。"
     },
     "title": "社区",
     "description": "加入数千名 RGB 爱好者，分享效果、插件和设备配置。",
@@ -186,26 +186,28 @@
     "comingSoon": "市场即将上线。"
   },
   "faq": {
+    "title": "常见问题",
+    "description": "这是用户在从碎片化 RGB 工具迁移到统一控制层之前，最常提出的几个问题。",
     "items": [
       {
-        "question": "Gaming RGB Software 是免费的吗？",
-        "answer": "是的！核心软件完全免费开源。云同步和高级效果市场等高级功能可通过订阅获取。"
+        "question": "这个产品一定要免费吗？",
+        "answer": "不一定。站点结构可以适配免费、付费或混合授权模式，你可以按产品真实的定价与交付方式调整这里的说明。"
       },
       {
-        "question": "支持哪些设备？",
-        "answer": "我们支持 Razer、Corsair、Logitech、NZXT、ASUS、HyperX 和 SteelSeries 等品牌的 500+ 设备。请查看设备页面获取完整列表。"
+        "question": "用户需要先卸载原有品牌软件吗？",
+        "answer": "通常不需要。更稳妥的迁移方式是先并行试用，再在确认控制稳定后关闭冲突的 RGB 后台服务。"
       },
       {
-        "question": "支持哪些平台？",
-        "answer": "Gaming RGB Software 支持 Windows 10+、macOS 12+ 和 Ubuntu 20.04+。"
+        "question": "支持设备列表应该如何维护？",
+        "answer": "公开设备页最好连接到持续维护的兼容目录、发布说明或支持申请流程，让潜在用户清楚知道哪些硬件已经过验证。"
       },
       {
-        "question": "需要卸载品牌软件吗？",
-        "answer": "不需要，Gaming RGB Software 可以与现有品牌软件并存。但建议关闭其他应用的 RGB 控制功能以获得最佳效果。"
+        "question": "开发者可以扩展这个平台吗？",
+        "answer": "可以。当前站点结构足以承接 API、插件、外部集成以及市场生态等开发者向内容。"
       },
       {
-        "question": "如何创建自定义灯光效果？",
-        "answer": "使用我们的可视化拖拽效果编辑器，无需编程。你也可以从社区市场导入效果。"
+        "question": "这套站点覆盖了哪些关键路径？",
+        "answer": "它覆盖了完整转化链路：首页、功能页、下载、文档、社区、博客、定价和法务页都已经具备可复用的版式与内容承载位。"
       }
     ]
   },

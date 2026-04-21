@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Gaming RGB Software — One Software. Every Light.",
-    "titleTemplate": "%s | Gaming RGB Software",
+    "title": "One Software. Every Light.",
+    "titleTemplate": "%s | RGB Control Platform",
     "description": "Cross-platform RGB lighting control software. Unify all your RGB devices. No more software conflicts."
   },
   "nav": {
@@ -104,7 +104,7 @@
   "download": {
     "metadata": {
       "title": "Download",
-      "description": "Download Gaming RGB Software for Windows, macOS, and Linux. Free and open source."
+      "description": "Download the RGB control software for Windows, macOS, and Linux."
     },
     "title": "Download",
     "description": "Available for Windows, macOS, and Linux. Free and open source.",
@@ -121,7 +121,7 @@
   "docs": {
     "metadata": {
       "title": "Documentation",
-      "description": "Get started with Gaming RGB Software. API reference, plugin development, and more."
+      "description": "Get started with setup guides, API references, and plugin development resources."
     },
     "title": "Documentation",
     "description": "Everything you need to get started and go further.",
@@ -152,7 +152,7 @@
   "featuresPage": {
     "metadata": {
       "title": "Features",
-      "description": "Explore the powerful features of Gaming RGB Software — visual effect editor, game sync, cloud sync, and more."
+      "description": "Explore visual effect editing, game sync, cloud sync, and other product capabilities."
     },
     "title": "Features",
     "description": "Everything you need to control your RGB lighting.",
@@ -161,7 +161,7 @@
   "blog": {
     "metadata": {
       "title": "Blog",
-      "description": "Latest news, tutorials, and updates from Gaming RGB Software."
+      "description": "Latest news, tutorials, and product updates."
     },
     "title": "Blog",
     "description": "Latest news, tutorials, and community highlights.",
@@ -170,7 +170,7 @@
   "community": {
     "metadata": {
       "title": "Community",
-      "description": "Join the Gaming RGB Software community. Discord, marketplace, and more."
+      "description": "Join the product community through chat, marketplace resources, and public updates."
     },
     "title": "Community",
     "description": "Join thousands of RGB enthusiasts. Share effects, plugins, and setups.",
@@ -186,26 +186,28 @@
     "comingSoon": "Marketplace coming soon."
   },
   "faq": {
+    "title": "Frequently asked questions",
+    "description": "The questions buyers ask before they replace fragmented RGB utilities with one control layer.",
     "items": [
       {
-        "question": "Is Gaming RGB Software free?",
-        "answer": "Yes! The core software is free and open source. Premium features like cloud sync and the premium effect marketplace are available via subscription."
+        "question": "Is the product free to use?",
+        "answer": "The site can support free, paid, or hybrid pricing models. Adjust this section to match the actual licensing and packaging of your product."
       },
       {
-        "question": "Which devices are supported?",
-        "answer": "We support 500+ devices from brands like Razer, Corsair, Logitech, NZXT, ASUS, HyperX, and SteelSeries. Check our Devices page for the full list."
+        "question": "Do users need to remove existing brand software first?",
+        "answer": "Not necessarily. A practical migration path usually starts with parallel evaluation, then disables overlapping RGB services only after users confirm stable control."
       },
       {
-        "question": "Which platforms are supported?",
-        "answer": "Gaming RGB Software runs on Windows 10+, macOS 12+, and Ubuntu 20.04+."
+        "question": "How should the supported device list be maintained?",
+        "answer": "The public devices page should be connected to a maintained compatibility catalog, release notes, or support intake flow so buyers understand what is verified."
       },
       {
-        "question": "Do I need to uninstall my brand software?",
-        "answer": "No, Gaming RGB Software works alongside your existing brand software. However, for best results, we recommend disabling RGB control in other apps to avoid conflicts."
+        "question": "Can developers extend the platform?",
+        "answer": "Yes. The site structure supports APIs, plugins, integrations, and marketplace-style ecosystem messaging for developer-facing products."
       },
       {
-        "question": "How do I create custom lighting effects?",
-        "answer": "Use our visual drag-and-drop Effect Editor — no coding required. You can also import effects from the community marketplace."
+        "question": "What does the site cover end to end?",
+        "answer": "It covers the full conversion path: homepage, feature pages, downloads, docs, community, blog, pricing, and legal destinations with reusable sections."
       }
     ]
   },

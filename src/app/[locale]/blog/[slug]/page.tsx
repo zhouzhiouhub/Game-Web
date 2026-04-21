@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { PageHeader } from "@/components/layout/page-header";
 import { getBlogPost } from "@/data/blog-posts";
+import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 export async function generateMetadata({
   params,
@@ -13,15 +14,18 @@ export async function generateMetadata({
   const post = getBlogPost(slug);
 
   if (!post) {
-    return {
-      title: locale === "zh" ? "文章未找到" : "Post not found",
-    };
+    notFound();
   }
 
-  return {
+  return createPageMetadata({
+    locale,
+    pathname: `/blog/${slug}`,
     title: locale === "zh" ? post.title.zh : post.title.en,
     description: locale === "zh" ? post.excerpt.zh : post.excerpt.en,
-  };
+    openGraph: {
+      type: "article",
+    },
+  });
 }
 
 export default async function BlogPostPage({

@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { PageHeader } from "@/components/layout/page-header";
 import { siteConfig } from "@/lib/constants";
+import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 export async function generateMetadata({
   params,
@@ -13,10 +14,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "community" });
-  return {
+  return createPageMetadata({
+    locale,
+    pathname: "/community",
     title: t("metadata.title"),
     description: t("metadata.description"),
-  };
+  });
 }
 
 export default async function CommunityPage({
@@ -26,31 +29,64 @@ export default async function CommunityPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <CommunityContent />;
+  return <CommunityContent locale={locale} />;
 }
 
-function CommunityContent() {
+function CommunityContent({ locale }: { locale: string }) {
   const t = useTranslations("community");
   const channels = [
     {
       title: "Discord",
-      description: "Real-time setup help, release feedback and effect sharing.",
+      description:
+        locale === "zh"
+          ? "用于实时答疑、版本反馈和用户效果分享。"
+          : "Real-time setup help, release feedback and effect sharing.",
       href: siteConfig.discordInvite,
       external: true,
     },
     {
       title: "Marketplace",
-      description: "Curated effects, themes and plugins from the community.",
+      description:
+        locale === "zh"
+          ? "集中展示社区沉淀的效果、主题和插件资源。"
+          : "Curated effects, themes and plugins from the community.",
       href: "/community/marketplace",
       external: false,
     },
     {
       title: "GitHub",
-      description: "Track issues, submit fixes and review the public roadmap.",
+      description:
+        locale === "zh"
+          ? "追踪问题、提交修复并公开查看项目路线。"
+          : "Track issues, submit fixes and review the public roadmap.",
       href: siteConfig.githubRepo,
       external: true,
     },
   ];
+  const content =
+    locale === "zh"
+      ? {
+          hubTitle: "社区中心需要承接什么",
+          hubBullets: [
+            "清晰连接实时讨论、问题反馈与贡献文档。",
+            "展示精选案例、用户设备布置或效果作品。",
+            "为可复用资源提供统一的市场或资源入口。",
+          ],
+          noteTitle: "社区页的作用",
+          noteDescription:
+            "这块内容应该承担信任建立和活跃度展示的职责，让用户既能看到资源沉淀，也能看到持续互动与贡献路径。",
+        }
+      : {
+          hubTitle: "What a community hub should include",
+          hubBullets: [
+            "Clear path to live chat, issue tracking and contribution docs.",
+            "Highlighted setup galleries or effect showcases.",
+            "Marketplace or resource destination for reusable assets.",
+          ],
+          noteTitle: "Why this page matters",
+          noteDescription:
+            "A strong community page builds trust and activity visibility at the same time, showing both the resource layer and the path for ongoing contribution.",
+        };
 
   return (
     <>
@@ -85,18 +121,17 @@ function CommunityContent() {
 
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             <article className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8">
-              <h2 className="text-2xl font-semibold">What to include on a community hub</h2>
+              <h2 className="text-2xl font-semibold">{content.hubTitle}</h2>
               <ul className="mt-4 space-y-2 text-sm leading-6 text-fg-muted">
-                <li>• Clear path to live chat, issue tracking and contribution docs.</li>
-                <li>• Highlighted setup galleries or effect showcases.</li>
-                <li>• Marketplace or resource destination for reusable assets.</li>
+                {content.hubBullets.map((bullet) => (
+                  <li key={bullet}>• {bullet}</li>
+                ))}
               </ul>
             </article>
             <article className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8">
-              <h2 className="text-2xl font-semibold">Template note</h2>
+              <h2 className="text-2xl font-semibold">{content.noteTitle}</h2>
               <p className="mt-4 text-sm leading-6 text-fg-muted">
-                This page now works as a reusable community landing page. You can swap the
-                invite link, resource cards and contributor path without changing layout.
+                {content.noteDescription}
               </p>
             </article>
           </div>

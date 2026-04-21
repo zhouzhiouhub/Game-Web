@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHeader } from "@/components/layout/page-header";
+import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 const plans = [
   {
@@ -32,10 +33,24 @@ const plans = [
   },
 ] as const;
 
-export const metadata: Metadata = {
-  title: "Pricing | Gaming RGB Software",
-  description: "Example pricing page for the Gaming RGB Software website template.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "footer" });
+
+  return createPageMetadata({
+    locale,
+    pathname: "/pricing",
+    title: t("links.pricing"),
+    description:
+      locale === "zh"
+        ? "适用于免费核心、订阅增值或分层授权产品的标准定价结构。"
+        : "A pricing structure suited to free-core, subscription, or tiered-license products.",
+  });
+}
 
 export default async function PricingPage({
   params,
@@ -51,8 +66,8 @@ export default async function PricingPage({
         title={locale === "zh" ? "定价" : "Pricing"}
         description={
           locale === "zh"
-            ? "展示免费核心 + 增值订阅的标准官网定价结构。"
-            : "A practical pricing layout for free core plus premium subscription products."
+            ? "适用于免费核心、订阅增值或分层授权产品的标准定价结构。"
+            : "A pricing structure suited to free-core, subscription, or tiered-license products."
         }
       />
       <section className="pb-32">

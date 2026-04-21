@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { PageHeader } from "@/components/layout/page-header";
 import { blogPosts } from "@/data/blog-posts";
+import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 export async function generateMetadata({
   params,
@@ -13,10 +14,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "blog" });
-  return {
+  return createPageMetadata({
+    locale,
+    pathname: "/blog",
     title: t("metadata.title"),
     description: t("metadata.description"),
-  };
+  });
 }
 
 export default async function BlogPage({
