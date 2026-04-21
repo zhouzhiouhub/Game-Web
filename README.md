@@ -44,6 +44,12 @@ Copy values from .env.example and replace them for your own brand.
 - Home sections: src/components/home/
 - Product and legal pages: src/app/[locale]/
 
+## Documentation
+
+- Delivery handoff guide: 交付说明文档.md
+- Developer guide: 开发文档.md
+- Design guide: 设计文档.md
+
 ## Delivery checklist
 
 - Replace site name, domain, and social links
