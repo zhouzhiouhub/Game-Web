@@ -17,6 +17,7 @@ const resourceLinks = [
 ] as const;
 
 const communityLinks = [
+  { key: "contact", href: "/contact" },
   { key: "discord", href: siteConfig.discordInvite },
   { key: "github", href: siteConfig.githubRepo },
   { key: "contributing", href: "/docs/contributing" },

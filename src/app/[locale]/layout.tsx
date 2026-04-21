@@ -7,8 +7,10 @@ import { routing } from "@/i18n/routing";
 import { loadMessages } from "@/i18n/load-messages";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/lib/constants";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
+import { buildAbsolutePageUrl } from "@/lib/seo/page-metadata";
 import "@/styles/globals.css";
 
 type LayoutMessages = {
@@ -84,10 +86,35 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
   const messages = await getMessages();
+  const webSiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.name,
+    description: siteConfig.description,
+    url: buildAbsolutePageUrl(locale, ""),
+    inLanguage: locale,
+  };
+
+  const softwareJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: siteConfig.name,
+    applicationCategory: "UtilityApplication",
+    operatingSystem: "Windows, macOS, Linux",
+    description: siteConfig.description,
+    url: buildAbsolutePageUrl(locale, ""),
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+  };
 
   return (
     <html lang={locale} className={`${inter.variable} ${jetbrainsMono.variable} dark`} suppressHydrationWarning>
       <body className="bg-bg-base text-fg-primary font-sans antialiased">
+        <JsonLd data={webSiteJsonLd} />
+        <JsonLd data={softwareJsonLd} />
         <NextIntlClientProvider messages={messages}>
           <Navbar />
           <main>{children}</main>

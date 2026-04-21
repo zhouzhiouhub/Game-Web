@@ -16,6 +16,7 @@ const routes = [
   "/docs/contributing",
   "/docs/plugins",
   "/community",
+  "/contact",
   "/privacy",
   "/terms",
   "/license",

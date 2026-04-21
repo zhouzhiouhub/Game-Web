@@ -77,6 +77,7 @@
       "download": "Download",
       "devices": "Devices",
       "pricing": "Pricing",
+      "contact": "Contact",
       "documentation": "Documentation",
       "apiReference": "API Reference",
       "plugins": "Plugins",
@@ -94,7 +95,50 @@
   "notFound": {
     "title": "404",
     "description": "Page not found. The light may have gone out here.",
-    "backHome": "Back to Home"
+    "backHome": "Back to Home",
+    "contact": "Contact Support"
+  },
+  "contact": {
+    "metadata": {
+      "title": "Contact",
+      "description": "Reach support, business, and community channels from one place."
+    },
+    "title": "Contact",
+    "description": "Use the right channel for support, partnerships, and product questions.",
+    "cards": {
+      "supportEmail": {
+        "title": "Support Email",
+        "description": "Use email for installation issues, device compatibility requests, and account-related questions."
+      },
+      "businessEmail": {
+        "title": "Business Contact",
+        "description": "Use this address for partnerships, licensing, OEM inquiries, and commercial discussions."
+      },
+      "portal": {
+        "title": "Support Portal",
+        "description": "If you run a help desk or ticket system, route users there for structured issue tracking.",
+        "cta": "Open Portal"
+      },
+      "discord": {
+        "title": "Discord Community",
+        "description": "Best for quick setup help, community discussion, and sharing configurations.",
+        "cta": "Join Discord"
+      },
+      "issues": {
+        "title": "GitHub Issues",
+        "description": "Use issues for reproducible bugs, feature requests, and public tracking.",
+        "cta": "View Issues"
+      }
+    },
+    "panel": {
+      "title": "Before You Reach Out",
+      "items": {
+        "support": "Include your device model, operating system, and a short reproduction path for technical problems.",
+        "business": "For partnerships or OEM requests, include company name, product scope, and expected timeline.",
+        "response": "Community channels are fastest for general help; email is better for formal requests."
+      },
+      "missingContact": "Support and business email are still unset in environment variables. Configure NEXT_PUBLIC_SUPPORT_EMAIL and NEXT_PUBLIC_BUSINESS_EMAIL before production launch."
+    }
   },
   "download": {
     "metadata": {

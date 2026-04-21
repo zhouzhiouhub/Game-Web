@@ -77,6 +77,7 @@
       "download": "下载",
       "devices": "设备",
       "pricing": "定价",
+      "contact": "联系",
       "documentation": "文档",
       "apiReference": "API 参考",
       "plugins": "插件",
@@ -94,7 +95,50 @@
   "notFound": {
     "title": "404",
     "description": "页面未找到，这里的灯光可能熄灭了。",
-    "backHome": "返回首页"
+    "backHome": "返回首页",
+    "contact": "联系支持"
+  },
+  "contact": {
+    "metadata": {
+      "title": "联系",
+      "description": "在一个页面中集中提供支持、商务和社区联系渠道。"
+    },
+    "title": "联系",
+    "description": "根据问题类型选择合适的支持、合作或产品咨询渠道。",
+    "cards": {
+      "supportEmail": {
+        "title": "支持邮箱",
+        "description": "适用于安装问题、设备兼容性申请以及账户相关咨询。"
+      },
+      "businessEmail": {
+        "title": "商务联系",
+        "description": "适用于合作、授权、OEM 咨询和商业洽谈。"
+      },
+      "portal": {
+        "title": "支持工单",
+        "description": "如果你有帮助台或工单系统，建议把用户引导到这里进行结构化跟踪。",
+        "cta": "打开工单系统"
+      },
+      "discord": {
+        "title": "Discord 社区",
+        "description": "适合快速答疑、社区讨论和配置分享。",
+        "cta": "加入 Discord"
+      },
+      "issues": {
+        "title": "GitHub Issues",
+        "description": "适用于可复现 Bug、功能需求和公开问题跟踪。",
+        "cta": "查看 Issues"
+      }
+    },
+    "panel": {
+      "title": "联系前建议",
+      "items": {
+        "support": "技术问题请附上设备型号、操作系统和复现步骤。",
+        "business": "合作或 OEM 咨询请附上公司名称、需求范围和预期时间。",
+        "response": "一般答疑优先走社区渠道，正式请求更适合邮件。"
+      },
+      "missingContact": "当前环境变量仍未配置支持邮箱和商务邮箱。正式上线前请补充 NEXT_PUBLIC_SUPPORT_EMAIL 和 NEXT_PUBLIC_BUSINESS_EMAIL。"
+    }
   },
   "download": {
     "metadata": {

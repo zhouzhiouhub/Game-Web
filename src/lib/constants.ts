@@ -11,6 +11,9 @@ export const siteConfig = {
     process.env.NEXT_PUBLIC_GITHUB_REPO ?? "https://github.com/gaming-rgb-software/app",
   discordInvite:
     process.env.NEXT_PUBLIC_DISCORD_INVITE ?? "https://discord.gg/gaming-rgb",
+  supportEmail: process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? "",
+  businessEmail: process.env.NEXT_PUBLIC_BUSINESS_EMAIL ?? "",
+  supportUrl: process.env.NEXT_PUBLIC_SUPPORT_URL ?? "",
 } as const;
 
 export const brandNames = [
