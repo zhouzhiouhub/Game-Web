@@ -87,7 +87,13 @@ export function Footer() {
             {t("copyright", { year: new Date().getFullYear(), name: siteConfig.name })}
           </p>
           <div className="flex items-center gap-4">
-            <a href={siteConfig.githubRepo} target="_blank" rel="noopener noreferrer" className="text-fg-muted hover:text-fg-primary transition-colors">
+            <a
+              href={siteConfig.githubRepo}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="text-fg-muted hover:text-fg-primary transition-colors"
+            >
               <Github className="h-5 w-5" />
             </a>
             <a href={siteConfig.discordInvite} target="_blank" rel="noopener noreferrer" className="text-body-sm text-fg-muted hover:text-fg-primary">

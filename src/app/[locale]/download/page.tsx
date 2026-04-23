@@ -59,11 +59,10 @@ export default async function DownloadPage({
 function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
   const t = useTranslations("download");
   const content = messages.download.content;
-  const releasesUrl = `${siteConfig.githubRepo}/releases/latest`;
   const platforms = [
     {
       label: t("windows"),
-      href: releasesUrl,
+      href: siteConfig.downloads.windows,
       icon: Download,
       accent:
         "rgb-full text-white hover:opacity-90 border-transparent",
@@ -71,7 +70,7 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
     },
     {
       label: t("macos"),
-      href: releasesUrl,
+      href: siteConfig.downloads.macos,
       icon: Apple,
       accent:
         "border-white/10 text-fg-secondary hover:text-fg-primary hover:border-white/20",
@@ -79,7 +78,7 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
     },
     {
       label: t("linux"),
-      href: releasesUrl,
+      href: siteConfig.downloads.linux,
       icon: Terminal,
       accent:
         "border-white/10 text-fg-secondary hover:text-fg-primary hover:border-white/20",

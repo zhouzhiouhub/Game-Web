@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
@@ -23,27 +23,35 @@ const sampleDevices = [
 ];
 
 export function DeviceShowcase() {
+  const instanceId = useId();
   const [active, setActive] = useState<string>(categoryKeys[0]);
   const t = useTranslations("devices");
 
   const filtered = sampleDevices.filter((d) => d.categoryKey === active);
+  const titleId = `${instanceId}-title`;
+  const panelId = `${instanceId}-panel-${active}`;
 
   return (
-    <section className="py-[var(--section-py)]">
+    <section className="py-[var(--section-py)]" aria-labelledby={titleId}>
       <div className="content-shell">
-        <h2 className="text-center text-3xl font-bold sm:text-4xl">
+        <h2 id={titleId} className="text-center text-3xl font-bold sm:text-4xl">
           {t("title")}
         </h2>
         <p className="mt-4 text-center text-fg-secondary">
           {t("subtitle")}
         </p>
 
-        {/* Category Tabs */}
-        <div className="mt-10 flex flex-wrap justify-center gap-2">
+        <div role="tablist" aria-label={t("title")} className="mt-10 flex flex-wrap justify-center gap-2">
           {categoryKeys.map((catKey) => (
             <button
               key={catKey}
+              type="button"
               onClick={() => setActive(catKey)}
+              role="tab"
+              id={`${instanceId}-tab-${catKey}`}
+              aria-selected={active === catKey}
+              aria-controls={active === catKey ? panelId : undefined}
+              tabIndex={active === catKey ? 0 : -1}
               className={cn(
                 buttonVariants({ variant: active === catKey ? "primary" : "secondary", size: "sm" }),
                 active === catKey
@@ -56,8 +64,12 @@ export function DeviceShowcase() {
           ))}
         </div>
 
-        {/* Device Grid */}
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div
+          id={panelId}
+          role="tabpanel"
+          aria-labelledby={`${instanceId}-tab-${active}`}
+          className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {filtered.map((device) => (
             <Card
               key={device.name}

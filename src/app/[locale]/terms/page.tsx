@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHeader } from "@/components/layout/page-header";
+import { siteConfig } from "@/lib/constants";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 export async function generateMetadata({
@@ -29,6 +30,13 @@ export default async function TermsPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const lastUpdated = siteConfig.legalLastUpdated ? new Date(siteConfig.legalLastUpdated) : null;
+  const formattedLastUpdated =
+    lastUpdated && !Number.isNaN(lastUpdated.getTime())
+      ? new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", {
+          dateStyle: "long",
+        }).format(lastUpdated)
+      : null;
 
   return (
     <>
@@ -53,6 +61,13 @@ export default async function TermsPage({
                 ? "若产品包含订阅、付费功能或商业授权，续费、退款、责任限制和终止条款应以实际订单、发票或商业协议中的说明为准。"
                 : "If the product includes subscriptions, paid features, or commercial licensing, renewal, refund, liability, and termination terms are governed by the applicable order, invoice, or commercial agreement."}
             </p>
+            {formattedLastUpdated ? (
+              <p className="mt-10 text-sm text-fg-muted">
+                {locale === "zh"
+                  ? `最后更新：${formattedLastUpdated}`
+                  : `Last updated: ${formattedLastUpdated}`}
+              </p>
+            ) : null}
           </article>
         </div>
       </section>

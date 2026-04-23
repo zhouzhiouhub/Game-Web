@@ -51,6 +51,7 @@ export function HeroSection() {
             alt="RGB gaming setup"
             width={1200}
             height={675}
+            sizes="(max-width: 1280px) 100vw, 1200px"
             className="relative rounded-2xl border border-white/10 shadow-2xl"
             priority
           />

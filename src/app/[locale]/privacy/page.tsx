@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHeader } from "@/components/layout/page-header";
+import { siteConfig } from "@/lib/constants";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 export async function generateMetadata({
@@ -29,6 +30,13 @@ export default async function PrivacyPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const lastUpdated = siteConfig.legalLastUpdated ? new Date(siteConfig.legalLastUpdated) : null;
+  const formattedLastUpdated =
+    lastUpdated && !Number.isNaN(lastUpdated.getTime())
+      ? new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", {
+          dateStyle: "long",
+        }).format(lastUpdated)
+      : null;
 
   return (
     <>
@@ -58,6 +66,13 @@ export default async function PrivacyPage({
                 ? "当站点启用可选统计时，我们会先展示同意横幅，再在用户明确同意后加载非必要分析脚本。拒绝后不影响浏览核心内容。"
                 : "When optional analytics is enabled, the site presents a consent banner and only loads non-essential measurement scripts after the visitor explicitly allows them. Declining consent does not block access to core site content."}
             </p>
+            {formattedLastUpdated ? (
+              <p className="mt-10 text-sm text-fg-muted">
+                {locale === "zh"
+                  ? `最后更新：${formattedLastUpdated}`
+                  : `Last updated: ${formattedLastUpdated}`}
+              </p>
+            ) : null}
           </article>
         </div>
       </section>

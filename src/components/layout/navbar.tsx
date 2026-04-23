@@ -70,6 +70,7 @@ export function Navbar() {
         </div>
 
         <button
+          type="button"
           className="touch-target md:hidden text-fg-secondary hover:text-fg-primary"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
