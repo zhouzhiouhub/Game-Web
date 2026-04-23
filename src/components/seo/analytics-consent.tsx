@@ -101,9 +101,9 @@ export function AnalyticsConsent({ analyticsConfig }: { analyticsConfig: Analyti
               className="pointer-events-auto border-white/10 bg-black/85 shadow-2xl backdrop-blur-xl"
             >
               <div
-                role="dialog"
                 aria-labelledby="cookie-consent-title"
                 aria-describedby="cookie-consent-description"
+                aria-live="polite"
                 className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between"
               >
                 <div className="max-w-3xl space-y-2">

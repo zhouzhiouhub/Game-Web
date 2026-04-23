@@ -120,8 +120,8 @@ export default async function LocaleLayout({
           <Navbar />
           <main>{children}</main>
           <Footer />
+          <Analytics />
         </NextIntlClientProvider>
-        <Analytics />
       </body>
     </html>
   );

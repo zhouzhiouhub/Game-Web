@@ -22,7 +22,7 @@ export const cardVariants = cva("rounded-[var(--card-radius)] border", {
   },
 });
 
-type CardElement = "div" | "article" | "section" | "li";
+type CardElement = "div" | "article" | "section" | "li" | "aside";
 
 export interface CardProps
   extends React.HTMLAttributes<HTMLElement>,
