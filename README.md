@@ -33,6 +33,18 @@ Copy values from .env.example and replace them for your own brand.
 - NEXT_PUBLIC_SITE_DESCRIPTION
 - NEXT_PUBLIC_GITHUB_REPO
 - NEXT_PUBLIC_DISCORD_INVITE
+- NEXT_PUBLIC_ANALYTICS_PROVIDER
+- NEXT_PUBLIC_GA_MEASUREMENT_ID
+- NEXT_PUBLIC_PLAUSIBLE_DOMAIN
+- NEXT_PUBLIC_PLAUSIBLE_SCRIPT_URL
+- NEXT_PUBLIC_UMAMI_WEBSITE_ID
+- NEXT_PUBLIC_UMAMI_SCRIPT_URL
+
+Supported analytics providers in the integration layer:
+
+- ga4
+- plausible
+- umami
 
 ## Main customization points
 
