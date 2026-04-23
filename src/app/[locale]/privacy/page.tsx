@@ -53,6 +53,11 @@ export default async function PrivacyPage({
                 ? "站点可使用托管、分析、邮件或支付等第三方服务。用户可以通过官方支持渠道请求访问、更正、删除或导出与其相关的数据。"
                 : "The site may use third-party services for hosting, analytics, email delivery, or payments. Users can request access, correction, deletion, or export of relevant data through the official support channel."}
             </p>
+            <p className="mt-6 leading-8">
+              {locale === "zh"
+                ? "当站点启用可选统计时，我们会先展示同意横幅，再在用户明确同意后加载非必要分析脚本。拒绝后不影响浏览核心内容。"
+                : "When optional analytics is enabled, the site presents a consent banner and only loads non-essential measurement scripts after the visitor explicitly allows them. Declining consent does not block access to core site content."}
+            </p>
           </article>
         </div>
       </section>

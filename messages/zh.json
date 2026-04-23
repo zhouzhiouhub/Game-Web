@@ -253,5 +253,12 @@
   "languageSwitcher": {
     "en": "English",
     "zh": "中文"
+  },
+  "cookieConsent": {
+    "title": "隐私偏好",
+    "description": "我们会使用可选统计来了解访问情况并改进产品体验。相关脚本仅会在你同意后加载；拒绝不会影响站点核心功能。",
+    "accept": "同意统计",
+    "reject": "拒绝",
+    "privacy": "查看隐私政策"
   }
 }

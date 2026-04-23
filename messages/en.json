@@ -253,5 +253,12 @@
   "languageSwitcher": {
     "en": "English",
     "zh": "中文"
+  },
+  "cookieConsent": {
+    "title": "Privacy preferences",
+    "description": "We use optional analytics to understand traffic and improve the product experience. These scripts load only after you allow them, and rejecting them will not affect core site features.",
+    "accept": "Allow analytics",
+    "reject": "Decline",
+    "privacy": "Review privacy policy"
   }
 }

@@ -1,6 +1,6 @@
-type AnalyticsProvider = "ga4" | "plausible" | "umami";
+export type AnalyticsProvider = "ga4" | "plausible" | "umami";
 
-type AnalyticsConfig =
+export type AnalyticsConfig =
   | {
       provider: "ga4";
       measurementId: string;
