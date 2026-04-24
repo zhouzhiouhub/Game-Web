@@ -40,7 +40,9 @@ function resolveAnalyticsProvider(value?: string): AnalyticsProvider | null {
 }
 
 export function getAnalyticsConfig(): AnalyticsConfig | null {
-  const provider = resolveAnalyticsProvider(process.env.NEXT_PUBLIC_ANALYTICS_PROVIDER);
+  const measurementId = readNonEmptyEnv(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID);
+  const provider = resolveAnalyticsProvider(process.env.NEXT_PUBLIC_ANALYTICS_PROVIDER) ??
+    (measurementId ? "ga4" : null);
 
   if (!provider) {
     return null;
@@ -48,8 +50,6 @@ export function getAnalyticsConfig(): AnalyticsConfig | null {
 
   switch (provider) {
     case "ga4": {
-      const measurementId = readNonEmptyEnv(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID);
-
       return measurementId
         ? {
             provider,

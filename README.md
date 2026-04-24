@@ -51,11 +51,12 @@ Download URL resolution order:
 - Generic NEXT_PUBLIC_DOWNLOAD_URL
 - GitHub Releases latest URL derived from NEXT_PUBLIC_GITHUB_REPO
 
-Supported analytics providers in the integration layer:
+Current analytics handoff selection:
 
-- ga4
-- plausible
-- umami
+- GA4
+- Set NEXT_PUBLIC_ANALYTICS_PROVIDER to ga4
+- Set NEXT_PUBLIC_GA_MEASUREMENT_ID to your live Google Analytics Measurement ID
+- If NEXT_PUBLIC_GA_MEASUREMENT_ID is present, the site will also fall back to GA4 automatically when provider is omitted
 
 ## Main customization points
 
