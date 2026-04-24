@@ -55,10 +55,10 @@ function GameSyncContent({ messages }: { messages: GameSyncMessages }) {
         description={t("features.gameSync.description")}
       />
       <section className="pb-32">
-        <div className="mx-auto max-w-[var(--container-max)] px-6">
+        <div className="mx-auto max-w-[var(--container-max)] px-4 sm:px-6">
           <div className="grid gap-6 lg:grid-cols-2">
             {cards.map((card) => (
-              <article key={card.title} className="rounded-xl border border-white/5 bg-bg-surface p-8">
+              <article key={card.title} className="rounded-xl border border-white/5 bg-bg-surface p-6 sm:p-8">
                 <h2 className="text-2xl font-semibold">{card.title}</h2>
                 <p className="mt-4 text-fg-secondary">{card.description}</p>
               </article>

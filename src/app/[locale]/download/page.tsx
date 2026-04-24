@@ -86,7 +86,7 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
     <>
       <PageHeader title={t("title")} description={t("description")} />
       <section className="pb-32">
-        <div className="mx-auto grid max-w-5xl gap-8 px-6 lg:grid-cols-[1.25fr_0.75fr]">
+        <div className="mx-auto grid max-w-5xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.25fr_0.75fr]">
           <div className="grid gap-4">
             {platforms.map((platform) => (
               platform.href ? (
@@ -95,34 +95,34 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
                   href={platform.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`rounded-xl border px-6 py-5 transition-colors ${platform.accent}`}
+                  className={`rounded-xl border px-5 py-5 transition-colors sm:px-6 ${platform.accent}`}
                 >
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-3">
+                  <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+                    <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
                       <platform.icon className="h-5 w-5" />
                       <div>
                         <p className="text-base font-semibold">{platform.label}</p>
                         <p className="mt-1 text-sm opacity-80">{platform.note}</p>
                       </div>
                     </div>
-                    <span className="text-sm font-medium">{content.latest}</span>
+                    <span className="self-start text-sm font-medium sm:self-auto">{content.latest}</span>
                   </div>
                 </a>
               ) : (
                 <div
                   key={platform.label}
                   aria-disabled="true"
-                  className="rounded-xl border border-white/10 px-6 py-5 text-fg-muted opacity-60"
+                  className="rounded-xl border border-white/10 px-5 py-5 text-fg-muted opacity-60 sm:px-6"
                 >
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-3">
+                  <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+                    <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
                       <platform.icon className="h-5 w-5" />
                       <div>
                         <p className="text-base font-semibold">{platform.label}</p>
                         <p className="mt-1 text-sm opacity-80">{platform.note}</p>
                       </div>
                     </div>
-                    <span className="text-sm font-medium">{t("notAvailable")}</span>
+                    <span className="self-start text-sm font-medium sm:self-auto">{t("notAvailable")}</span>
                   </div>
                 </div>
               )
@@ -135,7 +135,7 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
               </div>
             ) : null}
 
-            <div className="rounded-xl border border-white/5 bg-bg-surface p-6">
+            <div className="rounded-xl border border-white/5 bg-bg-surface p-5 sm:p-6">
               <h3 className="text-sm font-semibold text-fg-primary">{content.releaseTitle}</h3>
               <ul className="mt-3 space-y-2 text-sm leading-6 text-fg-muted">
                 {content.releaseItems.map((item) => (
@@ -145,7 +145,7 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
             </div>
           </div>
 
-          <div className="rounded-xl border border-white/5 bg-bg-surface p-6">
+          <div className="rounded-xl border border-white/5 bg-bg-surface p-5 sm:p-6">
             <h3 className="text-sm font-semibold text-fg-primary">
               {t("systemRequirements")}
             </h3>

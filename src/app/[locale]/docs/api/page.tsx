@@ -57,13 +57,13 @@ function ApiContent({ messages }: { messages: DocsApiMessages }) {
         description={t("sections.apiReference.description")}
       />
       <section className="pb-32">
-        <div className="mx-auto max-w-[var(--container-max)] px-6">
+        <div className="mx-auto max-w-[var(--container-max)] px-4 sm:px-6">
           <div className="grid gap-6 lg:grid-cols-2">
-            <article className="rounded-xl border border-white/5 bg-bg-surface p-8">
+            <article className="rounded-xl border border-white/5 bg-bg-surface p-6 sm:p-8">
               <h2 className="text-2xl font-semibold">{content.primaryTitle}</h2>
               <p className="mt-4 text-fg-secondary">{content.primaryDescription}</p>
             </article>
-            <article className="rounded-xl border border-white/5 bg-bg-surface p-8">
+            <article className="rounded-xl border border-white/5 bg-bg-surface p-6 sm:p-8">
               <h2 className="text-2xl font-semibold">{content.secondaryTitle}</h2>
               <p className="mt-4 text-fg-secondary">{content.secondaryDescription}</p>
             </article>

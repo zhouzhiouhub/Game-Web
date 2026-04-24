@@ -59,12 +59,12 @@ function FeaturesContent({ messages }: { messages: FeaturesPageContent }) {
     <>
       <PageHeader title={t("title")} description={t("description")} />
       <section className="pb-32">
-        <div className="mx-auto max-w-[var(--container-max)] px-6">
+        <div className="mx-auto max-w-[var(--container-max)] px-4 sm:px-6">
           <div className="grid gap-6 lg:grid-cols-2">
             {content.cards.map((feature) => (
               <article
                 key={feature.key}
-                className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8"
+                className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-6 sm:p-8"
               >
                 <p className="text-sm uppercase tracking-[0.2em] text-fg-muted">
                   {content.sectionLabel}
@@ -90,7 +90,7 @@ function FeaturesContent({ messages }: { messages: FeaturesPageContent }) {
             ))}
           </div>
 
-          <div className="mt-10 rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8">
+          <div className="mt-10 rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-6 sm:p-8">
             <h2 className="text-2xl font-semibold">{content.summaryTitle}</h2>
             <p className="mt-4 max-w-3xl text-fg-secondary">
               {content.summaryDescription}

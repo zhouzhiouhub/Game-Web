@@ -13,7 +13,7 @@ export const cardVariants = cva("rounded-[var(--card-radius)] border", {
       none: "p-0",
       sm: "p-5",
       md: "p-6",
-      lg: "p-8",
+      lg: "p-6 sm:p-8",
     },
   },
   defaultVariants: {

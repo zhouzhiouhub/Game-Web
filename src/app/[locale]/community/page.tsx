@@ -60,7 +60,7 @@ function CommunityContent({ messages }: { messages: CommunityPageContent }) {
     <>
       <PageHeader title={t("title")} description={t("description")} />
       <section className="pb-32">
-        <div className="mx-auto max-w-[var(--container-max)] px-6">
+        <div className="mx-auto max-w-[var(--container-max)] px-4 sm:px-6">
           {channels.length > 0 ? (
             <div className="grid gap-6 lg:grid-cols-3">
               {channels.map((channel) =>
@@ -70,7 +70,7 @@ function CommunityContent({ messages }: { messages: CommunityPageContent }) {
                     href={channel.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8 transition-colors hover:border-white/10"
+                    className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-6 transition-colors hover:border-white/10 sm:p-8"
                   >
                     <h2 className="text-2xl font-semibold">{channel.title}</h2>
                     <p className="mt-3 text-fg-secondary">{channel.description}</p>
@@ -79,7 +79,7 @@ function CommunityContent({ messages }: { messages: CommunityPageContent }) {
                   <Link
                     key={channel.title}
                     href={channel.href}
-                    className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8 transition-colors hover:border-white/10"
+                    className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-6 transition-colors hover:border-white/10 sm:p-8"
                   >
                     <h2 className="text-2xl font-semibold">{channel.title}</h2>
                     <p className="mt-3 text-fg-secondary">{channel.description}</p>
@@ -90,7 +90,7 @@ function CommunityContent({ messages }: { messages: CommunityPageContent }) {
           ) : null}
 
           <div className={`${channels.length > 0 ? "mt-10" : "mt-0"} grid gap-6 lg:grid-cols-2`}>
-            <article className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8">
+            <article className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-6 sm:p-8">
               <h2 className="text-2xl font-semibold">{content.hubTitle}</h2>
               <ul className="mt-4 space-y-2 text-sm leading-6 text-fg-muted">
                 {content.hubBullets.map((bullet) => (
@@ -98,7 +98,7 @@ function CommunityContent({ messages }: { messages: CommunityPageContent }) {
                 ))}
               </ul>
             </article>
-            <article className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8">
+            <article className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-6 sm:p-8">
               <h2 className="text-2xl font-semibold">{content.noteTitle}</h2>
               <p className="mt-4 text-sm leading-6 text-fg-muted">
                 {content.noteDescription}
