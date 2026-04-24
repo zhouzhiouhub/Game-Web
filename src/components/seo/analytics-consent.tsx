@@ -95,7 +95,7 @@ export function AnalyticsConsent({ analyticsConfig }: { analyticsConfig: Analyti
     <>
       {consent === "pending" ? (
         <div className="pointer-events-none fixed inset-x-0 bottom-4 z-50 px-4">
-          <div className="mx-auto max-w-5xl">
+          <div className="mx-auto content-limit-5xl">
             <Card
               variant="elevated"
               className="pointer-events-auto border-white/10 bg-black/85 shadow-2xl backdrop-blur-xl"
@@ -106,7 +106,7 @@ export function AnalyticsConsent({ analyticsConfig }: { analyticsConfig: Analyti
                 aria-live="polite"
                 className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between"
               >
-                <div className="max-w-3xl space-y-2">
+                <div className="content-limit-3xl space-y-2">
                   <p id="cookie-consent-title" className="text-sm font-semibold uppercase tracking-[0.24em] text-rgb-b">
                     {t("title")}
                   </p>

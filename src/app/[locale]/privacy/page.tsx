@@ -50,7 +50,7 @@ export default async function PrivacyPage({
       />
       <section className="pb-32">
         <div className="content-shell">
-          <article className="max-w-3xl text-fg-secondary">
+          <article className="content-limit-3xl text-fg-secondary">
             <p className="leading-8">
               {locale === "zh"
                 ? "我们可能收集联系信息、兼容性申请、支持消息和基础分析数据，用于提供服务、改进产品体验以及响应用户请求。"

@@ -51,7 +51,7 @@ function DeviceSupportContent({ messages }: { messages: FeatureDevicesMessages }
         <div className="content-shell">
           <div className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-6 sm:p-8">
             <h2 className="text-2xl font-semibold">{content.title}</h2>
-            <p className="mt-4 max-w-3xl text-fg-secondary">{content.description}</p>
+            <p className="mt-4 content-limit-3xl text-fg-secondary">{content.description}</p>
           </div>
         </div>
       </section>

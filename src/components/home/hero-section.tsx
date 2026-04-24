@@ -12,7 +12,7 @@ export function HeroSection() {
       <div className="absolute inset-0 rgb-aurora opacity-60" />
 
       <div className="content-shell relative text-center">
-        <h1 className="text-display mx-auto max-w-5xl">
+        <h1 className="text-display mx-auto content-limit-5xl">
           {t("line1")}
           <br />
           <span className="rgb-full bg-clip-text text-transparent">
@@ -20,7 +20,7 @@ export function HeroSection() {
           </span>
         </h1>
 
-        <p className="text-body-lg mx-auto mt-6 max-w-xl text-fg-secondary">
+        <p className="text-body-lg mx-auto mt-6 content-limit-xl text-fg-secondary">
           {t("description")}
         </p>
 
@@ -44,7 +44,7 @@ export function HeroSection() {
         </p>
 
         {/* Hero image showcase */}
-        <div className="mt-16 relative mx-auto max-w-4xl">
+        <div className="mt-16 relative mx-auto content-limit-4xl">
           <div className="absolute -inset-4 rgb-glow opacity-30 blur-3xl rounded-2xl" />
           <Image
             src="/images/hero/gaming-setup-wide.jpg"

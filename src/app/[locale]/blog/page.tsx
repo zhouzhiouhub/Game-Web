@@ -66,7 +66,7 @@ function BlogContent({ locale }: { locale: string }) {
               ))}
             </div>
           ) : (
-            <Card className="mx-auto max-w-3xl text-center" variant="elevated" padding="lg">
+            <Card className="mx-auto content-limit-3xl text-center" variant="elevated" padding="lg">
               <Badge className="mx-auto w-fit" variant="subtle">
                 Blog
               </Badge>

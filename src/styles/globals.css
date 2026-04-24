@@ -350,6 +350,26 @@
   margin-inline: auto;
 }
 
+@utility content-limit-xl {
+  max-width: 36rem;
+}
+
+@utility content-limit-2xl {
+  max-width: 42rem;
+}
+
+@utility content-limit-3xl {
+  max-width: 48rem;
+}
+
+@utility content-limit-4xl {
+  max-width: 56rem;
+}
+
+@utility content-limit-5xl {
+  max-width: 64rem;
+}
+
 @media (width >= 640px) {
   .content-shell {
     width: min(100% - 3rem, var(--container-max));

@@ -90,7 +90,7 @@ function DevicesContent({ messages }: { messages: DevicesPageMessages }) {
 
           <div className="mt-10 rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-6 sm:p-8">
             <h2 className="text-2xl font-semibold">{content.supportTitle}</h2>
-            <p className="mt-4 max-w-2xl text-fg-secondary">
+            <p className="mt-4 content-limit-2xl text-fg-secondary">
               {content.supportDescription}
             </p>
           </div>

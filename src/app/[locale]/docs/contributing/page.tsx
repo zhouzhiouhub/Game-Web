@@ -57,7 +57,7 @@ export default async function ContributingPage({
       />
       <section className="pb-32">
         <div className="content-shell">
-          <ol className="grid max-w-3xl gap-4">
+          <ol className="grid content-limit-3xl gap-4">
             {content.map((step, index) => (
               <Card key={step} as="li" variant="surface" padding="md" className="text-fg-secondary">
                 <span className="mr-3 text-fg-primary">0{index + 1}</span>

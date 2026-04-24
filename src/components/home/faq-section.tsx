@@ -19,12 +19,12 @@ export function FAQSection() {
 
   return (
     <Section>
-      <div className="mx-auto max-w-3xl text-center">
+      <div className="mx-auto content-limit-3xl text-center">
         <h2 className="text-3xl font-bold sm:text-4xl">{content.title}</h2>
         <p className="mt-4 text-fg-secondary">{content.description}</p>
       </div>
 
-      <div className="mx-auto mt-12 grid max-w-4xl gap-4">
+      <div className="mx-auto mt-12 grid content-limit-4xl gap-4">
         {content.items.map((item) => (
           <details
             key={item.question}

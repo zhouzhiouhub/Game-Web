@@ -50,7 +50,7 @@ export default async function LicensePage({
       />
       <section className="pb-32">
         <div className="content-shell">
-          <article className="max-w-3xl text-fg-secondary">
+          <article className="content-limit-3xl text-fg-secondary">
             <p className="leading-8">
               {locale === "zh"
                 ? "仓库代码默认以 MIT 协议发布，第三方依赖遵循各自许可证；若站点包含品牌图形、截图或外部图片素材，应单独核对这些资产的再分发权限。"

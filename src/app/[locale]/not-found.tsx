@@ -8,7 +8,7 @@ export default function LocalizedNotFound() {
   return (
     <section className="pb-32 pt-32">
       <div className="content-shell">
-        <Card className="mx-auto max-w-2xl text-center" variant="elevated" padding="lg">
+        <Card className="mx-auto content-limit-2xl text-center" variant="elevated" padding="lg">
           <p className="text-caption text-fg-muted">Error</p>
           <h1 className="mt-4 text-6xl font-bold rgb-full bg-clip-text text-transparent">404</h1>
           <p className="mt-6 text-body-lg text-fg-secondary">{t("description")}</p>
