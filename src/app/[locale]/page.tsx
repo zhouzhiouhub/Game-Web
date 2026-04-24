@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { HeroSection } from "@/components/home/hero-section";
 import { LogoCloud } from "@/components/home/logo-cloud";
@@ -7,6 +6,7 @@ import { BentoFeatures } from "@/components/home/bento-features";
 import { DeviceShowcase } from "@/components/home/device-showcase";
 import { FAQSection } from "@/components/home/faq-section";
 import { CTASection } from "@/components/home/cta-section";
+import { RgbArtwork } from "@/components/shared/rgb-artwork";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 export async function generateMetadata({
@@ -41,15 +41,7 @@ export default async function HomePage({
     <div className="relative">
       {/* Full-page background image */}
       <div className="fixed inset-0 -z-10">
-        <Image
-          src="/images/backgrounds/gaming-room-dark-rgb.jpg"
-          alt=""
-          fill
-          className="object-cover object-center"
-          sizes="100vw"
-          priority
-          quality={75}
-        />
+        <RgbArtwork variant="ambient" className="h-full w-full" />
         {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-bg-base/80" />
         {/* RGB aurora overlay for brand feel */}

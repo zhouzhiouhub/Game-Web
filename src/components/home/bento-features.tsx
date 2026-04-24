@@ -1,13 +1,13 @@
-import Image from "next/image";
 import { Palette, Gamepad2, Cloud, Puzzle } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Card } from "@/components/ui/card";
+import { RgbArtwork } from "@/components/shared/rgb-artwork";
 
 const featureKeys = [
-  { key: "editor", icon: Palette, accent: "R" as const, image: "/images/features/keyboard-collection.jpg" },
-  { key: "gameSync", icon: Gamepad2, accent: "G" as const, image: "/images/features/mouse-neon-glow.jpg" },
-  { key: "cloudSync", icon: Cloud, accent: "B" as const, image: "/images/features/gaming-setup-ambient.jpg" },
-  { key: "plugin", icon: Puzzle, accent: "R" as const, image: "/images/features/gaming-station.jpg" },
+  { key: "editor", icon: Palette, accent: "R" as const, artwork: "editor" as const },
+  { key: "gameSync", icon: Gamepad2, accent: "G" as const, artwork: "gameSync" as const },
+  { key: "cloudSync", icon: Cloud, accent: "B" as const, artwork: "cloudSync" as const },
+  { key: "plugin", icon: Puzzle, accent: "R" as const, artwork: "plugin" as const },
 ];
 
 const accentColors: Record<string, string> = {
@@ -40,13 +40,9 @@ export function BentoFeatures() {
               padding="md"
               className="group relative overflow-hidden lg:p-8"
             >
-              {/* Background image */}
-              <Image
-                src={feature.image}
-                alt={t(`features.${feature.key}.title`)}
-                fill
-                className="object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-300"
-                sizes="(max-width: 768px) 100vw, 50vw"
+              <RgbArtwork
+                variant={feature.artwork}
+                className="absolute inset-0 opacity-75 transition-opacity duration-300 group-hover:opacity-90"
               />
               {/* Glow accent */}
               <div
