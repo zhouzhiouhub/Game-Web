@@ -354,6 +354,10 @@
   max-width: 36rem;
 }
 
+@utility content-limit-md {
+  max-width: 28rem;
+}
+
 @utility content-limit-2xl {
   max-width: 42rem;
 }

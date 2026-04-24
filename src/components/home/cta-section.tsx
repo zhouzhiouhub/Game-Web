@@ -17,7 +17,7 @@ export function CTASection() {
         <h2 className="text-3xl font-bold sm:text-4xl">
           {t("title")}
         </h2>
-        <p className="mx-auto mt-4 max-w-md text-fg-secondary">
+        <p className="mx-auto mt-4 content-limit-md text-fg-secondary">
           {t("description")}
         </p>
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
