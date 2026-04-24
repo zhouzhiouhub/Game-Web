@@ -85,8 +85,8 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
   return (
     <>
       <PageHeader title={t("title")} description={t("description")} />
-      <section className="pb-32">
-        <div className="content-shell content-limit-5xl grid gap-8 lg:grid-cols-[1.25fr_0.75fr]">
+      <section className="pb-24 sm:pb-28 lg:pb-32">
+        <div className="content-shell content-limit-5xl grid gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(18rem,0.9fr)] xl:grid-cols-[1.25fr_0.75fr] xl:gap-8">
           <div className="grid gap-4">
             {platforms.map((platform) => (
               platform.href ? (
@@ -145,7 +145,7 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
             </div>
           </div>
 
-          <div className="rounded-xl border border-white/5 bg-bg-surface p-5 sm:p-6">
+          <div className="rounded-xl border border-white/5 bg-bg-surface p-5 sm:p-6 md:self-start">
             <h3 className="text-sm font-semibold text-fg-primary">
               {t("systemRequirements")}
             </h3>

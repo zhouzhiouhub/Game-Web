@@ -110,14 +110,14 @@ export default async function ContactPage({
   return (
     <>
       <PageHeader title={t("title")} description={t("description")} />
-      <section className="pb-32">
-        <div className="content-shell grid gap-6 lg:grid-cols-[1.4fr_0.6fr]">
-          <div className="grid gap-6 md:grid-cols-2">
+      <section className="pb-24 sm:pb-28 lg:pb-32">
+        <div className="content-shell grid gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(17rem,0.9fr)] xl:grid-cols-[1.4fr_0.6fr]">
+          <div className="grid gap-5 xl:grid-cols-2">
             {cards.length > 0 ? (
               cards.map((card) => (
                 <Card key={card.key} as="article" variant="interactive" padding="lg">
                   <card.icon className="h-6 w-6 text-fg-primary" />
-                  <h2 className="mt-5 text-2xl font-semibold">{card.title}</h2>
+                  <h2 className="mt-5 text-xl font-semibold sm:text-2xl">{card.title}</h2>
                   <p className="mt-3 text-fg-secondary">{card.description}</p>
                   <a
                     href={card.href}
@@ -130,15 +130,15 @@ export default async function ContactPage({
                 </Card>
               ))
             ) : (
-              <Card as="article" variant="surface" padding="lg" className="md:col-span-2">
-                <h2 className="text-2xl font-semibold">{t("title")}</h2>
+              <Card as="article" variant="surface" padding="lg" className="xl:col-span-2">
+                <h2 className="text-xl font-semibold sm:text-2xl">{t("title")}</h2>
                 <p className="mt-4 text-fg-secondary">{t("panel.missingContact")}</p>
               </Card>
             )}
           </div>
 
-          <Card as="aside" variant="surface" padding="lg">
-            <h2 className="text-2xl font-semibold">{t("panel.title")}</h2>
+          <Card as="aside" variant="surface" padding="lg" className="md:self-start">
+            <h2 className="text-xl font-semibold sm:text-2xl">{t("panel.title")}</h2>
             <ul className="mt-4 space-y-3 text-sm leading-6 text-fg-secondary">
               <li>{t("panel.items.support")}</li>
               <li>{t("panel.items.business")}</li>
