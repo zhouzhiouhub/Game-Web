@@ -27,6 +27,8 @@ npm run start
 
 Copy values from .env.example and replace them for your own brand.
 
+For template handoff, keep NEXT_PUBLIC_SITE_URL on the obvious placeholder value until a real production domain is available. The app will then fall back to http://localhost:3000 and keep robots and sitemap non-indexable.
+
 - NEXT_PUBLIC_SITE_NAME
 - NEXT_PUBLIC_SITE_SHORT_NAME
 - NEXT_PUBLIC_SITE_URL
@@ -50,6 +52,8 @@ Download URL resolution order:
 - Platform-specific URL, if provided
 - Generic NEXT_PUBLIC_DOWNLOAD_URL
 - GitHub Releases latest URL derived from NEXT_PUBLIC_GITHUB_REPO
+
+If no real download URL is configured, the download cards stay disabled and show a pending state instead of linking to a fake asset.
 
 Current analytics handoff selection:
 
@@ -77,9 +81,9 @@ Current analytics handoff selection:
 ## Delivery checklist
 
 - Replace site name, domain, and social links
-- Review all legal pages before production launch
+- Treat all legal pages as template copy until they are reviewed and replaced for production launch
 - Verify public image asset licensing
-- Update download links to your own release pipeline
+- Update download links to your own release pipeline, or leave them blank so the UI stays in its pending state
 - Replace placeholder device catalog entries with maintained data
 
 ## Notes

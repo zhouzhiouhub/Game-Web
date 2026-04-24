@@ -51,7 +51,17 @@ export default async function TermsPage({
       <section className="pb-32">
         <div className="content-shell">
           <article className="content-limit-3xl text-fg-secondary">
-            <p className="leading-8">
+            <div className="rounded-xl border border-amber-400/20 bg-amber-400/8 px-5 py-4 text-sm leading-6 text-amber-100">
+              <p className="font-semibold">
+                {locale === "zh" ? "模板法务文本提示" : "Template legal copy notice"}
+              </p>
+              <p className="mt-2">
+                {locale === "zh"
+                  ? "当前页面为模板示例文本，仅用于交付结构占位。正式上线前需由法务或合规负责人审核后替换。"
+                  : "This page contains template legal copy for handoff purposes only. Replace it with counsel- or compliance-approved language before production launch."}
+              </p>
+            </div>
+            <p className="mt-8 leading-8">
               {locale === "zh"
                 ? "使用本网站或相关服务即表示用户同意遵守适用的使用规则，不得滥用下载资源、接口能力、账户系统或社区渠道。"
                 : "By using the site or related services, users agree to follow the applicable usage rules and must not misuse download resources, API capabilities, account systems, or community channels."}

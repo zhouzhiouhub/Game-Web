@@ -51,7 +51,17 @@ export default async function PrivacyPage({
       <section className="pb-32">
         <div className="content-shell">
           <article className="content-limit-3xl text-fg-secondary">
-            <p className="leading-8">
+            <div className="rounded-xl border border-amber-400/20 bg-amber-400/8 px-5 py-4 text-sm leading-6 text-amber-100">
+              <p className="font-semibold">
+                {locale === "zh" ? "模板法务文本提示" : "Template legal copy notice"}
+              </p>
+              <p className="mt-2">
+                {locale === "zh"
+                  ? "当前页面为模板示例文本，仅用于交付结构占位。正式上线前需由法务或合规负责人审核后替换。"
+                  : "This page contains template legal copy for handoff purposes only. Replace it with counsel- or compliance-approved language before production launch."}
+              </p>
+            </div>
+            <p className="mt-8 leading-8">
               {locale === "zh"
                 ? "我们可能收集联系信息、兼容性申请、支持消息和基础分析数据，用于提供服务、改进产品体验以及响应用户请求。"
                 : "We may collect contact details, compatibility requests, support messages, and basic analytics data to operate the service, improve the product experience, and respond to user requests."}

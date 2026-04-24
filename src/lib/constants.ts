@@ -23,9 +23,9 @@ function buildLatestReleaseUrl(repositoryUrl: string): string {
   return normalizedRepositoryUrl ? `${normalizedRepositoryUrl}/releases/latest` : "";
 }
 
-const defaultSiteUrl = "https://gaming-rgb-software.com";
-const defaultGithubRepo = "https://github.com/gaming-rgb-software/app";
-const defaultDiscordInvite = "https://discord.gg/gaming-rgb";
+const defaultSiteUrl = "https://your-domain.example";
+const defaultGithubRepo = "https://github.com/your-org/your-repo";
+const defaultDiscordInvite = "https://discord.gg/your-community";
 const configuredSiteUrl = readConfiguredUrlEnvValue(process.env.NEXT_PUBLIC_SITE_URL, defaultSiteUrl);
 const configuredGithubRepo = readConfiguredUrlEnvValue(
   process.env.NEXT_PUBLIC_GITHUB_REPO,
