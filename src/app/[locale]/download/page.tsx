@@ -86,7 +86,7 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
     <>
       <PageHeader title={t("title")} description={t("description")} />
       <section className="pb-32">
-        <div className="mx-auto grid max-w-5xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.25fr_0.75fr]">
+        <div className="content-shell grid max-w-5xl gap-8 lg:grid-cols-[1.25fr_0.75fr]">
           <div className="grid gap-4">
             {platforms.map((platform) => (
               platform.href ? (

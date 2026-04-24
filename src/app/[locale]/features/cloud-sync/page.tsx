@@ -55,7 +55,7 @@ function CloudSyncContent({ messages }: { messages: FeaturePagesMessages }) {
         description={t("features.cloudSync.description")}
       />
       <section className="pb-32">
-        <div className="mx-auto max-w-[var(--container-max)] px-4 sm:px-6">
+        <div className="content-shell">
           <div className="grid gap-6 lg:grid-cols-2">
             {cards.map((card) => (
               <article key={card.title} className="rounded-xl border border-white/5 bg-bg-surface p-6 sm:p-8">

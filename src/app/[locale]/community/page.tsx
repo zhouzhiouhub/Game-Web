@@ -60,7 +60,7 @@ function CommunityContent({ messages }: { messages: CommunityPageContent }) {
     <>
       <PageHeader title={t("title")} description={t("description")} />
       <section className="pb-32">
-        <div className="mx-auto max-w-[var(--container-max)] px-4 sm:px-6">
+        <div className="content-shell">
           {channels.length > 0 ? (
             <div className="grid gap-6 lg:grid-cols-3">
               {channels.map((channel) =>

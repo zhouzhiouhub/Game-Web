@@ -57,7 +57,7 @@ function DevicesContent({ messages }: { messages: DevicesPageMessages }) {
     <>
       <PageHeader title={t("title")} description={t("description")} />
       <section className="pb-32">
-        <div className="mx-auto max-w-[var(--container-max)] px-4 sm:px-6">
+        <div className="content-shell">
           <div className="flex flex-wrap gap-3">
             {content.brandHighlights.map((brand) => (
               <span

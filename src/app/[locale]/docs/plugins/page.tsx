@@ -52,7 +52,7 @@ function PluginsContent({ messages }: { messages: DocsPluginsMessages }) {
         description={t("sections.pluginDev.description")}
       />
       <section className="pb-32">
-        <div className="mx-auto max-w-[var(--container-max)] px-4 sm:px-6">
+        <div className="content-shell">
           <div className="grid gap-6 lg:grid-cols-3">
             {cards.map((item) => (
               <article key={item} className="rounded-xl border border-white/5 bg-bg-surface p-6 text-fg-secondary">
