@@ -16,13 +16,6 @@ const resourceLinks = [
   { key: "plugins", href: "/docs/plugins" },
 ] as const;
 
-const communityLinks = [
-  { key: "contact", href: "/contact" },
-  { key: "discord", href: siteConfig.discordInvite },
-  { key: "github", href: siteConfig.githubRepo },
-  { key: "contributing", href: "/docs/contributing" },
-] as const;
-
 const legalLinks = [
   { key: "privacy", href: "/privacy" },
   { key: "terms", href: "/terms" },
@@ -31,6 +24,16 @@ const legalLinks = [
 
 export function Footer() {
   const t = useTranslations("footer");
+  const communityLinks = [
+    { key: "contact", href: "/contact" },
+    ...(siteConfig.discordInvite ? [{ key: "discord", href: siteConfig.discordInvite }] : []),
+    ...(siteConfig.githubRepo ? [{ key: "github", href: siteConfig.githubRepo }] : []),
+    { key: "contributing", href: "/docs/contributing" },
+  ];
+  const socialLinks = [
+    ...(siteConfig.githubRepo ? [{ key: "github", href: siteConfig.githubRepo }] : []),
+    ...(siteConfig.discordInvite ? [{ key: "discord", href: siteConfig.discordInvite }] : []),
+  ];
 
   const columns = [
     { title: t("columns.product"), links: productLinks },
@@ -86,20 +89,31 @@ export function Footer() {
           <p className="text-body-sm text-fg-muted">
             {t("copyright", { year: new Date().getFullYear(), name: siteConfig.name })}
           </p>
-          <div className="flex items-center gap-4">
-            <a
-              href={siteConfig.githubRepo}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="text-fg-muted hover:text-fg-primary transition-colors"
-            >
-              <Github className="h-5 w-5" />
-            </a>
-            <a href={siteConfig.discordInvite} target="_blank" rel="noopener noreferrer" className="text-body-sm text-fg-muted hover:text-fg-primary">
-              Discord
-            </a>
-          </div>
+          {socialLinks.length > 0 ? (
+            <div className="flex items-center gap-4">
+              {siteConfig.githubRepo ? (
+                <a
+                  href={siteConfig.githubRepo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  className="text-fg-muted transition-colors hover:text-fg-primary"
+                >
+                  <Github className="h-5 w-5" />
+                </a>
+              ) : null}
+              {siteConfig.discordInvite ? (
+                <a
+                  href={siteConfig.discordInvite}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-body-sm text-fg-muted hover:text-fg-primary"
+                >
+                  Discord
+                </a>
+              ) : null}
+            </div>
+          ) : null}
         </div>
       </div>
     </footer>

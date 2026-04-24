@@ -12,7 +12,9 @@
     "community": "社区",
     "blog": "博客",
     "star": "星标",
-    "getStarted": "立即开始 →"
+    "getStarted": "立即开始 →",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单"
   },
   "hero": {
     "line1": "一款软件。",
@@ -150,6 +152,9 @@
     "windows": "下载 Windows 版",
     "macos": "下载 macOS 版",
     "linux": "下载 Linux 版",
+    "notAvailable": "暂不可用",
+    "linksPendingTitle": "下载链接尚未配置",
+    "linksPendingDescription": "正式上线前请配置 NEXT_PUBLIC_DOWNLOAD_URL 或各平台专属下载地址，确保每个按钮都指向真实安装包。",
     "systemRequirements": "系统需求",
     "requirements": {
       "os": "Windows 10+ / macOS 12+ / Ubuntu 20.04+",
@@ -251,6 +256,7 @@
     ]
   },
   "languageSwitcher": {
+    "toggleLabel": "切换语言",
     "en": "English",
     "zh": "中文"
   },

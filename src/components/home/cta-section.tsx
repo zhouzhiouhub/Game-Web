@@ -34,14 +34,16 @@ export function CTASection() {
           >
             {t("downloadNow")}
           </Link>
-          <a
-            href={siteConfig.githubRepo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={buttonVariants({ variant: "secondary", size: "lg" })}
-          >
-            {t("viewGithub")}
-          </a>
+          {siteConfig.githubRepo ? (
+            <a
+              href={siteConfig.githubRepo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={buttonVariants({ variant: "secondary", size: "lg" })}
+            >
+              {t("viewGithub")}
+            </a>
+          ) : null}
         </div>
       </div>
     </section>

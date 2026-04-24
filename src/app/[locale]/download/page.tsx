@@ -4,7 +4,6 @@ import { useTranslations } from "next-intl";
 import { Download, Apple, Terminal } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
 import { siteConfig } from "@/lib/constants";
-import { Card, cardVariants } from "@/components/ui/card";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 type DownloadContentMessages = {
@@ -37,10 +36,6 @@ export async function generateMetadata({
     pathname: "/download",
     title: t("metadata.title"),
     description: t("metadata.description"),
-    ogImage: {
-      pathname: "/og/download.png",
-      alt: "Gaming RGB Software download page preview",
-    },
   });
 }
 
@@ -85,45 +80,72 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
       note: content.platforms.linux,
     },
   ];
+  const hasAnyDownload = platforms.some((platform) => Boolean(platform.href));
 
   return (
     <>
       <PageHeader title={t("title")} description={t("description")} />
       <section className="pb-32">
-        <div className="content-shell grid gap-8 lg:grid-cols-[1.25fr_0.75fr]">
+        <div className="mx-auto grid max-w-5xl gap-8 px-6 lg:grid-cols-[1.25fr_0.75fr]">
           <div className="grid gap-4">
             {platforms.map((platform) => (
-              <a
-                key={platform.label}
-                href={platform.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${cardVariants({ variant: "interactive", padding: "md" })} ${platform.accent}`}
-              >
-                <div className="flex items-center justify-between gap-4">
-                  <div className="flex items-center gap-3">
-                    <platform.icon className="h-5 w-5" />
-                    <div>
-                      <p className="text-base font-semibold">{platform.label}</p>
-                      <p className="mt-1 text-sm opacity-80">{platform.note}</p>
+              platform.href ? (
+                <a
+                  key={platform.label}
+                  href={platform.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`rounded-xl border px-6 py-5 transition-colors ${platform.accent}`}
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <platform.icon className="h-5 w-5" />
+                      <div>
+                        <p className="text-base font-semibold">{platform.label}</p>
+                        <p className="mt-1 text-sm opacity-80">{platform.note}</p>
+                      </div>
                     </div>
+                    <span className="text-sm font-medium">{content.latest}</span>
                   </div>
-                  <span className="text-sm font-medium">{content.latest}</span>
+                </a>
+              ) : (
+                <div
+                  key={platform.label}
+                  aria-disabled="true"
+                  className="rounded-xl border border-white/10 px-6 py-5 text-fg-muted opacity-60"
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <platform.icon className="h-5 w-5" />
+                      <div>
+                        <p className="text-base font-semibold">{platform.label}</p>
+                        <p className="mt-1 text-sm opacity-80">{platform.note}</p>
+                      </div>
+                    </div>
+                    <span className="text-sm font-medium">{t("notAvailable")}</span>
+                  </div>
                 </div>
-              </a>
+              )
             ))}
 
-            <Card variant="surface" padding="md">
+            {!hasAnyDownload ? (
+              <div className="rounded-xl border border-amber-400/20 bg-amber-400/8 p-6 text-sm leading-6 text-amber-100">
+                <p className="font-semibold">{t("linksPendingTitle")}</p>
+                <p className="mt-2">{t("linksPendingDescription")}</p>
+              </div>
+            ) : null}
+
+            <div className="rounded-xl border border-white/5 bg-bg-surface p-6">
               <h3 className="text-sm font-semibold text-fg-primary">{content.releaseTitle}</h3>
               <ul className="mt-3 space-y-2 text-sm leading-6 text-fg-muted">
                 {content.releaseItems.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-            </Card>
+            </div>
           </div>
 
-          <Card variant="surface" padding="md">
+          <div className="rounded-xl border border-white/5 bg-bg-surface p-6">
             <h3 className="text-sm font-semibold text-fg-primary">
               {t("systemRequirements")}
             </h3>
@@ -140,7 +162,7 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
                 {content.distributionDescription}
               </p>
             </div>
-          </Card>
+          </div>
         </div>
       </section>
     </>

@@ -79,24 +79,32 @@ export default async function ContactPage({
           },
         ]
       : []),
-    {
-      key: "discord",
-      title: t("cards.discord.title"),
-      description: t("cards.discord.description"),
-      href: siteConfig.discordInvite,
-      cta: t("cards.discord.cta"),
-      external: true,
-      icon: MessagesSquare,
-    },
-    {
-      key: "issues",
-      title: t("cards.issues.title"),
-      description: t("cards.issues.description"),
-      href: `${siteConfig.githubRepo}/issues`,
-      cta: t("cards.issues.cta"),
-      external: true,
-      icon: Mail,
-    },
+    ...(siteConfig.discordInvite
+      ? [
+          {
+            key: "discord",
+            title: t("cards.discord.title"),
+            description: t("cards.discord.description"),
+            href: siteConfig.discordInvite,
+            cta: t("cards.discord.cta"),
+            external: true,
+            icon: MessagesSquare,
+          },
+        ]
+      : []),
+    ...(siteConfig.githubRepo
+      ? [
+          {
+            key: "issues",
+            title: t("cards.issues.title"),
+            description: t("cards.issues.description"),
+            href: `${siteConfig.githubRepo}/issues`,
+            cta: t("cards.issues.cta"),
+            external: true,
+            icon: Mail,
+          },
+        ]
+      : []),
   ];
 
   return (
@@ -105,21 +113,28 @@ export default async function ContactPage({
       <section className="pb-32">
         <div className="content-shell grid gap-6 lg:grid-cols-[1.4fr_0.6fr]">
           <div className="grid gap-6 md:grid-cols-2">
-            {cards.map((card) => (
-              <Card key={card.key} as="article" variant="interactive" padding="lg">
-                <card.icon className="h-6 w-6 text-fg-primary" />
-                <h2 className="mt-5 text-2xl font-semibold">{card.title}</h2>
-                <p className="mt-3 text-fg-secondary">{card.description}</p>
-                <a
-                  href={card.href}
-                  target={card.external ? "_blank" : undefined}
-                  rel={card.external ? "noopener noreferrer" : undefined}
-                  className="mt-6 inline-flex items-center text-sm font-medium text-fg-primary hover:text-white"
-                >
-                  {card.cta}
-                </a>
+            {cards.length > 0 ? (
+              cards.map((card) => (
+                <Card key={card.key} as="article" variant="interactive" padding="lg">
+                  <card.icon className="h-6 w-6 text-fg-primary" />
+                  <h2 className="mt-5 text-2xl font-semibold">{card.title}</h2>
+                  <p className="mt-3 text-fg-secondary">{card.description}</p>
+                  <a
+                    href={card.href}
+                    target={card.external ? "_blank" : undefined}
+                    rel={card.external ? "noopener noreferrer" : undefined}
+                    className="mt-6 inline-flex items-center text-sm font-medium text-fg-primary hover:text-white"
+                  >
+                    {card.cta}
+                  </a>
+                </Card>
+              ))
+            ) : (
+              <Card as="article" variant="surface" padding="lg" className="md:col-span-2">
+                <h2 className="text-2xl font-semibold">{t("title")}</h2>
+                <p className="mt-4 text-fg-secondary">{t("panel.missingContact")}</p>
               </Card>
-            ))}
+            )}
           </div>
 
           <Card as="aside" variant="surface" padding="lg">

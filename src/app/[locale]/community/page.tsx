@@ -3,7 +3,6 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { PageHeader } from "@/components/layout/page-header";
-import { Card, cardVariants } from "@/components/ui/card";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 type CommunityChannel = {
@@ -55,53 +54,56 @@ export default async function CommunityPage({
 function CommunityContent({ messages }: { messages: CommunityPageContent }) {
   const t = useTranslations("community");
   const content = messages.community.content;
+  const channels = content.channels.filter((channel) => channel.href.trim().length > 0);
 
   return (
     <>
       <PageHeader title={t("title")} description={t("description")} />
       <section className="pb-32">
-        <div className="content-shell">
-          <div className="grid gap-6 lg:grid-cols-3">
-            {content.channels.map((channel) =>
-              channel.external ? (
-                <a
-                  key={channel.title}
-                  href={channel.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cardVariants({ variant: "interactive", padding: "lg" })}
-                >
-                  <h2 className="text-2xl font-semibold">{channel.title}</h2>
-                  <p className="mt-3 text-fg-secondary">{channel.description}</p>
-                </a>
-              ) : (
-                <Link
-                  key={channel.title}
-                  href={channel.href}
-                  className={cardVariants({ variant: "interactive", padding: "lg" })}
-                >
-                  <h2 className="text-2xl font-semibold">{channel.title}</h2>
-                  <p className="mt-3 text-fg-secondary">{channel.description}</p>
-                </Link>
-              )
-            )}
-          </div>
+        <div className="mx-auto max-w-[var(--container-max)] px-6">
+          {channels.length > 0 ? (
+            <div className="grid gap-6 lg:grid-cols-3">
+              {channels.map((channel) =>
+                channel.external ? (
+                  <a
+                    key={channel.title}
+                    href={channel.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8 transition-colors hover:border-white/10"
+                  >
+                    <h2 className="text-2xl font-semibold">{channel.title}</h2>
+                    <p className="mt-3 text-fg-secondary">{channel.description}</p>
+                  </a>
+                ) : (
+                  <Link
+                    key={channel.title}
+                    href={channel.href}
+                    className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8 transition-colors hover:border-white/10"
+                  >
+                    <h2 className="text-2xl font-semibold">{channel.title}</h2>
+                    <p className="mt-3 text-fg-secondary">{channel.description}</p>
+                  </Link>
+                )
+              )}
+            </div>
+          ) : null}
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            <Card as="article" variant="surface" padding="lg">
+          <div className={`${channels.length > 0 ? "mt-10" : "mt-0"} grid gap-6 lg:grid-cols-2`}>
+            <article className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8">
               <h2 className="text-2xl font-semibold">{content.hubTitle}</h2>
               <ul className="mt-4 space-y-2 text-sm leading-6 text-fg-muted">
                 {content.hubBullets.map((bullet) => (
                   <li key={bullet}>• {bullet}</li>
                 ))}
               </ul>
-            </Card>
-            <Card as="article" variant="surface" padding="lg">
+            </article>
+            <article className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-8">
               <h2 className="text-2xl font-semibold">{content.noteTitle}</h2>
               <p className="mt-4 text-sm leading-6 text-fg-muted">
                 {content.noteDescription}
               </p>
-            </Card>
+            </article>
           </div>
         </div>
       </section>

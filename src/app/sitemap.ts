@@ -27,6 +27,10 @@ const routes = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  if (!siteConfig.shouldIndexSite) {
+    return [];
+  }
+
   const entries: MetadataRoute.Sitemap = [];
 
   for (const locale of routing.locales) {

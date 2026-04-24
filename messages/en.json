@@ -12,7 +12,9 @@
     "community": "Community",
     "blog": "Blog",
     "star": "Star",
-    "getStarted": "Get Started →"
+    "getStarted": "Get Started →",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "hero": {
     "line1": "One Software.",
@@ -150,6 +152,9 @@
     "windows": "Download for Windows",
     "macos": "Download for macOS",
     "linux": "Download for Linux",
+    "notAvailable": "Unavailable",
+    "linksPendingTitle": "Download links are not configured yet",
+    "linksPendingDescription": "Set NEXT_PUBLIC_DOWNLOAD_URL or the platform-specific download URLs before launch so each button points to a real installer.",
     "systemRequirements": "System Requirements",
     "requirements": {
       "os": "Windows 10+ / macOS 12+ / Ubuntu 20.04+",
@@ -251,6 +256,7 @@
     ]
   },
   "languageSwitcher": {
+    "toggleLabel": "Switch language",
     "en": "English",
     "zh": "中文"
   },

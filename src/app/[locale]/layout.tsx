@@ -58,6 +58,14 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(siteConfig.url),
     ...defaultMetadata,
+    robots: {
+      index: siteConfig.shouldIndexSite,
+      follow: siteConfig.shouldIndexSite,
+      googleBot: {
+        index: siteConfig.shouldIndexSite,
+        follow: siteConfig.shouldIndexSite,
+      },
+    },
     title: {
       default: String(messages.metadata.title),
       template: String(messages.metadata.titleTemplate ?? `%s | ${siteConfig.name}`),

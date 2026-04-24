@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { PageHeader } from "@/components/layout/page-header";
-import { Card } from "@/components/ui/card";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 type DocsApiMessages = {
@@ -58,16 +57,16 @@ function ApiContent({ messages }: { messages: DocsApiMessages }) {
         description={t("sections.apiReference.description")}
       />
       <section className="pb-32">
-        <div className="content-shell">
+        <div className="mx-auto max-w-[var(--container-max)] px-6">
           <div className="grid gap-6 lg:grid-cols-2">
-            <Card as="article" variant="surface" padding="lg">
+            <article className="rounded-xl border border-white/5 bg-bg-surface p-8">
               <h2 className="text-2xl font-semibold">{content.primaryTitle}</h2>
               <p className="mt-4 text-fg-secondary">{content.primaryDescription}</p>
-            </Card>
-            <Card as="article" variant="surface" padding="lg">
+            </article>
+            <article className="rounded-xl border border-white/5 bg-bg-surface p-8">
               <h2 className="text-2xl font-semibold">{content.secondaryTitle}</h2>
               <p className="mt-4 text-fg-secondary">{content.secondaryDescription}</p>
-            </Card>
+            </article>
           </div>
         </div>
       </section>

@@ -20,6 +20,7 @@ const navKeys = [
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const t = useTranslations("nav");
+  const mobileToggleLabel = mobileOpen ? t("closeMenu") : t("openMenu");
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-white/5 bg-bg-base/80 backdrop-blur-xl">
@@ -51,15 +52,17 @@ export function Navbar() {
         </ul>
 
         <div className="hidden items-center gap-3 md:flex">
-          <a
-            href={siteConfig.githubRepo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-sm text-fg-secondary hover:text-fg-primary transition-colors"
-          >
-            <Github className="h-4 w-4" />
-            <span>{t("star")}</span>
-          </a>
+          {siteConfig.githubRepo ? (
+            <a
+              href={siteConfig.githubRepo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-sm text-fg-secondary transition-colors hover:text-fg-primary"
+            >
+              <Github className="h-4 w-4" />
+              <span>{t("star")}</span>
+            </a>
+          ) : null}
           <LanguageSwitcher />
           <Link
             href="/download"
@@ -73,7 +76,7 @@ export function Navbar() {
           type="button"
           className="touch-target md:hidden text-fg-secondary hover:text-fg-primary"
           onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
+          aria-label={mobileToggleLabel}
           aria-expanded={mobileOpen}
           aria-controls="mobile-navigation"
         >
