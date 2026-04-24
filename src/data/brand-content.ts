@@ -149,72 +149,6 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
           "A strong community page builds trust and activity visibility at the same time, showing both the resource layer and the path for ongoing contribution.",
       },
     },
-    marketplace: {
-      metadata: {
-        description:
-          "Browse and download community-made effects, plugins, and themes for {siteName}.",
-      },
-      content: {
-        items: [
-          {
-            title: "Reactive FPS Pack",
-            category: "Effect pack",
-            description: "Health, damage and victory-state reactions tuned for competitive shooters.",
-          },
-          {
-            title: "Streamer Starter Kit",
-            category: "Theme",
-            description: "Scene-aware desk lighting with low-distraction idle states for long broadcasts.",
-          },
-          {
-            title: "Home Assistant Bridge",
-            category: "Plugin",
-            description: "Sync profiles with room modes, automations and media playback events.",
-          },
-          {
-            title: "Ambient Work Mode",
-            category: "Preset",
-            description: "Muted gradients and schedule-based transitions for daily productivity setups.",
-          },
-        ],
-        sectionTitle: "Curated resource highlights",
-        sectionDescription:
-          "Use this area to showcase effects, presets, plugins, or other reusable assets so visitors understand the value of the ecosystem layer.",
-      },
-    },
-    pricingPage: {
-      title: "Pricing",
-      description: "A pricing structure suited to free-core, subscription, or tiered-license products.",
-      plans: [
-        {
-          name: "Free Core",
-          price: "$0",
-          features: [
-            "Unified RGB control for core device categories",
-            "Profile switching and local presets",
-            "Community docs and public plugin support",
-          ],
-        },
-        {
-          name: "Pro Sync",
-          price: "$6/mo",
-          features: [
-            "Cloud backup and multi-device sync",
-            "Shared team profiles and private packs",
-            "Priority compatibility requests",
-          ],
-        },
-        {
-          name: "Studio",
-          price: "$15/mo",
-          features: [
-            "Marketplace publishing tools",
-            "Advanced automation and API limits",
-            "Commercial deployment rights for branded setups",
-          ],
-        },
-      ],
-    },
     docs: {
       sections: {
         apiReference: {
@@ -285,7 +219,7 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
         {
           question: "Is the product free to use?",
           answer:
-            "{siteName} can support free, paid, or hybrid pricing models. Adjust this section to match the actual licensing and packaging of your product.",
+            "Yes. {siteName} is currently positioned as a free, open-source RGB control tool under the MIT License. If that changes later, update the packaging, legal, and download flows together.",
         },
         {
           question: "Do users need to remove existing brand software first?",
@@ -353,7 +287,7 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
         adminNote: "某些 USB 控制器可能需要管理员权限。",
         distributionTitle: "分发方式",
         distributionDescription:
-          "当前下载按钮默认指向最新 GitHub Release。正式交付时可以替换为你自己的安装包 CDN、对象存储或发行平台。",
+          "下载可接入已验证的发布渠道，并根据部署方案指向 GitHub Releases、对象存储或安装包 CDN。",
       },
     },
     devicesPage: {
@@ -453,71 +387,6 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
           "这块内容应该承担信任建立和活跃度展示的职责，让用户既能看到资源沉淀，也能看到持续互动与贡献路径。",
       },
     },
-    marketplace: {
-      metadata: {
-        description: "浏览和下载适用于 {siteName} 的社区效果、插件和主题。",
-      },
-      content: {
-        items: [
-          {
-            title: "Reactive FPS Pack",
-            category: "效果包",
-            description: "围绕血量、受击和胜利状态设计的竞技类灯效组合。",
-          },
-          {
-            title: "Streamer Starter Kit",
-            category: "主题",
-            description: "适合长时间直播的场景化桌面灯光与低干扰待机状态。",
-          },
-          {
-            title: "Home Assistant Bridge",
-            category: "插件",
-            description: "让配置与房间模式、自动化和媒体事件联动。",
-          },
-          {
-            title: "Ambient Work Mode",
-            category: "预设",
-            description: "更克制的渐变和按时间切换的工作模式配置。",
-          },
-        ],
-        sectionTitle: "精选资源展示",
-        sectionDescription:
-          "这里适合展示效果包、模板、插件或其他可分发资源，帮助用户理解生态层的价值。",
-      },
-    },
-    pricingPage: {
-      title: "定价",
-      description: "适用于免费核心、订阅增值或分层授权产品的标准定价结构。",
-      plans: [
-        {
-          name: "Free Core",
-          price: "$0",
-          features: [
-            "统一 RGB 核心设备品类控制",
-            "配置切换与本地预设",
-            "社区文档与公开插件支持",
-          ],
-        },
-        {
-          name: "Pro Sync",
-          price: "$6/mo",
-          features: [
-            "云端备份与多设备同步",
-            "团队共享配置与私有内容包",
-            "优先兼容性需求响应",
-          ],
-        },
-        {
-          name: "Studio",
-          price: "$15/mo",
-          features: [
-            "市场发布工具",
-            "高级自动化与 API 限额",
-            "品牌化场景的商业部署权限",
-          ],
-        },
-      ],
-    },
     docs: {
       sections: {
         apiReference: {
@@ -588,7 +457,7 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
         {
           question: "这个产品一定要免费吗？",
           answer:
-            "不一定。{siteName} 可以适配免费、付费或混合授权模式，你可以按产品真实的定价与交付方式调整这里的说明。",
+            "是的，当前 {siteName} 按 MIT 协议提供，并以免费开源的 RGB 控制工具定位交付。若后续改为商业模式，应同步更新交付方式、法务和下载链路文案。",
         },
         {
           question: "用户需要先卸载原有品牌软件吗？",

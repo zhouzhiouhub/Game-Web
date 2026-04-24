@@ -2,10 +2,15 @@ function readOptionalEnvValue(value: string | undefined): string {
   return value?.trim() ?? "";
 }
 
-function readConfiguredEnvValue(value: string | undefined, placeholderValue: string): string {
-  const normalizedValue = readOptionalEnvValue(value);
+function normalizeUrlValue(value: string): string {
+  return value.replace(/\/+$/, "");
+}
 
-  return normalizedValue && normalizedValue !== placeholderValue ? normalizedValue : "";
+function readConfiguredUrlEnvValue(value: string | undefined, placeholderValue: string): string {
+  const normalizedValue = normalizeUrlValue(readOptionalEnvValue(value));
+  const normalizedPlaceholderValue = normalizeUrlValue(placeholderValue);
+
+  return normalizedValue && normalizedValue !== normalizedPlaceholderValue ? normalizedValue : "";
 }
 
 function isLocalUrl(url: string): boolean {
@@ -21,12 +26,12 @@ function buildLatestReleaseUrl(repositoryUrl: string): string {
 const defaultSiteUrl = "https://gaming-rgb-software.com";
 const defaultGithubRepo = "https://github.com/gaming-rgb-software/app";
 const defaultDiscordInvite = "https://discord.gg/gaming-rgb";
-const configuredSiteUrl = readConfiguredEnvValue(process.env.NEXT_PUBLIC_SITE_URL, defaultSiteUrl);
-const configuredGithubRepo = readConfiguredEnvValue(
+const configuredSiteUrl = readConfiguredUrlEnvValue(process.env.NEXT_PUBLIC_SITE_URL, defaultSiteUrl);
+const configuredGithubRepo = readConfiguredUrlEnvValue(
   process.env.NEXT_PUBLIC_GITHUB_REPO,
   defaultGithubRepo,
 );
-const configuredDiscordInvite = readConfiguredEnvValue(
+const configuredDiscordInvite = readConfiguredUrlEnvValue(
   process.env.NEXT_PUBLIC_DISCORD_INVITE,
   defaultDiscordInvite,
 );

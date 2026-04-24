@@ -78,14 +78,12 @@
       "features": "Features",
       "download": "Download",
       "devices": "Devices",
-      "pricing": "Pricing",
       "contact": "Contact",
       "documentation": "Documentation",
       "apiReference": "API Reference",
       "plugins": "Plugins",
       "blog": "Blog",
       "discord": "Discord",
-      "marketplace": "Marketplace",
       "github": "GitHub",
       "contributing": "Contributing",
       "privacy": "Privacy",
@@ -220,22 +218,13 @@
     "description": "Join thousands of RGB enthusiasts. Share effects, plugins, and setups.",
     "comingSoon": "Community hub coming soon."
   },
-  "marketplace": {
-    "metadata": {
-      "title": "Marketplace",
-      "description": "Browse and download community-made effects, plugins, and themes."
-    },
-    "title": "Marketplace",
-    "description": "Browse community-made effects, plugins, and themes.",
-    "comingSoon": "Marketplace coming soon."
-  },
   "faq": {
     "title": "Frequently asked questions",
     "description": "The questions buyers ask before they replace fragmented RGB utilities with one control layer.",
     "items": [
       {
         "question": "Is the product free to use?",
-        "answer": "The site can support free, paid, or hybrid pricing models. Adjust this section to match the actual licensing and packaging of your product."
+        "answer": "Yes. The current repository is positioned as a free, open-source RGB control tool under the MIT License. If that changes later, update the packaging, legal, and download flows together."
       },
       {
         "question": "Do users need to remove existing brand software first?",
@@ -257,6 +246,7 @@
   },
   "languageSwitcher": {
     "toggleLabel": "Switch language",
+    "menuLabel": "Language options",
     "en": "English",
     "zh": "中文"
   },

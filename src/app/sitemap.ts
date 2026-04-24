@@ -3,7 +3,7 @@ import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/lib/constants";
 import { buildLocalizedPath } from "@/lib/seo/page-metadata";
 
-const baseUrl = siteConfig.url;
+const baseUrl = siteConfig.url.replace(/\/+$/, "");
 
 const routes = [
   "",

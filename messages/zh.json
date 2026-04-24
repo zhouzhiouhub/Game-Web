@@ -78,14 +78,12 @@
       "features": "功能",
       "download": "下载",
       "devices": "设备",
-      "pricing": "定价",
       "contact": "联系",
       "documentation": "文档",
       "apiReference": "API 参考",
       "plugins": "插件",
       "blog": "博客",
       "discord": "Discord",
-      "marketplace": "市场",
       "github": "GitHub",
       "contributing": "贡献指南",
       "privacy": "隐私政策",
@@ -220,22 +218,13 @@
     "description": "加入数千名 RGB 爱好者，分享效果、插件和设备配置。",
     "comingSoon": "社区中心即将上线。"
   },
-  "marketplace": {
-    "metadata": {
-      "title": "市场",
-      "description": "浏览和下载社区制作的效果、插件和主题。"
-    },
-    "title": "市场",
-    "description": "浏览社区制作的效果、插件和主题。",
-    "comingSoon": "市场即将上线。"
-  },
   "faq": {
     "title": "常见问题",
     "description": "这是用户在从碎片化 RGB 工具迁移到统一控制层之前，最常提出的几个问题。",
     "items": [
       {
         "question": "这个产品一定要免费吗？",
-        "answer": "不一定。站点结构可以适配免费、付费或混合授权模式，你可以按产品真实的定价与交付方式调整这里的说明。"
+        "answer": "是的，当前仓库按 MIT 协议提供，并以免费开源的 RGB 控制工具定位交付。若后续改为商业模式，应同步更新交付方式、法务和下载链路文案。"
       },
       {
         "question": "用户需要先卸载原有品牌软件吗？",
@@ -257,6 +246,7 @@
   },
   "languageSwitcher": {
     "toggleLabel": "切换语言",
+    "menuLabel": "语言选项",
     "en": "English",
     "zh": "中文"
   },
