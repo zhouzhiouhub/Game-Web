@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
+import { insetPanelClass, PageContentCard } from "@/components/layout/page-content-card";
 import { PageHeader } from "@/components/layout/page-header";
 import { blogPosts, getBlogPost } from "@/data/blog-posts";
 import { routing } from "@/i18n/routing";
@@ -81,15 +82,13 @@ function BlogPostContent({ locale, slug }: { locale: string; slug: string }) {
   return (
     <>
       <PageHeader title={title} description={excerpt} />
-      <section className="pb-32">
-        <div className="content-shell">
-          <article className="content-limit-3xl">
+      <PageContentCard>
             <p className="text-sm text-fg-muted">
               {post.category} · {post.publishedAt} · {post.readTime} · {post.author}
             </p>
-            <div className="mt-10 grid gap-10">
+            <div className="mt-8 grid gap-4">
               {sections.map((section) => (
-                <section key={section.heading}>
+                <section key={section.heading} className={insetPanelClass}>
                   <h2 className="text-2xl font-semibold">{section.heading}</h2>
                   <div className="mt-4 grid gap-4">
                     {section.paragraphs.map((paragraph) => (
@@ -101,9 +100,7 @@ function BlogPostContent({ locale, slug }: { locale: string; slug: string }) {
                 </section>
               ))}
             </div>
-          </article>
-        </div>
-      </section>
+      </PageContentCard>
     </>
   );
 }

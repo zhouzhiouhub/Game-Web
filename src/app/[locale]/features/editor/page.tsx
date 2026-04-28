@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
+import { insetPanelClass, PageContentCard } from "@/components/layout/page-content-card";
 import { PageHeader } from "@/components/layout/page-header";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
@@ -49,17 +50,15 @@ function EditorContent({ messages }: { messages: EditorMessages }) {
         title={t("features.editor.title")}
         description={t("features.editor.description")}
       />
-      <section className="pb-32">
-        <div className="content-shell">
-          <div className="grid gap-6 lg:grid-cols-3">
-            {cards.map((item) => (
-              <article key={item} className="rounded-xl border border-white/5 bg-bg-surface p-6 text-fg-secondary">
-                {item}
-              </article>
-            ))}
-          </div>
+      <PageContentCard>
+        <div className="grid gap-4 lg:grid-cols-3">
+          {cards.map((item) => (
+            <section key={item} className={`text-fg-secondary ${insetPanelClass}`}>
+              {item}
+            </section>
+          ))}
         </div>
-      </section>
+      </PageContentCard>
     </>
   );
 }

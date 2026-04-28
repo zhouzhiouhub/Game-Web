@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { Download, Apple, Terminal } from "lucide-react";
+import { insetPanelClass, PageContentCard } from "@/components/layout/page-content-card";
 import { PageHeader } from "@/components/layout/page-header";
 import { siteConfig } from "@/lib/constants";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
@@ -85,8 +86,8 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
   return (
     <>
       <PageHeader title={t("title")} description={t("description")} />
-      <section className="pb-24 sm:pb-28 lg:pb-32">
-        <div className="content-shell content-limit-5xl grid gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(18rem,0.9fr)] xl:grid-cols-[1.25fr_0.75fr] xl:gap-8">
+      <PageContentCard className="content-limit-5xl">
+        <div className="grid gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(18rem,0.9fr)] xl:grid-cols-[1.25fr_0.75fr] xl:gap-8">
           <div className="grid gap-4">
             {platforms.map((platform) => (
               platform.href ? (
@@ -95,7 +96,7 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
                   href={platform.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`rounded-xl border px-5 py-5 transition-colors sm:px-6 ${platform.accent}`}
+                  className={`rounded-lg border px-5 py-5 transition-colors sm:px-6 ${platform.accent}`}
                 >
                   <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
                     <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
@@ -112,7 +113,7 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
                 <div
                   key={platform.label}
                   aria-disabled="true"
-                  className="rounded-xl border border-white/10 px-5 py-5 text-fg-muted opacity-60 sm:px-6"
+                  className="rounded-lg border border-white/10 px-5 py-5 text-fg-muted opacity-60 sm:px-6"
                 >
                   <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
                     <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
@@ -129,13 +130,13 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
             ))}
 
             {!hasAnyDownload ? (
-              <div className="rounded-xl border border-amber-400/20 bg-amber-400/8 p-6 text-sm leading-6 text-amber-100">
+              <div className="rounded-lg border border-amber-400/20 bg-amber-400/8 p-6 text-sm leading-6 text-amber-100">
                 <p className="font-semibold">{t("linksPendingTitle")}</p>
                 <p className="mt-2">{t("linksPendingDescription")}</p>
               </div>
             ) : null}
 
-            <div className="rounded-xl border border-white/5 bg-bg-surface p-5 sm:p-6">
+            <div className={insetPanelClass}>
               <h3 className="text-sm font-semibold text-fg-primary">{content.releaseTitle}</h3>
               <ul className="mt-3 space-y-2 text-sm leading-6 text-fg-muted">
                 {content.releaseItems.map((item) => (
@@ -145,7 +146,7 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
             </div>
           </div>
 
-          <div className="rounded-xl border border-white/5 bg-bg-surface p-5 sm:p-6 md:self-start">
+          <div className={`${insetPanelClass} md:self-start`}>
             <h3 className="text-sm font-semibold text-fg-primary">
               {t("systemRequirements")}
             </h3>
@@ -164,7 +165,7 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
             </div>
           </div>
         </div>
-      </section>
+      </PageContentCard>
     </>
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { insetPanelClass, PageContentCard } from "@/components/layout/page-content-card";
 import { PageHeader } from "@/components/layout/page-header";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
@@ -59,10 +60,9 @@ function CommunityContent({ messages }: { messages: CommunityPageContent }) {
   return (
     <>
       <PageHeader title={t("title")} description={t("description")} />
-      <section className="pb-32">
-        <div className="content-shell">
+      <PageContentCard className="content-limit-5xl">
           {channels.length > 0 ? (
-            <div className="grid gap-6 lg:grid-cols-3">
+            <div className="grid gap-4 lg:grid-cols-3">
               {channels.map((channel) =>
                 channel.external ? (
                   <a
@@ -70,7 +70,7 @@ function CommunityContent({ messages }: { messages: CommunityPageContent }) {
                     href={channel.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-6 transition-colors hover:border-white/10 sm:p-8"
+                    className={`${insetPanelClass} transition-colors hover:border-white/20`}
                   >
                     <h2 className="text-2xl font-semibold">{channel.title}</h2>
                     <p className="mt-3 text-fg-secondary">{channel.description}</p>
@@ -79,7 +79,7 @@ function CommunityContent({ messages }: { messages: CommunityPageContent }) {
                   <Link
                     key={channel.title}
                     href={channel.href}
-                    className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-6 transition-colors hover:border-white/10 sm:p-8"
+                    className={`${insetPanelClass} transition-colors hover:border-white/20`}
                   >
                     <h2 className="text-2xl font-semibold">{channel.title}</h2>
                     <p className="mt-3 text-fg-secondary">{channel.description}</p>
@@ -89,8 +89,8 @@ function CommunityContent({ messages }: { messages: CommunityPageContent }) {
             </div>
           ) : null}
 
-          <div className={`${channels.length > 0 ? "mt-10" : "mt-0"} grid gap-6 lg:grid-cols-2`}>
-            <article className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-6 sm:p-8">
+          <div className={`${channels.length > 0 ? "mt-4" : "mt-0"} grid gap-4 lg:grid-cols-2`}>
+            <article className={insetPanelClass}>
               <h2 className="text-2xl font-semibold">{content.hubTitle}</h2>
               <ul className="mt-4 space-y-2 text-sm leading-6 text-fg-muted">
                 {content.hubBullets.map((bullet) => (
@@ -98,15 +98,14 @@ function CommunityContent({ messages }: { messages: CommunityPageContent }) {
                 ))}
               </ul>
             </article>
-            <article className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-6 sm:p-8">
+            <article className={insetPanelClass}>
               <h2 className="text-2xl font-semibold">{content.noteTitle}</h2>
               <p className="mt-4 text-sm leading-6 text-fg-muted">
                 {content.noteDescription}
               </p>
             </article>
           </div>
-        </div>
-      </section>
+      </PageContentCard>
     </>
   );
 }

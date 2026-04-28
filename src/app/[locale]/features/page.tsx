@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { insetPanelClass, PageContentCard } from "@/components/layout/page-content-card";
 import { PageHeader } from "@/components/layout/page-header";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
@@ -58,13 +59,12 @@ function FeaturesContent({ messages }: { messages: FeaturesPageContent }) {
   return (
     <>
       <PageHeader title={t("title")} description={t("description")} />
-      <section className="pb-32">
-        <div className="content-shell">
-          <div className="grid gap-6 lg:grid-cols-2">
+      <PageContentCard className="content-limit-5xl">
+          <div className="grid gap-4 lg:grid-cols-2">
             {content.cards.map((feature) => (
               <article
                 key={feature.key}
-                className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-6 sm:p-8"
+                className={insetPanelClass}
               >
                 <p className="text-sm uppercase tracking-[0.2em] text-fg-muted">
                   {content.sectionLabel}
@@ -90,14 +90,13 @@ function FeaturesContent({ messages }: { messages: FeaturesPageContent }) {
             ))}
           </div>
 
-          <div className="mt-10 rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-6 sm:p-8">
+          <div className={`mt-4 ${insetPanelClass}`}>
             <h2 className="text-2xl font-semibold">{content.summaryTitle}</h2>
             <p className="mt-4 content-limit-3xl text-fg-secondary">
               {content.summaryDescription}
             </p>
           </div>
-        </div>
-      </section>
+      </PageContentCard>
     </>
   );
 }

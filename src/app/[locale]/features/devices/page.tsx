@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
+import { PageContentCard } from "@/components/layout/page-content-card";
 import { PageHeader } from "@/components/layout/page-header";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
@@ -47,14 +48,10 @@ function DeviceSupportContent({ messages }: { messages: FeatureDevicesMessages }
   return (
     <>
       <PageHeader title={t("title")} description={t("subtitle")} />
-      <section className="pb-32">
-        <div className="content-shell">
-          <div className="rounded-[var(--card-radius)] border border-white/5 bg-bg-surface p-6 sm:p-8">
-            <h2 className="text-2xl font-semibold">{content.title}</h2>
-            <p className="mt-4 content-limit-3xl text-fg-secondary">{content.description}</p>
-          </div>
-        </div>
-      </section>
+      <PageContentCard>
+        <h2 className="text-2xl font-semibold">{content.title}</h2>
+        <p className="mt-4 content-limit-3xl text-fg-secondary">{content.description}</p>
+      </PageContentCard>
     </>
   );
 }

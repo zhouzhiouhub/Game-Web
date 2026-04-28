@@ -3,9 +3,9 @@ import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { insetPanelClass, PageContentCard } from "@/components/layout/page-content-card";
 import { PageHeader } from "@/components/layout/page-header";
 import { Badge } from "@/components/ui/badge";
-import { Card, cardVariants } from "@/components/ui/card";
 import { blogPosts } from "@/data/blog-posts";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
@@ -40,15 +40,14 @@ function BlogContent({ locale }: { locale: string }) {
   return (
     <>
       <PageHeader title={t("title")} description={t("description")} />
-      <section className="pb-32">
-        <div className="content-shell">
+      <PageContentCard className={blogPosts.length > 0 ? "content-limit-5xl" : undefined}>
           {blogPosts.length > 0 ? (
-            <div className="grid gap-6 lg:grid-cols-3">
+            <div className="grid gap-4 lg:grid-cols-3">
               {blogPosts.map((post) => (
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className={cardVariants({ variant: "interactive", padding: "lg" })}
+                  className={`${insetPanelClass} transition-colors hover:border-white/20`}
                 >
                   <Badge className="w-fit" variant="subtle">
                     {post.category}
@@ -66,7 +65,7 @@ function BlogContent({ locale }: { locale: string }) {
               ))}
             </div>
           ) : (
-            <Card className="mx-auto content-limit-3xl text-center" variant="elevated" padding="lg">
+            <div className="text-center">
               <Badge className="mx-auto w-fit" variant="subtle">
                 Blog
               </Badge>
@@ -78,10 +77,9 @@ function BlogContent({ locale }: { locale: string }) {
                   ? "当前还没有公开文章，后续会在这里发布产品更新、教程和社区精选。"
                   : "There are no published posts yet. Product updates, tutorials, and community highlights will appear here."}
               </p>
-            </Card>
+            </div>
           )}
-        </div>
-      </section>
+      </PageContentCard>
     </>
   );
 }

@@ -3,8 +3,8 @@ import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { insetPanelClass, PageContentCard } from "@/components/layout/page-content-card";
 import { PageHeader } from "@/components/layout/page-header";
-import { cardVariants } from "@/components/ui/card";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 export async function generateMetadata({
@@ -44,14 +44,13 @@ function DocsContent() {
   return (
     <>
       <PageHeader title={t("title")} description={t("description")} />
-      <section className="pb-32">
-        <div className="content-shell">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <PageContentCard>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {docSections.map((doc) => (
               <Link
                 key={doc.href}
                 href={doc.href}
-                className={`${cardVariants({ variant: "interactive", padding: "md" })} group`}
+                className={`${insetPanelClass} group transition-colors hover:border-white/20`}
               >
                 <h3 className="font-semibold group-hover:text-rgb-b transition-colors">
                   {doc.title}
@@ -60,8 +59,7 @@ function DocsContent() {
               </Link>
             ))}
           </div>
-        </div>
-      </section>
+      </PageContentCard>
     </>
   );
 }

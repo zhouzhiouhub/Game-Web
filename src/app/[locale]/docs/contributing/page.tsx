@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { insetPanelClass, PageContentCard } from "@/components/layout/page-content-card";
 import { PageHeader } from "@/components/layout/page-header";
-import { Card } from "@/components/ui/card";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
 const steps = {
@@ -55,18 +55,21 @@ export default async function ContributingPage({
             : "How to contribute, report issues, and submit collaborative changes."
         }
       />
-      <section className="pb-32">
-        <div className="content-shell">
-          <ol className="grid content-limit-3xl gap-4">
-            {content.map((step, index) => (
-              <Card key={step} as="li" variant="surface" padding="md" className="text-fg-secondary">
-                <span className="mr-3 text-fg-primary">0{index + 1}</span>
-                {step}
-              </Card>
-            ))}
-          </ol>
-        </div>
-      </section>
+      <PageContentCard>
+            <ol className="grid gap-4">
+              {content.map((step, index) => (
+                <li
+                  key={step}
+                  className={`flex gap-4 text-fg-secondary ${insetPanelClass}`}
+                >
+                  <span className="text-caption font-semibold text-fg-primary">
+                    0{index + 1}
+                  </span>
+                  <span className="text-body-lg">{step}</span>
+                </li>
+              ))}
+            </ol>
+      </PageContentCard>
     </>
   );
 }

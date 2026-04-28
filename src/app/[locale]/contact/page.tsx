@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Mail, MessagesSquare, BriefcaseBusiness, LifeBuoy } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { insetPanelClass, PageContentCard } from "@/components/layout/page-content-card";
 import { PageHeader } from "@/components/layout/page-header";
-import { Card } from "@/components/ui/card";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 import { siteConfig } from "@/lib/constants";
 
@@ -110,12 +110,12 @@ export default async function ContactPage({
   return (
     <>
       <PageHeader title={t("title")} description={t("description")} />
-      <section className="pb-24 sm:pb-28 lg:pb-32">
-        <div className="content-shell grid gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(17rem,0.9fr)] xl:grid-cols-[1.4fr_0.6fr]">
-          <div className="grid gap-5 xl:grid-cols-2">
+      <PageContentCard className="content-limit-5xl">
+        <div className="grid gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(17rem,0.9fr)] xl:grid-cols-[1.4fr_0.6fr]">
+          <div className="grid gap-4 xl:grid-cols-2">
             {cards.length > 0 ? (
               cards.map((card) => (
-                <Card key={card.key} as="article" variant="interactive" padding="lg">
+                <article key={card.key} className={`${insetPanelClass} transition-colors hover:border-white/20`}>
                   <card.icon className="h-6 w-6 text-fg-primary" />
                   <h2 className="mt-5 text-xl font-semibold sm:text-2xl">{card.title}</h2>
                   <p className="mt-3 text-fg-secondary">{card.description}</p>
@@ -127,17 +127,17 @@ export default async function ContactPage({
                   >
                     {card.cta}
                   </a>
-                </Card>
+                </article>
               ))
             ) : (
-              <Card as="article" variant="surface" padding="lg" className="xl:col-span-2">
+              <article className={`xl:col-span-2 ${insetPanelClass}`}>
                 <h2 className="text-xl font-semibold sm:text-2xl">{t("title")}</h2>
                 <p className="mt-4 text-fg-secondary">{t("panel.missingContact")}</p>
-              </Card>
+              </article>
             )}
           </div>
 
-          <Card as="aside" variant="surface" padding="lg" className="md:self-start">
+          <aside className={`${insetPanelClass} md:self-start`}>
             <h2 className="text-xl font-semibold sm:text-2xl">{t("panel.title")}</h2>
             <ul className="mt-4 space-y-3 text-sm leading-6 text-fg-secondary">
               <li>{t("panel.items.support")}</li>
@@ -145,13 +145,13 @@ export default async function ContactPage({
               <li>{t("panel.items.response")}</li>
             </ul>
             {(!siteConfig.supportEmail || !siteConfig.businessEmail) && (
-              <p className="mt-6 rounded-[var(--card-radius)] border border-amber-400/20 bg-amber-400/8 px-4 py-3 text-sm leading-6 text-amber-100">
+              <p className="mt-6 rounded-lg border border-amber-400/20 bg-amber-400/8 px-4 py-3 text-sm leading-6 text-amber-100">
                 {t("panel.missingContact")}
               </p>
             )}
-          </Card>
+          </aside>
         </div>
-      </section>
+      </PageContentCard>
     </>
   );
 }

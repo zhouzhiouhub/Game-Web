@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
+import { insetPanelClass, PageContentCard } from "@/components/layout/page-content-card";
 import { PageHeader } from "@/components/layout/page-header";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
@@ -54,18 +55,16 @@ function GameSyncContent({ messages }: { messages: GameSyncMessages }) {
         title={t("features.gameSync.title")}
         description={t("features.gameSync.description")}
       />
-      <section className="pb-32">
-        <div className="content-shell">
-          <div className="grid gap-6 lg:grid-cols-2">
-            {cards.map((card) => (
-              <article key={card.title} className="rounded-xl border border-white/5 bg-bg-surface p-6 sm:p-8">
-                <h2 className="text-2xl font-semibold">{card.title}</h2>
-                <p className="mt-4 text-fg-secondary">{card.description}</p>
-              </article>
-            ))}
-          </div>
+      <PageContentCard>
+        <div className="grid gap-4 lg:grid-cols-2">
+          {cards.map((card) => (
+            <section key={card.title} className={insetPanelClass}>
+              <h2 className="text-2xl font-semibold">{card.title}</h2>
+              <p className="mt-4 text-fg-secondary">{card.description}</p>
+            </section>
+          ))}
         </div>
-      </section>
+      </PageContentCard>
     </>
   );
 }
