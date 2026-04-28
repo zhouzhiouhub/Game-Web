@@ -2,8 +2,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { PageHeader } from "@/components/layout/page-header";
-import { getBlogPost } from "@/data/blog-posts";
+import { blogPosts, getBlogPost } from "@/data/blog-posts";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
+
+export function generateStaticParams() {
+  return blogPosts.map((post) => ({ slug: post.slug }));
+}
 
 export async function generateMetadata({
   params,

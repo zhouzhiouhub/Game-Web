@@ -3,6 +3,8 @@ import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/lib/constants";
 import { buildLocalizedPath } from "@/lib/seo/page-metadata";
 
+export const dynamic = "force-static";
+
 const baseUrl = siteConfig.url.replace(/\/+$/, "");
 
 const routes = [
