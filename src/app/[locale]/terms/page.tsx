@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { LegalContent } from "@/components/layout/legal-content";
 import { PageHeader } from "@/components/layout/page-header";
 import { siteConfig } from "@/lib/constants";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
@@ -48,39 +49,24 @@ export default async function TermsPage({
             : "Defines service scope, acceptable use, and billing terms."
         }
       />
-      <section className="pb-32">
-        <div className="content-shell">
-          <article className="content-limit-3xl text-fg-secondary">
-            <div className="rounded-xl border border-amber-400/20 bg-amber-400/8 px-5 py-4 text-sm leading-6 text-amber-100">
-              <p className="font-semibold">
-                {locale === "zh" ? "模板法务文本提示" : "Template legal copy notice"}
-              </p>
-              <p className="mt-2">
-                {locale === "zh"
-                  ? "当前页面为模板示例文本，仅用于交付结构占位。正式上线前需由法务或合规负责人审核后替换。"
-                  : "This page contains template legal copy for handoff purposes only. Replace it with counsel- or compliance-approved language before production launch."}
-              </p>
-            </div>
-            <p className="mt-8 leading-8">
-              {locale === "zh"
-                ? "使用本网站或相关服务即表示用户同意遵守适用的使用规则，不得滥用下载资源、接口能力、账户系统或社区渠道。"
-                : "By using the site or related services, users agree to follow the applicable usage rules and must not misuse download resources, API capabilities, account systems, or community channels."}
-            </p>
-            <p className="mt-6 leading-8">
-              {locale === "zh"
-                ? "若产品包含订阅、付费功能或商业授权，续费、退款、责任限制和终止条款应以实际订单、发票或商业协议中的说明为准。"
-                : "If the product includes subscriptions, paid features, or commercial licensing, renewal, refund, liability, and termination terms are governed by the applicable order, invoice, or commercial agreement."}
-            </p>
-            {formattedLastUpdated ? (
-              <p className="mt-10 text-sm text-fg-muted">
-                {locale === "zh"
-                  ? `最后更新：${formattedLastUpdated}`
-                  : `Last updated: ${formattedLastUpdated}`}
-              </p>
-            ) : null}
-          </article>
-        </div>
-      </section>
+      <LegalContent
+        locale={locale}
+        noticeTitle={locale === "zh" ? "模板法务文本提示" : "Template legal copy notice"}
+        noticeBody={
+          locale === "zh"
+            ? "当前页面为模板示例文本，仅用于交付结构占位。正式上线前需由法务或合规负责人审核后替换。"
+            : "This page contains template legal copy for handoff purposes only. Replace it with counsel- or compliance-approved language before production launch."
+        }
+        paragraphs={[
+          locale === "zh"
+            ? "使用本网站或相关服务即表示用户同意遵守适用的使用规则，不得滥用下载资源、接口能力、账户系统或社区渠道。"
+            : "By using the site or related services, users agree to follow the applicable usage rules and must not misuse download resources, API capabilities, account systems, or community channels.",
+          locale === "zh"
+            ? "若产品包含订阅、付费功能或商业授权，续费、退款、责任限制和终止条款应以实际订单、发票或商业协议中的说明为准。"
+            : "If the product includes subscriptions, paid features, or commercial licensing, renewal, refund, liability, and termination terms are governed by the applicable order, invoice, or commercial agreement.",
+        ]}
+        lastUpdated={formattedLastUpdated}
+      />
     </>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { LegalContent } from "@/components/layout/legal-content";
 import { PageHeader } from "@/components/layout/page-header";
 import { siteConfig } from "@/lib/constants";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
@@ -48,44 +49,27 @@ export default async function PrivacyPage({
             : "How the site collects, stores, and uses visitor data."
         }
       />
-      <section className="pb-32">
-        <div className="content-shell">
-          <article className="content-limit-3xl text-fg-secondary">
-            <div className="rounded-xl border border-amber-400/20 bg-amber-400/8 px-5 py-4 text-sm leading-6 text-amber-100">
-              <p className="font-semibold">
-                {locale === "zh" ? "模板法务文本提示" : "Template legal copy notice"}
-              </p>
-              <p className="mt-2">
-                {locale === "zh"
-                  ? "当前页面为模板示例文本，仅用于交付结构占位。正式上线前需由法务或合规负责人审核后替换。"
-                  : "This page contains template legal copy for handoff purposes only. Replace it with counsel- or compliance-approved language before production launch."}
-              </p>
-            </div>
-            <p className="mt-8 leading-8">
-              {locale === "zh"
-                ? "我们可能收集联系信息、兼容性申请、支持消息和基础分析数据，用于提供服务、改进产品体验以及响应用户请求。"
-                : "We may collect contact details, compatibility requests, support messages, and basic analytics data to operate the service, improve the product experience, and respond to user requests."}
-            </p>
-            <p className="mt-6 leading-8">
-              {locale === "zh"
-                ? "站点可使用托管、分析、邮件或支付等第三方服务。用户可以通过官方支持渠道请求访问、更正、删除或导出与其相关的数据。"
-                : "The site may use third-party services for hosting, analytics, email delivery, or payments. Users can request access, correction, deletion, or export of relevant data through the official support channel."}
-            </p>
-            <p className="mt-6 leading-8">
-              {locale === "zh"
-                ? "当站点启用可选统计时，我们会先展示同意横幅，再在用户明确同意后加载非必要分析脚本。拒绝后不影响浏览核心内容。"
-                : "When optional analytics is enabled, the site presents a consent banner and only loads non-essential measurement scripts after the visitor explicitly allows them. Declining consent does not block access to core site content."}
-            </p>
-            {formattedLastUpdated ? (
-              <p className="mt-10 text-sm text-fg-muted">
-                {locale === "zh"
-                  ? `最后更新：${formattedLastUpdated}`
-                  : `Last updated: ${formattedLastUpdated}`}
-              </p>
-            ) : null}
-          </article>
-        </div>
-      </section>
+      <LegalContent
+        locale={locale}
+        noticeTitle={locale === "zh" ? "模板法务文本提示" : "Template legal copy notice"}
+        noticeBody={
+          locale === "zh"
+            ? "当前页面为模板示例文本，仅用于交付结构占位。正式上线前需由法务或合规负责人审核后替换。"
+            : "This page contains template legal copy for handoff purposes only. Replace it with counsel- or compliance-approved language before production launch."
+        }
+        paragraphs={[
+          locale === "zh"
+            ? "我们可能收集联系信息、兼容性申请、支持消息和基础分析数据，用于提供服务、改进产品体验以及响应用户请求。"
+            : "We may collect contact details, compatibility requests, support messages, and basic analytics data to operate the service, improve the product experience, and respond to user requests.",
+          locale === "zh"
+            ? "站点可使用托管、分析、邮件或支付等第三方服务。用户可以通过官方支持渠道请求访问、更正、删除或导出与其相关的数据。"
+            : "The site may use third-party services for hosting, analytics, email delivery, or payments. Users can request access, correction, deletion, or export of relevant data through the official support channel.",
+          locale === "zh"
+            ? "当站点启用可选统计时，我们会先展示同意横幅，再在用户明确同意后加载非必要分析脚本。拒绝后不影响浏览核心内容。"
+            : "When optional analytics is enabled, the site presents a consent banner and only loads non-essential measurement scripts after the visitor explicitly allows them. Declining consent does not block access to core site content.",
+        ]}
+        lastUpdated={formattedLastUpdated}
+      />
     </>
   );
 }
