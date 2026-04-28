@@ -63,51 +63,26 @@ export function Footer() {
             </p>
           </div>
 
-          {columns.map((col) => {
-            const isLegalColumn = col.links === legalLinks;
-            const legalLinkClass =
-              "inline-flex min-h-9 items-center rounded-lg border border-white/10 bg-white/[0.03] px-3 text-caption font-medium text-fg-secondary hover:border-white/20 hover:bg-white/[0.06] hover:text-fg-primary";
-
-            return (
-              <div
-                key={col.title}
-                className={isLegalColumn ? "rounded-lg border border-white/10 bg-white/[0.025] p-4" : ""}
-              >
-                <h3
-                  className={
-                    isLegalColumn
-                      ? "text-caption font-semibold text-fg-secondary"
-                      : "text-body-sm font-semibold text-fg-primary"
-                  }
-                >
-                  {col.title}
-                </h3>
-                <ul className={isLegalColumn ? "mt-3 flex flex-wrap gap-2" : "mt-3 space-y-2"}>
-                  {col.links.map((link) => (
-                    <li key={link.key}>
-                      {link.href.startsWith("http") ? (
-                        <a
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={isLegalColumn ? legalLinkClass : "text-body-sm text-fg-muted hover:text-fg-primary"}
-                        >
-                          {t(`links.${link.key}`)}
-                        </a>
-                      ) : (
-                        <Link
-                          href={link.href}
-                          className={isLegalColumn ? legalLinkClass : "text-body-sm text-fg-muted hover:text-fg-primary"}
-                        >
-                          {t(`links.${link.key}`)}
-                        </Link>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
+          {columns.map((col) => (
+            <div key={col.title}>
+              <h3 className="text-body-sm font-semibold text-fg-primary">{col.title}</h3>
+              <ul className="mt-3 space-y-2">
+                {col.links.map((link) => (
+                  <li key={link.key}>
+                    {link.href.startsWith("http") ? (
+                      <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-body-sm text-fg-muted hover:text-fg-primary">
+                        {t(`links.${link.key}`)}
+                      </a>
+                    ) : (
+                      <Link href={link.href} className="text-body-sm text-fg-muted hover:text-fg-primary">
+                        {t(`links.${link.key}`)}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 sm:flex-row">
