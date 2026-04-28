@@ -3,10 +3,21 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { PageHeader } from "@/components/layout/page-header";
 import { blogPosts, getBlogPost } from "@/data/blog-posts";
+import { routing } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 
+export const dynamicParams = false;
+
+const placeholderSlug = "__placeholder__";
+
 export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+  if (blogPosts.length === 0) {
+    return routing.locales.map((locale) => ({ locale, slug: placeholderSlug }));
+  }
+
+  return routing.locales.flatMap((locale) =>
+    blogPosts.map((post) => ({ locale, slug: post.slug })),
+  );
 }
 
 export async function generateMetadata({
@@ -18,7 +29,15 @@ export async function generateMetadata({
   const post = getBlogPost(slug);
 
   if (!post) {
-    notFound();
+    return createPageMetadata({
+      locale,
+      pathname: "/blog",
+      title: locale === "zh" ? "博客" : "Blog",
+      description:
+        locale === "zh"
+          ? "产品更新、教程和社区精选会发布在这里。"
+          : "Product updates, tutorials, and community highlights will appear here.",
+    });
   }
 
   return createPageMetadata({
