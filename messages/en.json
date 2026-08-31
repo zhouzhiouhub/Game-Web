@@ -1,8 +1,18 @@
 {
   "metadata": {
-    "title": "One Software. Every Light.",
+    "title": "RGB Lighting Control Software for Windows, macOS & Linux",
     "titleTemplate": "%s | RGB Control Platform",
-    "description": "Cross-platform RGB lighting control software. Unify all your RGB devices. No more software conflicts."
+    "description": "Free open-source RGB lighting control software. Unify Razer, Corsair, Logitech and other devices on Windows, macOS, and Linux. No more software conflicts.",
+    "keywords": [
+      "RGB lighting control",
+      "RGB software",
+      "cross-platform RGB",
+      "Razer",
+      "Corsair",
+      "Logitech",
+      "open source RGB",
+      "Windows macOS Linux"
+    ]
   },
   "nav": {
     "features": "Features",
@@ -22,7 +32,8 @@
     "description": "Unify all your RGB devices. No more software conflicts. Cross-platform control for Windows, macOS, and Linux.",
     "downloadWindows": "Download for Windows",
     "exploreFeatures": "Explore Features →",
-    "platforms": "Windows · macOS · Linux"
+    "platforms": "Windows · macOS · Linux",
+    "imageAlt": "Gaming desk with RGB keyboard, mouse, and lighting controlled in one software"
   },
   "logoCloud": {
     "title": "Compatible with major RGB brands"
@@ -52,6 +63,7 @@
   "devices": {
     "title": "Growing Device Compatibility",
     "subtitle": "Your hardware, unified.",
+    "viewCatalog": "Browse the full compatibility list →",
     "categories": {
       "keyboards": "Keyboards",
       "mice": "Mice",
@@ -100,7 +112,7 @@
   },
   "contact": {
     "metadata": {
-      "title": "Contact",
+      "title": "Contact Support & Partnerships",
       "description": "Reach support, business, and community channels from one place."
     },
     "title": "Contact",
@@ -142,7 +154,7 @@
   },
   "download": {
     "metadata": {
-      "title": "Download",
+      "title": "Download for Windows, macOS & Linux",
       "description": "Download the RGB control software for Windows, macOS, and Linux."
     },
     "title": "Download",
@@ -162,7 +174,7 @@
   },
   "docs": {
     "metadata": {
-      "title": "Documentation",
+      "title": "Docs: Setup, API & Plugins",
       "description": "Get started with setup guides, API references, and plugin development resources."
     },
     "title": "Documentation",
@@ -184,7 +196,7 @@
   },
   "devicesPage": {
     "metadata": {
-      "title": "Devices",
+      "title": "Compatible RGB Devices",
       "description": "Browse the public compatibility catalog and check currently showcased hardware support."
     },
     "title": "Device Compatibility",
@@ -193,7 +205,7 @@
   },
   "featuresPage": {
     "metadata": {
-      "title": "Features",
+      "title": "Features: Editor, Game Sync & Cloud",
       "description": "Explore visual effect editing, game sync, cloud sync, and other product capabilities."
     },
     "title": "Features",
@@ -202,7 +214,7 @@
   },
   "blog": {
     "metadata": {
-      "title": "Blog",
+      "title": "Blog: Updates & Tutorials",
       "description": "Latest news, tutorials, and product updates."
     },
     "title": "Blog",
@@ -211,7 +223,7 @@
   },
   "community": {
     "metadata": {
-      "title": "Community",
+      "title": "Community & Support",
       "description": "Join the product community through chat, contribution docs, and public updates."
     },
     "title": "Community",
@@ -256,5 +268,30 @@
     "accept": "Allow analytics",
     "reject": "Decline",
     "privacy": "Review privacy policy"
+  },
+  "seo": {
+    "skipToContent": "Skip to main content",
+    "breadcrumbs": {
+      "label": "Breadcrumb",
+      "home": "Home",
+      "features": "Features",
+      "editor": "Effect Editor",
+      "gameSync": "Game Sync",
+      "cloudSync": "Cloud Sync",
+      "featureDevices": "Device Support",
+      "download": "Download",
+      "devices": "Devices",
+      "docs": "Docs",
+      "gettingStarted": "Getting Started",
+      "api": "API Reference",
+      "plugins": "Plugins",
+      "contributing": "Contributing",
+      "community": "Community",
+      "blog": "Blog",
+      "contact": "Contact",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "license": "License"
+    }
   }
 }

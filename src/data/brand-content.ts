@@ -5,10 +5,20 @@ type Locale = (typeof routing.locales)[number];
 export const brandContent: Record<Locale, Record<string, unknown>> = {
   en: {
     metadata: {
-      title: "One Software. Every Light.",
+      title: "RGB Lighting Control Software for Windows, macOS & Linux",
       titleTemplate: "%s | {siteName}",
       description:
-        "Cross-platform RGB lighting control software for {siteName}. Unify all your RGB devices. No more software conflicts.",
+        "Free open-source RGB lighting software from {siteName}. Unify Razer, Corsair, Logitech and other devices on Windows, macOS, and Linux. No more software conflicts.",
+      keywords: [
+        "RGB lighting control",
+        "RGB software",
+        "{siteName}",
+        "Razer",
+        "Corsair",
+        "Logitech",
+        "open source RGB",
+        "Windows macOS Linux",
+      ],
     },
     hero: {
       line1: "One Software.",
@@ -246,10 +256,20 @@ export const brandContent: Record<Locale, Record<string, unknown>> = {
   },
   zh: {
     metadata: {
-      title: "一款软件，点亮所有灯光",
+      title: "跨平台 RGB 灯光控制软件",
       titleTemplate: "%s | {siteName}",
       description:
-        "{siteName} 是一款跨平台 RGB 灯光控制软件，统一管理所有 RGB 设备，告别软件冲突。",
+        "{siteName} 是免费开源的跨平台 RGB 灯光控制软件，统一管理 Razer、Corsair、Logitech 等设备，支持 Windows、macOS 和 Linux，告别多软件冲突。",
+      keywords: [
+        "RGB 灯光控制",
+        "RGB 软件",
+        "{siteName}",
+        "Razer",
+        "Corsair",
+        "Logitech",
+        "开源 RGB",
+        "Windows macOS Linux",
+      ],
     },
     hero: {
       line1: "一款软件。",

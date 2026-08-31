@@ -137,7 +137,7 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
             ) : null}
 
             <div className={insetPanelClass}>
-              <h3 className="text-sm font-semibold text-fg-primary">{content.releaseTitle}</h3>
+              <h2 className="text-sm font-semibold text-fg-primary">{content.releaseTitle}</h2>
               <ul className="mt-3 space-y-2 text-sm leading-6 text-fg-muted">
                 {content.releaseItems.map((item) => (
                   <li key={item}>{item}</li>
@@ -147,9 +147,9 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
           </div>
 
           <div className={`${insetPanelClass} md:self-start`}>
-            <h3 className="text-sm font-semibold text-fg-primary">
+            <h2 className="text-sm font-semibold text-fg-primary">
               {t("systemRequirements")}
-            </h3>
+            </h2>
             <ul className="mt-3 space-y-1 text-sm text-fg-muted">
               <li>{t("requirements.os")}</li>
               <li>{t("requirements.ram")}</li>
@@ -158,7 +158,7 @@ function DownloadContent({ messages }: { messages: DownloadContentMessages }) {
             </ul>
 
             <div className="mt-6 border-t border-white/5 pt-6">
-              <h3 className="text-sm font-semibold text-fg-primary">{content.distributionTitle}</h3>
+              <h2 className="text-sm font-semibold text-fg-primary">{content.distributionTitle}</h2>
               <p className="mt-3 text-sm leading-6 text-fg-muted">
                 {content.distributionDescription}
               </p>

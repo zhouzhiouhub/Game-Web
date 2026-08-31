@@ -31,7 +31,7 @@ export function FAQSection() {
             className={`${cardVariants({ variant: "surface", padding: "md" })} group open:border-white/10`}
           >
             <summary className="cursor-pointer list-none text-left font-semibold text-fg-primary">
-              {item.question}
+              <h3 className="text-base font-semibold">{item.question}</h3>
             </summary>
             <p className="mt-3 text-sm leading-7 text-fg-secondary">{item.answer}</p>
           </details>

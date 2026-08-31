@@ -11,7 +11,7 @@ import { Analytics } from "@/components/seo/analytics";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/lib/constants";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
-import { buildAbsolutePageUrl } from "@/lib/seo/page-metadata";
+import { buildSiteJsonLd, getHtmlLang } from "@/lib/seo/structured-data";
 import "@/styles/globals.css";
 
 type LayoutMessages = {
@@ -19,6 +19,10 @@ type LayoutMessages = {
     title: string;
     description: string;
     titleTemplate?: string;
+    keywords?: string[];
+  };
+  seo?: {
+    skipToContent?: string;
   };
 };
 
@@ -57,6 +61,17 @@ export async function generateMetadata({
 
   return {
     metadataBase: new URL(siteConfig.url),
+    applicationName: siteConfig.name,
+    authors: [{ name: siteConfig.name, url: siteConfig.url }],
+    creator: siteConfig.name,
+    publisher: siteConfig.name,
+    category: "technology",
+    keywords: messages.metadata.keywords,
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
     ...defaultMetadata,
     robots: {
       index: siteConfig.shouldIndexSite,
@@ -95,38 +110,22 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
   const messages = await getMessages();
-  const webSiteJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: siteConfig.name,
-    description: siteConfig.description,
-    url: buildAbsolutePageUrl(locale, ""),
-    inLanguage: locale,
-  };
-
-  const softwareJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: siteConfig.name,
-    applicationCategory: "UtilityApplication",
-    operatingSystem: "Windows, macOS, Linux",
-    description: siteConfig.description,
-    url: buildAbsolutePageUrl(locale, ""),
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-    },
-  };
+  const skipToContent =
+    (messages as LayoutMessages).seo?.skipToContent ?? "Skip to main content";
 
   return (
-    <html lang={locale} className={`${inter.variable} ${jetbrainsMono.variable} dark`} suppressHydrationWarning>
+    <html lang={getHtmlLang(locale)} className={`${inter.variable} ${jetbrainsMono.variable} dark`} suppressHydrationWarning>
       <body className="bg-bg-base text-fg-primary font-sans antialiased">
-        <JsonLd data={webSiteJsonLd} />
-        <JsonLd data={softwareJsonLd} />
+        <JsonLd data={buildSiteJsonLd(locale)} />
         <NextIntlClientProvider messages={messages}>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-100 focus:rounded-md focus:bg-bg-surface focus:px-4 focus:py-2 focus:text-fg-primary"
+          >
+            {skipToContent}
+          </a>
           <Navbar />
-          <main>{children}</main>
+          <main id="main-content">{children}</main>
           <Footer />
           <Analytics />
         </NextIntlClientProvider>

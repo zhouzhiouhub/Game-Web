@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { HeroSection } from "@/components/home/hero-section";
 import { LogoCloud } from "@/components/home/logo-cloud";
 import { BentoFeatures } from "@/components/home/bento-features";
@@ -7,7 +7,9 @@ import { DeviceShowcase } from "@/components/home/device-showcase";
 import { FAQSection } from "@/components/home/faq-section";
 import { CTASection } from "@/components/home/cta-section";
 import { RgbArtwork } from "@/components/shared/rgb-artwork";
+import { JsonLd } from "@/components/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
+import { buildFaqJsonLd } from "@/lib/seo/structured-data";
 
 export async function generateMetadata({
   params,
@@ -22,10 +24,8 @@ export async function generateMetadata({
     pathname: "",
     title: t("metadata.title"),
     description: t("metadata.description"),
-    ogImage: {
-      pathname: "/og/home.png",
-      alt: "Gaming RGB Software home page preview",
-    },
+    keywords: t.raw("metadata.keywords") as string[],
+    absoluteTitle: true,
   });
 }
 
@@ -36,9 +36,14 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const messages = (await getMessages()) as {
+    faq?: { items?: Array<{ question: string; answer: string }> };
+  };
+  const faqItems = messages.faq?.items ?? [];
 
   return (
     <div className="relative">
+      {faqItems.length > 0 ? <JsonLd data={buildFaqJsonLd(faqItems)} /> : null}
       {/* Full-page background image */}
       <div className="fixed inset-0 -z-10">
         <RgbArtwork variant="ambient" className="h-full w-full" />

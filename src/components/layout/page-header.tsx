@@ -1,3 +1,4 @@
+import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { cn } from "@/lib/utils";
 
 interface PageHeaderProps {
@@ -10,6 +11,7 @@ export function PageHeader({ title, description, className }: PageHeaderProps) {
   return (
     <section className={cn("pt-24 pb-12 sm:pt-28 sm:pb-14 lg:pt-32 lg:pb-16", className)}>
       <div className="content-shell text-center">
+        <Breadcrumbs />
         <h1 className="text-heading-1 mx-auto content-limit-4xl">
           {title}
         </h1>

@@ -48,7 +48,7 @@ export function HeroSection() {
           <div className="absolute -inset-4 rgb-glow opacity-30 blur-3xl rounded-2xl" />
           <Image
             src="/images/hero/gaming-setup-wide.jpg"
-            alt="RGB gaming setup"
+            alt={t("imageAlt")}
             width={1200}
             height={675}
             sizes="(max-width: 1280px) 100vw, 1200px"

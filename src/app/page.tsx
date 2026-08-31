@@ -1,13 +1,22 @@
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
+import { routing } from "@/i18n/routing";
+import { siteConfig } from "@/lib/constants";
+import { buildAbsolutePageUrl } from "@/lib/seo/page-metadata";
 import { cn } from "@/lib/utils";
 
 export default function RootPage() {
+  const defaultLocaleUrl = `./${routing.defaultLocale}`;
+  const canonicalUrl = buildAbsolutePageUrl(routing.defaultLocale, "");
+
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
-        <title>Gaming RGB Software</title>
-        <meta httpEquiv="refresh" content="2;url=./en" />
+        <title>{siteConfig.name}</title>
+        <meta name="description" content={siteConfig.description} />
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta httpEquiv="refresh" content={`2;url=${defaultLocaleUrl}`} />
       </head>
       <body className="bg-bg-base text-fg-primary font-sans antialiased">
         <main className="flex min-h-screen items-center justify-center px-6 py-16">

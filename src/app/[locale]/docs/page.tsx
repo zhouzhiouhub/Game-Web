@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { insetPanelClass, PageContentCard } from "@/components/layout/page-content-card";
 import { PageHeader } from "@/components/layout/page-header";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
@@ -52,9 +52,9 @@ function DocsContent() {
                 href={doc.href}
                 className={`${insetPanelClass} group transition-colors hover:border-white/20`}
               >
-                <h3 className="font-semibold group-hover:text-rgb-b transition-colors">
+                <h2 className="font-semibold group-hover:text-rgb-b transition-colors">
                   {doc.title}
-                </h3>
+                </h2>
                 <p className="mt-2 text-sm text-fg-muted">{doc.description}</p>
               </Link>
             ))}

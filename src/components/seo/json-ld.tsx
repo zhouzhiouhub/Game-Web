@@ -1,3 +1,5 @@
+"use client";
+
 type JsonLdProps = {
   data: Record<string, unknown>;
 };

@@ -9,6 +9,13 @@ type PageMetadataInput = {
   pathname: string;
   title: string;
   description: string;
+  keywords?: string | string[];
+  absoluteTitle?: boolean;
+  noIndex?: boolean;
+  type?: "website" | "article";
+  publishedTime?: string;
+  modifiedTime?: string;
+  authors?: string[];
   ogImage?: {
     pathname: string;
     alt: string;
@@ -44,7 +51,7 @@ function buildAbsoluteAssetUrl(pathname: string): string {
   return new URL(pathname, siteConfig.url).toString();
 }
 
-function getOpenGraphLocale(locale: string): string {
+export function getOpenGraphLocale(locale: string): string {
   return locale === "zh" ? "zh_CN" : "en_US";
 }
 
@@ -53,37 +60,44 @@ export function createPageMetadata({
   pathname,
   title,
   description,
+  keywords,
+  absoluteTitle,
+  noIndex,
+  type = "website",
+  publishedTime,
+  modifiedTime,
+  authors,
   ogImage,
   openGraph,
 }: PageMetadataInput): Metadata {
   const canonical = buildAbsolutePageUrl(locale, pathname);
-  const resolvedOgImage = {
-    pathname: ogImage?.pathname ?? "/og-image.svg",
-    alt: ogImage?.alt ?? `${siteConfig.name} preview image`,
-    width: ogImage?.width ?? 1200,
-    height: ogImage?.height ?? 630,
-  };
-  const defaultOpenGraphImages: NonNullable<Metadata["openGraph"]>["images"] = [
-    {
-      url: buildAbsoluteAssetUrl(resolvedOgImage.pathname),
-      alt: resolvedOgImage.alt,
-      width: resolvedOgImage.width,
-      height: resolvedOgImage.height,
-    },
-  ];
-  const openGraphImages = openGraph?.images ?? defaultOpenGraphImages;
+  const languages = Object.fromEntries(
+    routing.locales.map((entryLocale) => [entryLocale, buildAbsolutePageUrl(entryLocale, pathname)]),
+  ) as Record<Locale, string>;
+  const alternateLocale = routing.locales
+    .filter((entryLocale) => entryLocale !== locale)
+    .map((entryLocale) => getOpenGraphLocale(entryLocale));
+
+  const resolvedOgImage = ogImage
+    ? {
+        url: buildAbsoluteAssetUrl(ogImage.pathname),
+        alt: ogImage.alt,
+        width: ogImage.width ?? 1200,
+        height: ogImage.height ?? 630,
+      }
+    : undefined;
+  const openGraphImages = openGraph?.images ?? (resolvedOgImage ? [resolvedOgImage] : undefined);
   const twitterImages = Array.isArray(openGraphImages)
     ? openGraphImages.map((image) =>
         typeof image === "string" || image instanceof URL ? image : image.url,
       )
     : openGraphImages;
-  const languages = Object.fromEntries(
-    routing.locales.map((entryLocale) => [entryLocale, buildAbsolutePageUrl(entryLocale, pathname)]),
-  ) as Record<Locale, string>;
 
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
+    ...(keywords ? { keywords } : {}),
+    ...(authors ? { authors: authors.map((name) => ({ name })) } : {}),
     alternates: {
       canonical,
       languages: {
@@ -92,20 +106,36 @@ export function createPageMetadata({
       },
     },
     openGraph: {
-      type: "website",
+      type,
       siteName: siteConfig.name,
       url: canonical,
       locale: getOpenGraphLocale(locale),
+      alternateLocale,
       title,
       description,
-      images: openGraphImages,
       ...openGraph,
+      ...(openGraphImages ? { images: openGraphImages } : {}),
+      ...(type === "article"
+        ? {
+            publishedTime,
+            modifiedTime: modifiedTime ?? publishedTime,
+            authors,
+          }
+        : {}),
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: twitterImages,
+      ...(twitterImages ? { images: twitterImages } : {}),
     },
+    ...(noIndex
+      ? {
+          robots: {
+            index: false,
+            follow: false,
+          },
+        }
+      : {}),
   };
 }

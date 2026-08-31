@@ -5,7 +5,9 @@ import { insetPanelClass, PageContentCard } from "@/components/layout/page-conte
 import { PageHeader } from "@/components/layout/page-header";
 import { blogPosts, getBlogPost } from "@/data/blog-posts";
 import { routing } from "@/i18n/routing";
+import { JsonLd } from "@/components/seo/json-ld";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
+import { buildBlogPostingJsonLd } from "@/lib/seo/structured-data";
 
 export const dynamicParams = false;
 
@@ -38,6 +40,7 @@ export async function generateMetadata({
         locale === "zh"
           ? "产品更新、教程和社区精选会发布在这里。"
           : "Product updates, tutorials, and community highlights will appear here.",
+      noIndex: true,
     });
   }
 
@@ -46,9 +49,9 @@ export async function generateMetadata({
     pathname: `/blog/${slug}`,
     title: locale === "zh" ? post.title.zh : post.title.en,
     description: locale === "zh" ? post.excerpt.zh : post.excerpt.en,
-    openGraph: {
-      type: "article",
-    },
+    type: "article",
+    publishedTime: post.publishedAt,
+    authors: [post.author],
   });
 }
 
@@ -81,6 +84,16 @@ function BlogPostContent({ locale, slug }: { locale: string; slug: string }) {
 
   return (
     <>
+      <JsonLd
+        data={buildBlogPostingJsonLd({
+          locale,
+          slug,
+          title,
+          description: excerpt,
+          author: post.author,
+          publishedAt: post.publishedAt,
+        })}
+      />
       <PageHeader title={title} description={excerpt} />
       <PageContentCard>
             <p className="text-sm text-fg-muted">

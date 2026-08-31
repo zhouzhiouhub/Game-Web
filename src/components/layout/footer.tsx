@@ -14,6 +14,7 @@ const resourceLinks = [
   { key: "documentation", href: "/docs" },
   { key: "apiReference", href: "/docs/api" },
   { key: "plugins", href: "/docs/plugins" },
+  { key: "blog", href: "/blog" },
 ] as const;
 
 const legalLinks = [

@@ -2,6 +2,7 @@
 
 import { useId, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -128,6 +129,12 @@ export function DeviceShowcase() {
               </div>
             </Card>
           ))}
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <Link href="/devices" className={buttonVariants({ variant: "secondary", size: "md" })}>
+            {t("viewCatalog")}
+          </Link>
         </div>
       </div>
     </section>
