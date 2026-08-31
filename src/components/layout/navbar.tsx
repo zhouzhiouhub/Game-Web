@@ -25,16 +25,14 @@ export function Navbar() {
   return (
     <header className="fixed top-0 z-50 w-full border-b border-white/5 bg-bg-base/80 backdrop-blur-xl">
       <nav className="content-shell flex h-[var(--nav-height)] items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center">
           <Image
-            src="/logo.svg"
+            src="/logo-wordmark.svg"
             alt={siteConfig.name}
-            width={32}
+            width={117}
             height={32}
+            className="h-8 w-auto"
           />
-          <span className="font-bold text-lg rgb-full bg-clip-text text-transparent">
-            {siteConfig.shortName}
-          </span>
         </Link>
 
         <ul className="hidden items-center gap-1 md:flex">

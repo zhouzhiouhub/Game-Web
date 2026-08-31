@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { getBrandIconDataUri } from "@/lib/brand-icon";
 
 export const dynamic = "force-static";
 
@@ -8,7 +9,9 @@ export const size = {
 };
 export const contentType = "image/png";
 
-export default function AppleIcon() {
+export default async function AppleIcon() {
+  const iconSrc = await getBrandIconDataUri();
+
   return new ImageResponse(
     (
       <div
@@ -16,20 +19,10 @@ export default function AppleIcon() {
           width: "100%",
           height: "100%",
           display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "#09090b",
+          background: "#08152D",
         }}
       >
-        <div
-          style={{
-            width: 96,
-            height: 96,
-            borderRadius: 999,
-            border: "14px solid #00d4ff",
-            boxShadow: "0 0 36px rgba(0, 212, 255, 0.45)",
-          }}
-        />
+        <img src={iconSrc} width={180} height={180} alt="" />
       </div>
     ),
     size,

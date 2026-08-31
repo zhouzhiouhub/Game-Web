@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { routing } from "@/i18n/routing";
+import { getBrandIconDataUri } from "@/lib/brand-icon";
 import { siteConfig } from "@/lib/constants";
 
 export const dynamic = "force-static";
@@ -23,6 +24,7 @@ export default async function OpenGraphImage({
   const { locale } = await params;
   const badge = locale === "zh" ? "ZH" : "EN";
   const kicker = "CROSS-PLATFORM RGB CONTROL";
+  const iconSrc = await getBrandIconDataUri();
 
   return new ImageResponse(
     (
@@ -51,14 +53,12 @@ export default async function OpenGraphImage({
               fontWeight: 700,
             }}
           >
-            <div
-              style={{
-                width: 42,
-                height: 42,
-                borderRadius: 999,
-                border: "3px solid #00d4ff",
-                boxShadow: "0 0 24px rgba(0, 212, 255, 0.45)",
-              }}
+            <img
+              src={iconSrc}
+              width={48}
+              height={48}
+              alt=""
+              style={{ borderRadius: 12 }}
             />
             {siteConfig.shortName}
           </div>

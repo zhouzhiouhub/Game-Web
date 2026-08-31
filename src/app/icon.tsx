@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { getBrandIconDataUri } from "@/lib/brand-icon";
 
 export const dynamic = "force-static";
 
@@ -8,7 +9,9 @@ export const size = {
 };
 export const contentType = "image/png";
 
-export default function Icon() {
+export default async function Icon() {
+  const iconSrc = await getBrandIconDataUri();
+
   return new ImageResponse(
     (
       <div
@@ -16,20 +19,10 @@ export default function Icon() {
           width: "100%",
           height: "100%",
           display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "#09090b",
+          background: "#08152D",
         }}
       >
-        <div
-          style={{
-            width: 280,
-            height: 280,
-            borderRadius: 999,
-            border: "28px solid #00d4ff",
-            boxShadow: "0 0 80px rgba(0, 212, 255, 0.45)",
-          }}
-        />
+        <img src={iconSrc} width={512} height={512} alt="" />
       </div>
     ),
     size,

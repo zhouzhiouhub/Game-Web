@@ -52,16 +52,14 @@ export function Footer() {
       <div className="content-shell py-16">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="inline-flex items-center">
               <Image
-                src="/logo.svg"
+                src="/logo-wordmark.svg"
                 alt={siteConfig.name}
-                width={28}
-                height={28}
+                width={117}
+                height={32}
+                className="h-8 w-auto"
               />
-              <span className="text-lg font-bold rgb-full bg-clip-text text-transparent">
-                {siteConfig.shortName}
-              </span>
             </Link>
             <p className={`${footerCopyClass} mt-3`}>
               {t("brand")}
