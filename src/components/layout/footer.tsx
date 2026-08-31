@@ -23,6 +23,10 @@ const legalLinks = [
   { key: "license", href: "/license" },
 ] as const;
 
+const footerCopyClass = "text-body-sm text-fg-secondary";
+const footerLinkClass =
+  "text-body-sm text-fg-secondary transition-colors hover:text-fg-primary";
+
 export function Footer() {
   const t = useTranslations("footer");
   const communityLinks = [
@@ -59,7 +63,7 @@ export function Footer() {
                 {siteConfig.shortName}
               </span>
             </Link>
-            <p className="text-body-sm mt-3 text-fg-muted">
+            <p className={`${footerCopyClass} mt-3`}>
               {t("brand")}
             </p>
           </div>
@@ -71,11 +75,11 @@ export function Footer() {
                 {col.links.map((link) => (
                   <li key={link.key}>
                     {link.href.startsWith("http") ? (
-                      <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-body-sm text-fg-muted hover:text-fg-primary">
+                      <a href={link.href} target="_blank" rel="noopener noreferrer" className={footerLinkClass}>
                         {t(`links.${link.key}`)}
                       </a>
                     ) : (
-                      <Link href={link.href} className="text-body-sm text-fg-muted hover:text-fg-primary">
+                      <Link href={link.href} className={footerLinkClass}>
                         {t(`links.${link.key}`)}
                       </Link>
                     )}
@@ -87,7 +91,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 sm:flex-row">
-          <p className="text-body-sm text-fg-muted">
+          <p className={footerCopyClass}>
             {t("copyright", { year: new Date().getFullYear(), name: siteConfig.name })}
           </p>
           {socialLinks.length > 0 ? (
@@ -98,7 +102,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
-                  className="text-fg-muted transition-colors hover:text-fg-primary"
+                  className="text-fg-secondary transition-colors hover:text-fg-primary"
                 >
                   <Github className="h-5 w-5" />
                 </a>
@@ -108,7 +112,7 @@ export function Footer() {
                   href={siteConfig.discordInvite}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-body-sm text-fg-muted hover:text-fg-primary"
+                  className={footerLinkClass}
                 >
                   Discord
                 </a>

@@ -8,7 +8,7 @@ export function LogoCloud() {
   return (
     <section className="border-y border-white/5 py-12">
       <div className="content-shell">
-        <p className="text-center text-sm text-fg-muted mb-8">
+        <p className="text-center text-sm text-fg-secondary mb-8">
           {t("title")}
         </p>
         <div className="flex flex-wrap items-center justify-center gap-8">
@@ -16,7 +16,7 @@ export function LogoCloud() {
             <Link
               key={name}
               href="/devices"
-              className="text-lg font-semibold text-fg-muted/60 transition-colors hover:text-fg-secondary"
+              className="text-lg font-semibold text-fg-muted transition-colors hover:text-fg-primary"
             >
               {name}
             </Link>

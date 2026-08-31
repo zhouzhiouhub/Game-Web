@@ -39,7 +39,7 @@ export function HeroSection() {
           </Link>
         </div>
 
-        <p className="text-body-sm mt-3 sm:mt-4 text-fg-muted">
+        <p className="text-body-sm mt-3 text-fg-secondary sm:mt-4">
           {t("platforms")}
         </p>
 
