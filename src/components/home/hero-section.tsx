@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { buttonVariants } from "@/components/ui/button";
+import { heroImage } from "@/lib/hero-image";
 
 export function HeroSection() {
   const t = useTranslations("hero");
@@ -43,18 +43,22 @@ export function HeroSection() {
           {t("platforms")}
         </p>
 
-        {/* Hero image showcase */}
         <div className="relative mx-auto mt-10 content-limit-4xl sm:mt-14 lg:mt-16">
-          <div className="absolute -inset-4 rgb-glow opacity-30 blur-3xl rounded-2xl" />
-          <Image
-            src="/images/hero/gaming-setup-wide.jpg"
-            alt={t("imageAlt")}
-            width={1200}
-            height={675}
-            sizes="(max-width: 1280px) 100vw, 1200px"
-            className="relative rounded-2xl border border-white/10 shadow-2xl"
-            priority
-          />
+          <div className="absolute -inset-4 hidden rounded-2xl rgb-glow opacity-30 blur-3xl sm:block" />
+          <picture>
+            <source type="image/webp" srcSet={heroImage.srcSet} sizes={heroImage.sizes} />
+            <img
+              src={heroImage.fallbackSrc}
+              alt={t("imageAlt")}
+              width={heroImage.width}
+              height={heroImage.height}
+              sizes={heroImage.sizes}
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+              className="relative h-auto w-full rounded-2xl border border-white/10 shadow-2xl"
+            />
+          </picture>
         </div>
       </div>
     </section>

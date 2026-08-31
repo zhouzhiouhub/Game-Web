@@ -31,7 +31,6 @@ export function Navbar() {
             alt={siteConfig.name}
             width={32}
             height={32}
-            priority
           />
           <span className="font-bold text-lg rgb-full bg-clip-text text-transparent">
             {siteConfig.shortName}

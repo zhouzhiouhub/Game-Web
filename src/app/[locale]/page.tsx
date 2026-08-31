@@ -8,6 +8,7 @@ import { FAQSection } from "@/components/home/faq-section";
 import { CTASection } from "@/components/home/cta-section";
 import { RgbArtwork } from "@/components/shared/rgb-artwork";
 import { JsonLd } from "@/components/seo/json-ld";
+import { heroImage } from "@/lib/hero-image";
 import { createPageMetadata } from "@/lib/seo/page-metadata";
 import { buildFaqJsonLd } from "@/lib/seo/structured-data";
 
@@ -43,6 +44,15 @@ export default async function HomePage({
 
   return (
     <div className="relative">
+      <link
+        rel="preload"
+        as="image"
+        href={heroImage.preloadSrc}
+        imageSrcSet={heroImage.srcSet}
+        imageSizes={heroImage.sizes}
+        fetchPriority="high"
+        type="image/webp"
+      />
       {faqItems.length > 0 ? <JsonLd data={buildFaqJsonLd(faqItems)} /> : null}
       {/* Full-page background image */}
       <div className="fixed inset-0 -z-10">
