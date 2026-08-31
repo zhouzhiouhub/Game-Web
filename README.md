@@ -27,7 +27,7 @@ npm run start
 
 Copy values from .env.example and replace them for your own brand.
 
-For template handoff, keep NEXT_PUBLIC_SITE_URL on the obvious placeholder value until a real production domain is available. The app will then fall back to http://localhost:3000 and keep robots and sitemap non-indexable.
+Production builds use `.env.production`, which sets `NEXT_PUBLIC_SITE_URL=https://gameweb.kinolin.com` so robots, sitemap, and page metadata allow indexing. Local/dev builds without that value still fall back to `http://localhost:3000` and stay non-indexable.
 
 - NEXT_PUBLIC_SITE_NAME
 - NEXT_PUBLIC_SITE_SHORT_NAME
