@@ -1,7 +1,6 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { JsonLd } from "@/components/seo/json-ld";
 import { Link, usePathname } from "@/i18n/navigation";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/structured-data";
 
@@ -59,7 +58,10 @@ export function Breadcrumbs() {
 
   return (
     <nav aria-label={t("label")} className="mb-6">
-      <JsonLd data={buildBreadcrumbJsonLd(locale, items)} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildBreadcrumbJsonLd(locale, items)) }}
+      />
       <ol className="flex flex-wrap items-center justify-center gap-2 text-sm text-fg-muted">
         {items.map((item, index) => {
           const isLast = index === items.length - 1;

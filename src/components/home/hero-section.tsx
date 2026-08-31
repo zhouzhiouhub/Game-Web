@@ -8,9 +8,6 @@ export function HeroSection() {
 
   return (
     <section className="relative overflow-hidden pt-24 pb-14 sm:pt-28 sm:pb-16 lg:pt-40 lg:pb-32">
-      {/* Aurora background placeholder */}
-      <div className="absolute inset-0 rgb-aurora opacity-60" />
-
       <div className="content-shell relative text-center">
         <h1 className="text-display mx-auto content-limit-5xl">
           {t("line1")}

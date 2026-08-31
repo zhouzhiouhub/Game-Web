@@ -2,7 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
+import { pickClientMessages } from "@/i18n/client-messages";
 import { routing } from "@/i18n/routing";
 import { loadMessages } from "@/i18n/load-messages";
 import { Navbar } from "@/components/layout/navbar";
@@ -29,11 +30,10 @@ type LayoutMessages = {
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
+  display: "optional",
+  preload: true,
+  adjustFontFallback: true,
+  fallback: ["system-ui", "Segoe UI", "Roboto", "sans-serif"],
 });
 
 export const viewport: Viewport = {
@@ -114,10 +114,10 @@ export default async function LocaleLayout({
     (messages as LayoutMessages).seo?.skipToContent ?? "Skip to main content";
 
   return (
-    <html lang={getHtmlLang(locale)} className={`${inter.variable} ${jetbrainsMono.variable} dark`} suppressHydrationWarning>
+    <html lang={getHtmlLang(locale)} className={`${inter.variable} dark`} suppressHydrationWarning>
       <body className="bg-bg-base text-fg-primary font-sans antialiased">
         <JsonLd data={buildSiteJsonLd(locale)} />
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={pickClientMessages(messages as Record<string, unknown>)}>
           <a
             href="#main-content"
             className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-100 focus:rounded-md focus:bg-bg-surface focus:px-4 focus:py-2 focus:text-fg-primary"
